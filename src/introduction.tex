@@ -1,0 +1,91 @@
+\documentclass[11pt]{article}
+
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Introduction}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+\noindent (a) Factor $2^{15} - 1 = 32767$ into a product of two smaller positive integers
+
+One possible solution is $4681 \times 7 = 32767$
+
+\noindent (b) Find an integer $x$ such that $1 < x < 2^{32767} - 1$ and $2^{32767} - 1$ is divisible by x
+
+Since we found that $32767$ was divisible by $4681$, we know that $2^{4681} - 1$ is a divisor of $2^{32767} - 1$
+
+\section*{Exercise 2}
+
+\noindent Make some conjectures about the values of n for which $3^n -1$ is prime
+
+I made the following table 
+\begin{center}
+    \begin{tabular}{ c c c c }
+     n & Prime? & $3^n - 1$ & Prime?\\ 
+     1 & No & 2 & No \\  
+     2 & Yes & 8 & No \\
+     3 & Yes & 26 & No\\
+     4 & No & 80 & No\\
+     5 & Yes & 242 & No \\
+     6 & No & 728 & No \\
+     7 & Yes & 2186 & No \\
+     8 & No & 6560 & No \\
+     9 & No & 19682 & No \\
+     10 & No & 59048 & No    
+    \end{tabular}
+    \end{center}
+
+My conjecture is that no $3^n - 1$ is prime. This isn't a proof.
+
+N.B. given how the question was asked I could have just made up any old (probably false) conjecture, but I tried to go with something sensible instead
+
+\section*{Exercise 3}
+
+\noindent The proof of Theorem 3 gives a method for finding a prime number different from any in a given list of prime numbers
+
+\noindent (a) Use this method to find a prime number different from 2,3,5 and 7
+
+Theorem 3 essentially tells us that we can find a new prime if we have a list of primes via the product of the primes $+1$. So we can do $2 \times 3 \times 5 \times 7 + 1= 211$
+
+\noindent (b) Use this method to find a prime different from 2, 5, and 11
+
+The same as the last one, we can do $2 \times 5 + 1 = 7$. The 11 is probably there to confuse you, although you could also get 3,7 and do $2 \times 3 \times 5 \times 7 \times 11 + 1 = 2311$
+
+\section*{Exercise 4}
+
+\noindent Find 5 consecutive integers that are not prime
+
+Theorem 4 shows that $(n+1)! + 2$ will have n consecutive number that are not prime. Therefore, the numbers are 722, 723, 724, 725, 726.
+
+\section*{Exercise 5}
+
+\noindent Use the table in Figure 1.1 and the discussion on p. 5 to find two more perfect numbers
+
+If $2^n -1$ is prime then $2^{n-1}(2^n-1)$ is perfect
+
+From the table $2^5 -1$ and $2^7 -1$ are prime, so the perfect numbers are 496 and 8128.
+
+\section*{Exercise 6}
+
+\noindent The sequence 3, 5, 7 is a list of three prime numbers such that each pair of adjacent numbers in the list differ by two. Are there any more such ``triplet'' primes?
+
+No, because after 10 of all three consecutive odd numbers, at least one will be divisible by 3 (not a prime)
+
+\section*{Exercise 7}
+
+\noindent A pair of distinct positive integers $(m, n)$ are called \textit{amicable} if the sum of all positive integers smaller than $n$ that divide $n$ is $m$ and the sum of all positive integers smaller than $m$ that divide $m$ is $n$. Show that $(220, 284)$ are amicable
+
+The factors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110 (that are smaller than 220), and their sum is 284.
+
+The factors of 284 are 1, 2, 4, 71, 142 (that are smaller than 284) and they sum to 220.
+
+Therefore, $(220, 284)$ are amicable.
+\end{document}
