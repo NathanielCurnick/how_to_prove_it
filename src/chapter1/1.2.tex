@@ -1,0 +1,412 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Introduction}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+Make truth tables for the following formulas:
+
+\noindent (a) $ \neg P \vee Q $
+
+\begin{center}
+\begin{tabular}{ c c c c }
+ $P$ & $\neg P$ & $Q$ & $ \neg P \vee Q $ \\ 
+T & F & T & T\\  
+T & F & F & F\\
+F & T & T & T\\  
+F & T & F & T
+\end{tabular}
+\end{center}
+
+\noindent (b) $ (S \vee G) \wedge (\neg S \vee \neg G) $
+
+First rewrite as 
+
+\begin{center}
+\begin{tabular}{ c c c  }
+ $S$ & $G$ & $ (S \vee G) \wedge \neg (S \vee G) $\\ 
+T & T & F\\  
+T & F & T\\
+F & T & T\\  
+F & F & F
+\end{tabular}
+\end{center}
+
+\section*{Exercise 2}
+Make truth tables for the following formulas:
+
+\noindent (a) $ \neg [P \wedge (Q \vee \neg P)] $
+
+\begin{center}
+\begin{tabular}{ c c c  }
+ $P$ & $Q$ & $ \neg [P \wedge (Q \vee \neg P)] $\\ 
+T & T & F\\  
+T & F & T\\
+F & T & T\\  
+F & F & T
+\end{tabular}
+\end{center}
+
+\noindent (b) $ (P \vee Q) \wedge (\neg P \vee R) $
+
+\begin{center}
+\begin{tabular}{ c c c c c c }
+ $P$ & $Q$ & $R$ & $(P \vee Q)$ & $(\neg P \vee R)$ & $ (P \vee Q) \wedge (\neg P \vee R) $\\ 
+T & T & T & T & T & T\\  
+T & T & F & T & F & F\\
+T & F & T & T & T & T\\  
+T & F & F & T & F & F\\
+F & T & T & T & T & T\\  
+F & T & F & T & T & T\\
+F & F & T & F & T & F\\  
+F & F & F & F & T & F
+\end{tabular}
+\end{center}
+
+\section*{Exercise 3}
+
+In this exercise we will use the symbol $+$ to mean \textit{exclusive or}. In other words $P + Q$ means ``P or Q, but not both''.
+
+\noindent (a) Make a truth table for $P + Q$
+
+\begin{center}
+\begin{tabular}{ c c c  }
+ $P$ & $Q$ & $P + Q$\\ 
+T & T & F\\  
+T & F & T\\
+F & T & T\\  
+F & F & F
+\end{tabular}
+\end{center}
+
+\noindent (b) Find a formula using only the connectives $\wedge$, $\vee$ and $\neg$ that is equivalent to $P + Q$. Justify your answer with a truth table.
+
+$$(P \vee Q) \wedge \neg (P \wedge Q)$$
+
+\begin{center}
+\begin{tabular}{ c c c c c }
+ $P$ & $Q$ & $P \vee Q$ & $ \neg (P \wedge Q) $ & $(P \vee Q) \wedge \neg (P \wedge Q)$\\ 
+T & T & T & F & F\\  
+T & F & T & T & T\\
+F & T & T & T & T\\  
+F & F & F & T & F
+\end{tabular}
+\end{center}
+
+\section*{Exercise 4}
+
+Find a formula using only the connectives $\wedge$ and $\neg$ that is equivalent to $P \vee Q$. Justify your answer with a truth table
+
+$$\neg (\neg P \wedge \neg Q)$$
+
+\begin{center}
+\begin{tabular}{ c c c  }
+ $P$ & $Q$ & $\neg (\neg P \wedge \neg Q)$\\ 
+T & T & T\\  
+T & F & T\\
+F & T & T\\  
+F & F & F
+\end{tabular}
+\end{center}
+
+\section*{Exercise 5}
+
+Some mathematicians use the symbol $\downarrow$ to mean \textit{nor}. In other words $P \downarrow Q$ means ``neither P nor Q''.
+
+\noindent (a) Make a truth table for $P \downarrow Q$
+
+\begin{center}
+\begin{tabular}{ c c c }
+ $P$ & $Q$ & $P \downarrow Q$\\ 
+T & T & F\\  
+T & F & F\\
+F & T & F\\  
+F & F & T
+\end{tabular}
+\end{center}
+
+\noindent (b) Find a formula using only the connectives $\wedge$, $\vee$ and $\neg$ that is equivalent to $P \downarrow Q$
+
+$$\neg P \wedge \neg Q$$
+
+\begin{center}
+\begin{tabular}{ c c c }
+ $P$ & $Q$ & $\neg P \wedge \neg Q$\\ 
+T & T & F\\  
+T & F & F\\
+F & T & F\\  
+F & F & T
+\end{tabular}
+\end{center}
+
+\noindent (c) Final formulas using only the connective $\downarrow$ that are equivalent to $\neg P$, $P \vee Q$ and $P \wedge Q$
+
+$$\neg P = P \downarrow P$$
+
+\begin{center}
+\begin{tabular}{c c}
+$P$ & $P \downarrow P$\\
+T & F\\
+F & T
+\end{tabular}
+\end{center}
+
+$$P \vee Q = (P \downarrow Q) \downarrow (P \downarrow Q)$$
+
+\begin{center}
+\begin{tabular}{ c c c }
+ $P$ & $Q$ & $(P \downarrow Q) \downarrow (P \downarrow Q)$\\ 
+T & T & T\\  
+T & F & T\\
+F & T & T\\  
+F & F & F
+\end{tabular}
+\end{center}
+
+$$P \wedge Q = (P \downarrow P) \downarrow (Q \downarrow Q)$$
+
+\begin{center}
+\begin{tabular}{ c c c }
+ $P$ & $Q$ & $(P \downarrow P) \downarrow (Q \downarrow Q)$\\ 
+T & T & T\\  
+T & F & F\\
+F & T & F\\  
+F & F & F
+\end{tabular}
+\end{center}
+
+\section*{Exercise 6}
+
+Some mathematicians write $P | Q$ to mean ``P and Q are not both true''.
+(This connective is called \textit{nand} and is used in the study of circuits in computer science)
+
+\noindent (a) Make a truth table for $P | Q$
+
+\begin{center}
+\begin{tabular}{ c c c }
+ $P$ & $Q$ & $P | Q$\\ 
+T & T & F\\  
+T & F & T\\
+F & T & T\\  
+F & F & T
+\end{tabular}
+\end{center}
+
+\noindent (b) Find a formula using only the connectives $\wedge$, $\vee$ and $\neg$ that is equivalent to $P | Q$
+
+$$\neg (P \wedge Q)$$
+
+\noindent (c) Final formulas using only the connective $|$ that are equivalent to $\neg P$, $P \vee Q$ and $P \wedge Q$
+
+$$\neg P = P|P$$
+
+$$P \vee Q = (P | P) | (Q | Q)$$
+
+$$P \wedge Q = (P | Q) | (P | Q)$$
+
+Notice how $P \vee Q$ and $P \wedge Q$ have a kind of symmetry when written out with only $\downarrow$ or $|$
+
+\section*{Exercise 7}
+
+TODO
+
+\section*{Exercise 8}
+
+Use truth tables to determine which of the following formulas are equivalent to each other
+
+\noindent (a) $(P \wedge Q) \vee (\neg P \wedge \neg Q)$
+
+\begin{center}
+\begin{tabular}{ c c c }
+ $P$ & $Q$ & $(P \wedge Q) \vee (\neg P \wedge \neg Q)$\\ 
+T & T & T\\  
+T & F & F\\
+F & T & F\\  
+F & F & T
+\end{tabular}
+\end{center}
+
+\noindent (b) $\neg P \vee Q$
+
+\begin{center}
+\begin{tabular}{ c c c }
+ $P$ & $Q$ & $\neg P \vee Q$\\ 
+T & T & T\\  
+T & F & F\\
+F & T & T\\  
+F & F & T
+\end{tabular}
+\end{center}
+
+\noindent (c) $(P \vee \neg Q) \wedge (Q \vee \neg P)$
+
+\begin{center}
+\begin{tabular}{ c c c }
+ $P$ & $Q$ & $(P \vee \neg Q) \wedge (Q \vee \neg P)$\\ 
+T & T & T\\  
+T & F & F\\
+F & T & F\\  
+F & F & T
+\end{tabular}
+\end{center}
+
+\noindent (d) $\neg (P \vee Q)$
+
+\begin{center}
+\begin{tabular}{ c c c }
+ $P$ & $Q$ & $(P \vee \neg Q) \wedge (Q \vee \neg P)$\\ 
+T & T & F\\  
+T & F & F\\
+F & T & F\\  
+F & F & T
+\end{tabular}
+\end{center}
+
+\noindent (e) $(Q \wedge P) \vee \neg P$
+
+\begin{center}
+\begin{tabular}{ c c c }
+ $P$ & $Q$ & $(Q \wedge P) \vee \neg P$\\ 
+T & T & T\\  
+T & F & F\\
+F & T & T\\  
+F & F & T
+\end{tabular}
+\end{center}
+
+(b) and (e) are the same
+
+(a) and (c) are the same
+
+\section*{Exercise 9}
+
+Use truth tables to determine which of these statements are tautologies, which are contradictions and which are neither
+
+\noindent (a) $(P \vee Q) \wedge (\neg P \vee \neg Q)$
+
+\begin{center}
+\begin{tabular}{ c c c }
+ $P$ & $Q$ & $(P \vee Q) \wedge (\neg P \vee \neg Q)$\\ 
+T & T & F\\  
+T & F & T\\
+F & T & T\\  
+F & F & F
+\end{tabular}
+\end{center}
+
+Neither a tautology or contradiction
+
+\noindent (b) $(P \vee Q) \wedge (\neg P \wedge \neg Q)$\\ 
+
+\begin{center}
+\begin{tabular}{ c c c }
+ $P$ & $Q$ & $(P \vee Q) \wedge (\neg P \wedge \neg Q)$\\ 
+T & T & F\\  
+T & F & F\\
+F & T & F\\  
+F & F & F
+\end{tabular}
+\end{center}
+
+This is a contradiction
+
+\noindent (c) $(P \vee Q) \vee (\neg P \vee \neg Q)$
+
+\begin{center}
+\begin{tabular}{ c c c }
+ $P$ & $Q$ & $(P \vee Q) \vee (\neg P \vee \neg Q)$\\ 
+T & T & T\\  
+T & F & T\\
+F & T & T\\  
+F & F & T
+\end{tabular}
+\end{center}
+
+This is a tautology
+
+\noindent (d) $[P \wedge (Q \vee \neg R)] \vee (\neg P \vee R)$
+
+\begin{center}
+\begin{tabular}{ c c c c }
+ $P$ & $Q$ & $R$ & $[P \wedge (Q \vee \neg R)] \vee (\neg P \vee R)$ \\ 
+T & T & T & T\\  
+T & T & F & T\\
+T & F & T & T\\  
+T & F & F & T\\
+F & T & T & T\\  
+F & T & F & T\\
+F & F & T & T\\  
+F & F & F & T\\
+\end{tabular}
+\end{center}
+
+This is a tautology
+
+\section*{Exercise 10}
+
+Use truth tables to check these laws
+
+\noindent (a) The second De Morgan's law. (The first was checked in the text)
+
+Reminder that the second De Morgan's law is 
+
+$$\neg (P \vee Q) = \neg P \wedge \neg Q$$
+
+\begin{center}
+\begin{tabular}{ c c c c }
+ $P$ & $Q$ & $\neg (P \vee Q)$ & $\neg P \wedge \neg Q$\\ 
+T & T & F & F\\  
+T & F & F & F\\
+F & T & F & F\\  
+F & F & T & T
+\end{tabular}
+\end{center}
+
+\noindent (b) The distributive laws
+
+Reminder that the distributive laws are 
+
+$$P \wedge (Q \wedge R) = (P \wedge Q) \wedge R$$
+
+$$P \vee (Q \vee R) = (P \vee Q) \vee R$$
+
+\begin{center}
+\begin{tabular}{ c c c c c c c }
+ $P$ & $Q$ & $R$ & $Q \wedge R$ & $P \wedge (Q \wedge R)$ & $(P \wedge Q)$ & $(P \wedge Q) \wedge R$\\ 
+T & T & T & T & T & T & T\\  
+T & T & F & F & F & T & F\\
+T & F & T & F & F & F & F\\  
+T & F & F & F & F & F & F\\
+F & T & T & T & F & F & F\\  
+F & T & F & F & F & F & F\\
+F & F & T & F & F & F & F\\  
+F & F & F & F & F & F & F
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ c c c c c c c }
+ $P$ & $Q$ & $R$ & $Q \vee R$ & $P \vee (Q \vee R)$ & $(P \vee Q)$ & $(P \vee Q) \vee R$\\ 
+T & T & T & T & T & T & T\\  
+T & T & F & T & T & T & T\\
+T & F & T & T & T & T & T\\  
+T & F & F & F & T & T & T\\
+F & T & T & T & T & T & T\\  
+F & T & F & T & T & T & T\\
+F & F & T & T & T & F & T\\  
+F & F & F & F & F & F & F
+\end{tabular}
+\end{center}
+
+\end{document}

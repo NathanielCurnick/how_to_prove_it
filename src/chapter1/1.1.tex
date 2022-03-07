@@ -1,0 +1,239 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Introduction}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+Analyse the logical forms of the following statements
+
+\noindent (a) We'll have either a reading assignment or homework problems, but we won't have both homework problems and a test
+
+$$ (P \vee Q) \wedge \neg (P \wedge Q)$$
+
+Where P stands for ``have a reading assignment'' and Q stands for ``have homework problems''
+
+\noindent (b) You won't go skiing, or you will and there won't be any snow
+
+$$\neg P \vee (P \wedge \neg Q)$$
+
+Where P stands for ``you will go skiing'' and Q stands for ``there will be snow''
+
+\noindent (c) $\sqrt{7} \nleq 2 $
+
+$$\neg (\sqrt{7} < 2) \wedge \neg (\sqrt{7} = 2)$$
+
+\section*{Exercise 2}
+
+Analyze the logical forms of the following statements:
+
+\noindent (a) Either John and Bill are both telling the truth, or neither of them is.
+
+$$ (P \wedge Q) \vee \neg (P \wedge Q) $$
+
+Where P is ``John is telling the truth'' and Q is ``Bill is telling the truth''
+
+\noindent (b) I'll have either fish or chicken, but I won't have both fish and mashed potatoes.
+
+$$ (P \vee Q ) \wedge \neg (Q \wedge R) $$
+
+Where P is ``I'll have fish'', Q is ``I'll have chicken'' and R is ``I'll have mashed potatoes''.
+
+\noindent (c) 3 is a common divisor of 6, 9, and 15.
+
+$$ P \wedge Q \wedge R $$
+
+Where P is ``3 is a common divisor of 6'', Q is ``3 is a common divisor of 9'' and R is ``3 is a common divisor of 15''.
+
+\section*{Exercise 3}
+
+Analyze the logical forms of the following statements:
+
+For all of Exercise 3: P means ``Alice is in the room'' and Q means ``Bob is in the room''.
+
+\noindent (a) Alice and Bob are not both in the room
+
+$$ (P \wedge \neg Q) \vee (\neg P \wedge Q) $$
+
+\noindent (b) Alice and Bob are both not in the room
+
+$$ \neg (P \wedge Q) $$
+
+\noindent (c) Either Alice or Bob is not in the room
+
+$$ \neg P \vee \neg Q $$
+
+\noindent (d) Neither Alice nor Bob is in the room
+
+$$ \neg P \wedge \neg Q $$
+
+\section*{Exercise 4}
+
+For all of Exercise 4: P means ``Ralph is tall'', Q means ``Ed is tall'', P means ``Ralph is handsome'' and S means ``Ed is handsome''
+
+\noindent (a) Either both Ralph and Ed are tall, or both of them are handsome
+
+$$ (P \wedge Q) \vee (R \wedge S) $$
+
+\noindent (b) Both Ralph and Ed are either tall or handsome
+
+$$ (P \wedge Q) \vee (R \wedge S) $$
+
+This is the same as (a), the English is just written a little different.
+
+\noindent (c) Both Ralph and Ed are neither tall or handsome
+
+$$ \neg (P \wedge Q \wedge R \wedge S) $$
+
+\noindent (d) Neither Ralph nor Ed is both tall and handsome
+
+$$ \neg (R \wedge P) \wedge \neg (Q \wedge S) $$
+
+\section*{Exercise 5}
+
+Which of the following are well formed formulas?
+
+\noindent (a) $\neg (\neg P \vee \neg \neg R) $
+
+Valid, but can be simplified to $\neg (\neg P \vee R)$ by use of the double negation rule
+
+\noindent (b) $\neg (P, Q, \wedge R)$
+
+Invalid, this does not mean anything
+
+\noindent (c) $P \wedge \neg P$
+
+Technically valid but a logical contradiction - this will always be false
+
+\noindent (d) $ (P \wedge Q)(P \vee R) $
+
+Not valid
+
+\section*{Exercise 6}
+
+Let P stand for the statement ``I will buy the pants'' and S for the statement ``I will buy the shirt'' What English sentences are represented by the fol-
+lowing expressions?
+
+\noindent (a) $ \neg (P \wedge \neg S) $
+
+I won't buy the pants without the shirt
+
+\noindent (b) $ \neg P \wedge \neg S $
+
+I won't buy the pants or the shirt
+
+\noindent (c) $ \neg P \vee \neg S $
+
+Either I won't buy the pants or I won't buy the shirt
+
+\section*{Exercise 7}
+
+Let S stand for the statement ``Steve is happy'' and G for ``George is happy''. What English sentences are represented by the following expressions?
+
+\noindent (a) $ (S \vee G) \wedge (\neg S \vee \neg G) $
+
+Expanding this out
+
+$$ (S \vee G) \wedge (\neg S \vee \neg G) $$
+$$ (S \wedge \neg S) \vee (S \wedge \neg G) \vee (G \wedge \neg S) \vee (G \wedge \neg G) $$
+
+Ignore the contradictions
+
+$$ (S \wedge \neg G) \vee (G \wedge \neg S) $$
+
+Either Steve or George is happy but not both
+
+\noindent (b) $ [S vee ( G \wedge \neg S)] \vee \neg G $
+
+$$((S \vee S) \wedge (S \vee \neg S)) \vee \neg G $$
+
+$$ (S \vee G) \vee \neg G $$
+
+Steve is happy and George is happy or not happy
+
+\noindent (c) $ S \vee [G \wedge (\neg S \vee \neg G)] $
+
+$$ S \vee ((G \wedge \neg S) \vee (G \wedge \neg G)) $$
+
+$$ S \vee (G \wedge \neg S) $$
+
+Steve is happy or George is happy and Steve is not happy.
+
+\section*{Exercise 8}
+Let T stand for the statement ``Taxes will go up'' and D for ``The deficit will go up''. What English sentences are represented by the following formulas?
+
+\noindent (a) $ T \vee D $
+
+Taxes will go up or the deficit will go up
+
+\noindent (b) $ \neg (T \wedge D) \wedge \neg (\neg T \wedge \neg D) $
+
+$$ \neg (T \wedge D) \wedge (T \wedge D) $$
+
+Taxes will not go up and the deficit will not go up and taxes will go up and the deficit will go up. (This statement is a logical contradiction)
+
+\noindent (c) $ (T \wedge \neg D) \vee (D \neg T) $
+
+Taxes will go up and the deficit will not go up or the deficit will go up and taxes will not go up
+
+\section*{Exercise 9}
+Identify the premises and conclusions of the following deductive argu-
+ments and analyze their logical forms. Do you think the reasoning is valid?
+(Although you will have only your intuition to guide you in answering
+this last question, in the next section we will develop some techniques for
+determining the validity of arguments.)
+
+\noindent (a) Jane and Pete won't both win the math prize. Pete will win either the math prize or the chemistry prize. Jane will win the math prize. Therefore, Pete will win the chemistry prize.
+
+Let $J_m$ stand for ``Jane will win the math prize'', $J_c$ stand for ``Jane will win the chemistry prize'', $P_m$ stand for ``Pete will win the math prize'' and $P_c$ stand for ``Pete will win the chemistry prize''
+
+$$\neg (J_m \wedge P_m) $$
+$$P_m \vee P_c$$
+$$J_m$$
+$$ \therefore P_c$$
+
+Yes, valid
+
+\noindent (b) The main course will be either beef or fish. The vegetable will be either
+peas or corn. We will not have both fish as a main course and corn as a
+vegetable. Therefore, we will not have both beef as a main course and
+peas as a vegetable.
+
+Let $B$ stand for ``beef for main course'', $F$ for ``fish for main course'', $P$ for ``peas for vegetable'' and $C$ as ``corn for vegetable''.
+
+$$B \vee F$$
+$$P \vee C$$
+$$\neg (F \wedge C)$$
+$$\therefore \neg(B \wedge P)$$
+Not valid
+
+\noindent (c) Either John or Bill is telling the truth. Either Sam or Bill is lying. Therefore, either John is telling the truth or Sam is lying.
+
+Let $J$ stand for ``John is telling the truth'', $B$ stand for ``Bill is telling the truth'' and $S$ stand for ``Sam is telling the truth''
+
+$$J \vee B$$
+$$\neg S \vee \neg B$$
+$$\therefore J \vee \neg S$$
+
+Valid
+
+\noindent (d) Either sales will go up and the boss will be happy, or expenses will go up and the boss won’t be happy. Therefore, sales and expenses will not both go up.
+
+Let $S$ stand for ``sales will go up'', $B$ stand for ``the boss will be happy'' and $E$ stand for ``expenses go up''
+
+$$ (S \wedge B) \vee (E \wedge \neg B) $$
+$$ \therefore \neg (S \wedge E) $$
+
+Not valid
+
+\end{document}
