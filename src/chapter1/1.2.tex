@@ -409,4 +409,127 @@ F & F & F & F & F & F & F
 \end{tabular}
 \end{center}
 
+\section*{Exercise 11}
+
+Use the laws stated in the text to find simpler formulas equivalent to these formulas.
+
+\noindent (a) $\neg (\neg P \wedge \neg Q) $
+
+Use of De Morgan's law
+
+$$\neg (\neg P \wedge \neg Q) = \neg \neg P \vee \neg \neg Q$$
+
+Use of double negation law
+
+$$\neg \neg P \vee \neg \neg Q = P \vee Q$$
+
+\noindent (b) $(P \wedge Q) \vee (P \wedge \neg Q)$
+
+Use of distributive law
+
+$$((P \wedge Q) \vee P) \wedge ((P \wedge Q) \vee \neg Q)$$
+
+Use of associative law
+
+$$(P \vee (P \wedge Q)) \wedge (\neg Q \vee (P \wedge Q))$$
+
+Use of absorbtion law and distributive law
+
+$$P \wedge ((\neg Q \vee P) \wedge (\neg Q \vee Q))$$
+$$P \wedge (\neg Q \vee P)$$
+
+By absorbtion law
+
+$$P$$ 
+
+\noindent (c) $\neg (P \wedge \neg Q) \vee (\neg P \wedge Q)$
+
+Use of De Morgan's law
+
+$$(\neg P \vee Q) \vee (\neg P \wedge Q)$$
+
+Use of distributive law
+
+$$(\neg P \vee Q \vee \neg P) \wedge (\neg P \vee Q \vee Q)$$
+
+Use of idempotent law
+
+$$(\neg P \vee Q) \wedge (\neg P \vee Q)$$
+
+$$\neg P \vee Q$$
+
+\section*{Exercise 12}
+
+Use the laws stated in the text to find simpler formulas equivalent to these formulas.
+
+\noindent (a) $\neg (\neg P \vee Q) \vee (P \wedge \neg R)$
+
+Use of De Morgan's law
+
+$$(\neg \neg P \wedge \neg Q) \vee (P \wedge \neg R)$$
+
+Use of double negation law
+
+$$(P \wedge \neg Q) \vee (P \wedge \neg R)$$
+
+Use of distributive law
+
+$$P \wedge (\neg Q \vee \neg R)$$
+
+\noindent (b) $\neg (\neg P \wedge Q) \vee (P \wedge \neg R)$
+
+Use of De Morgan's law
+
+$$(P \vee \neg Q) \vee (P \wedge \neg R)$$
+
+Use of distributive law
+
+$$(P \vee \neg Q \vee P) \wedge (P \vee \neg Q \vee \neg R)$$
+
+Use of idempotent law
+
+$$(P \vee \neg Q) \wedge (P \vee \neg Q \vee \neg R)$$
+
+Use of absorbtion law
+
+$$(P \vee \neg Q)$$
+
+\noindent (c) $(P \wedge R) \vee (\neg R \wedge (P \vee Q))$
+
+Use of distributive law
+
+$$(P \wedge R) \vee (\neg R \wedge P) \vee (\neg R \wedge Q)$$
+
+Use of distributive law again
+
+$$(P \wedge (R \vee \neg R)) \vee (\neg R \wedge Q)$$
+
+$$P \vee (\neg R \wedge Q)$$
+
+\section*{Exercise 13}
+
+Use the first De Morgan's law and the double negation law to derive the second De Morgan's law
+
+Reminder that the first De Morgan's law is
+
+$$\neg (P \wedge Q) = \neg P \vee \neg Q$$
+
+and the double negation law is 
+
+$$\neg \neg P = P$$
+
+We want to prove that 
+
+$$\neg (P \vee Q) = \neg P \wedge \neg Q$$
+
+Beginning with the LHS and applying the double negation in reverse 
+
+$$\neg (P \vee Q) = \neg (\neg \neg P \vee \neg \neg Q)$$
+
+Use of De Morgan's first law
+
+$$\neg(\neg(\neg P \wedge \neg Q))$$
+
+$$\neg P \wedge \neg Q$$
+
 \end{document}
