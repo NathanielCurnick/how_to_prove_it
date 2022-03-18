@@ -1,0 +1,152 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{amsmath}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Introduction}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+Analyse the logical forms of the following statements:
+
+\noindent (a) 3 is a common divisor of 6, 9, and 15. (Note: You did this in exercise 2 of Section 1.1, but you should be able to give a better answer now.)
+
+$$D(6) \wedge D(9) \wedge D(15)$$
+
+Where $D(x)$ means ``$x$ is divisible by 3''
+
+\noindent (b) x is divisible by both 2 and 3 but not 4.
+
+$$D(x, 2) \wedge D(x, 3) \wedge \neg D(x, 4)$$
+
+Where $D(x,y)$ means $x$ is divisible by $y$
+
+\noindent (c) x and y are natural numbers, and exactly one of them is prime.
+
+$$N(x) \wedge N(y) \wedge ((P(x) \wedge \neg P(y)) \vee (P(y) \wedge \neg P(x)))$$
+
+Where $N(x)$ means ``$x$ is a natural number'' and $P(x)$ means ``$x$ is prime''
+
+\section*{Exercise 2}
+
+Analyze the logical forms of the following statements:
+
+\noindent  (a) x and y are men, and either x is taller than y or y is taller than x.
+
+$$M(x) \wedge M(y) \wedge (T(x,y) \vee T(y,x))$$
+
+Where $M(x)$ means ``$x$ is a man'' and $T(x,y)$ means ``$x$ is taller than $y$''
+
+\noindent (b) Either x or y has brown eyes, and either x or y has red hair.
+
+$$(B(x) \vee B(y)) \wedge (R(x) \vee R(y))$$
+
+Where $B(x)$ means ``$x$ has brown eyes'' and $R(x)$ means ``$x$ has red hair''
+
+\noindent (c) Either x or y has both brown eyes and red hair.
+
+$$(B(x) \wedge R(x)) \vee (B(y) \wedge R(y))$$
+
+Symbols mean the same as (b)
+
+\section*{Exercise 3}
+
+Write definitions using elementhood tests for the following sets:
+    
+\noindent (a) \{Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto\}.
+
+\{x \textpipe x is a planet\}
+
+\noindent (b) \{Brown, Columbia, Cornell, Dartmouth, Harvard, Princeton, University of Pennsylvania, Yale\}.
+
+\{x \textpipe x is an Ivy League University\}
+
+\noindent (c) \{Alabama, Alaska, Arizona, . . . , Wisconsin, Wyoming\}.
+
+\{x \textpipe x is a State of the United States\}
+
+\noindent (d) \{Alberta, British Columbia, Manitoba, New Brunswick, Newfoundland and Labrador, Northwest Territories, Nova Scotia, Nunavut, Ontario, Prince Edward Island, Quebec, Saskatchewan, Yukon\}.
+
+\{x \textpipe x is a State of Canada\}
+
+\section*{Exercise 4}
+
+Write definitions using elementhood tests for the following sets:
+
+\noindent (a) \{1, 4, 9, 16, 25, 36, 49, . . .\}.
+
+$$\{x^2 \text{\textbar} x \in \mathbb{Z}^+ \}$$
+
+\noindent (b) \{1, 2, 4, 8, 16, 32, 64, . . .\}.
+
+$$\{2^x \text{\textbar} x \in \mathbb{N} \}$$
+
+\noindent (c) \{10, 11, 12, 13, 14, 15, 16, 17, 18, 19\}
+
+$$\{x \in \mathbb{N} \text{\textbar} 9 < x < 20 \}$$
+
+\section*{Exercise 5}
+
+Simplify the following statements. Which variables are free and which are bound? If the statement has no free variables, say whether it is true or false.
+
+\noindent (a) $-3 \in \{x \in \mathbb{R} \text{\textbar} 13 - 2x > 1\}$
+
+$$(-3 \in \mathbb{R}) \wedge (13 - 2(-3) > 1)$$
+
+No free variables
+$x$ is a bound variable
+Statement is true, since $13 - 2x$ is 19 when $x=-3$, which is larger than 1
+
+\noindent (b) $4 \in \{x \in \mathbb{R}^- \text{\textbar} 12 - 2x > 1 \}$
+
+$$(4 \in \mathbb{R}) \wedge (4 < 0) \wedge (13 - 2(4) > 1)$$
+
+No free variables
+$x$ is a bound variable
+This statement is false since $4 \notin \mathbb{R}^-$
+
+\noindent (c) $5 \notin \{x \in \mathbb{R} \text{\textbar} 13 - 2x > c\}$
+
+$$(5 \notin \mathbb{R}) \wedge (13 - 2(5) > c)$$
+
+$c$ is a free variable, $x$ is a bound variable. We can not necessarily say it is true or false.
+
+\section*{Exercise 6}
+
+Simplify the following statements. Which variables are free and which are bound? If the statement has no free variables, say whether it is true or false.
+
+\noindent (a) $w \in \{x \in \mathbb{R} \text{\textbar} 13-2x > c\}$
+
+$$(w \in \mathbb{R}) \wedge (13-2(w) > c)$$
+
+$w$ and $c$ are free variables, $x$ is a bound variable. We can not say if it is true or false
+
+\noindent (b) $4 \in \{x \in \mathbb{R} \text{\textbar} 13 - 2x \in \{y \text{\textbar} y \text{ is a prime number}\}\}$
+(It might make this statement easier to read if we let $P = \{y \text{\textbar} y \text{ is a prime number}\}$;
+using this notation, we could rewrite the statement as 
+$4 \in \{x \in \mathbb{R} \text{\textbar} 13 - 2x \in P\}$.)
+
+$$(4 \in \mathbb{R}) \wedge (13 - 2(4) \in P)$$
+
+$x$ and $y$ are bound variables, this statement is true since $13 - 2(4) = 5$, which is prime
+
+\noindent (c) $4 \in \{x \in \{y \text{\textbar} y \text{ is a prime number}\} \text{\textbar} 13 - 2x > 1\}$
+(Using the same notation as in part (b), we could write this as $4 \in \{x \in P \text{\textbar} 13 - 2x > 1\}$.)
+
+$$(4 \in P) \wedge (13 - 2(4) > 1)$$
+
+No free variables, $x$ and $y$ are bound. False since 4 is not prime.
+
+
+
+\end{document}
