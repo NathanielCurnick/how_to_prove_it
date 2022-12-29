@@ -4,3 +4,6 @@
 *.gz
 *.fls
 *.fdb_latexmk
+
+*.tmp
+*.xref

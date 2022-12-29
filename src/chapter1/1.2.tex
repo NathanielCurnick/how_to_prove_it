@@ -532,28 +532,77 @@ $$\neg(\neg(\neg P \wedge \neg Q))$$
 
 $$\neg P \wedge \neg Q$$
 
-\section*{Exercise 13}
-
-% TODO
 
 \section*{Exercise 14}
 
-% TODO
+Note that the associative laws say only that parentheses are unnecessary
+when combining three statements with $$\wedge$$ or $$\vee$$. In fact, these laws can be
+used to justify leaving parentheses out when more than three statements
+are combined. Use associative laws to show that $$[P \wedge (Q \wedge R)] \wedge S$$ is
+equivalent to $$(P \wedge Q) \wedge (R \wedge S)$$.
+
+We can simply apply the associative law twice
+
+$$P \wedge (Q \wedge R)$$ is the same as $$(P \wedge Q) \wedge R$$
+
 
 \section*{Exercise 15}
 
-% TODO
+How many lines will there be in the truth table for a statement containing $$n$$ letters?
+
+$2^n$
 
 \section*{Exercise 16}
 
-% TODO
+Find a formula involving the connectives $\wedge$, $\vee$, $\neg$ that has the following truth table
+
+\begin{center}
+\begin{tabular}{ c c c c }
+ $P$ & $Q$ & ?\\ 
+F & F & F & T\\  
+F & T & F & F\\
+T & F & F & T\\  
+T & T & T & T
+\end{tabular}
+\end{center}
+
+$$P \vee \neg Q$$
 
 \section*{Exercise 17}
 
-% TODO
+Find a formula involving the connectives $\wedge$, $\vee$, $\neg$ that has the following truth table
+
+\begin{center}
+\begin{tabular}{ c c c c }
+ $P$ & $Q$ & ?\\ 
+F & F & F & F\\  
+F & T & F & T\\
+T & F & F & T\\  
+T & T & T & F
+\end{tabular}
+\end{center}
+
+$$P \wedge \neg Q \vee \neg P \wedge Q$$
+
+This is also known as XOR (exclusive or)
 
 \section*{Exercise 18}
 
-% TODO
+Suppose the conclusion of an argument is a tautology. What can you
+conclude about the validity of the argument? What if the conclusion is
+a contradiction? What if one of the premises is either a tautology or a
+contradiction?
+
+If the conclusion is a tautology, then it is true for all premises cases. 
+This is necessarily a valid argument
+
+If the conclusion is a contradiction, then it is false for all cases.
+This is necessarily not a valid argument
+
+If one of the premises is a tautology then that premises is always true.
+This has no impact on validity
+
+If one of the premises is a contradiction, then we can say that the argument is not valid
+
 
 \end{document}
