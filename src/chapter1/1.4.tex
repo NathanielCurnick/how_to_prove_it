@@ -87,7 +87,9 @@ $$(x \in A \vee x \in B) \wedge (x \in A \vee x \in C) = (A \cup B) \cap (A \cup
 
 \section*{Exercise 7}
 
-Verify the identities in exercise 6 by writing out (using logical symbols) what it means for an object $x$ to be an element of each set and then using logical equivalences
+Verify the identities in exercise 6 by writing out (using logical symbols) what 
+it means for an object $x$ to be an element of each set and then using logical 
+equivalences
 
 \noindent (a) $(A \cup B) \setminus C = (A \setminus C) \cup (B \setminus C)$
 
@@ -96,6 +98,131 @@ $$x \in A \vee (x \in B \wedge x \in \neg C)$$
 $$(x \in A \vee x \in B) \wedge (x \in A \vee x \in \neg C)$$
 $$(x \in A \vee x \in B) \wedge \neg(x \in \neg A \wedge x \in C)$$
 $$(A \cup B) \setminus (C \setminus A)$$
+
+\section*{Exercise 8}
+
+Use any method you wish to verify the following identities:
+
+\noindent (a) $(A \setminus B) \cap C = (A \cap C) \setminus B$
+
+Take the LHS
+
+$$(x \in A \wedge x \notin B) \wedge x \in C$$
+$$(x \in A \wedge x \in C) \wedge x \notin B$$
+$$(A \cap C) \setminus B$$
+
+\noindent (b) $$(A \cap B) \setminus B = \emptyset$$
+
+Take the LHS
+
+$$x \in A \wedge x \in B \wedge x \notin B$$
+
+This forms a contradiction - nothing can be in $B$ and not in $B$ at the same 
+time, thus this is the empty set
+
+\noindent (c) $$A \setminus (A \setminus B) = A \cap B$$
+
+Take LHS
+
+$$x \in A \wedge \neg (x \in A \wedge x \notin B)$$
+$$x \in A \wedge (x \notin A \vee x \in B)$$
+$$(x \in A \wedge x \notin A) \vee x \in A \wedge x \in B$$
+
+Here the contradiction can be ignored
+
+$$x \in A \wedge x \in B$$
+$$A \cap B$$
+
+\section*{Exercise 9}
+
+% TODO: Proof of which are equal
+
+For each of the following sets, write out (using logical symbols) what it means 
+for an object $x$ to be an element of the set. Then determine which of these 
+sets must be equal to each other by determining which statements are equivalent
+
+\noindent (a) $(A \setminus B) \setminus C$
+
+$$(x \in A \wedge x \notin B) \wedge n \notin C$$
+
+\noindent (b) $A \setminus (B \setminus C)$
+
+$$x \in A \wedge \neg (x \in B \wedge x \notin C)$$
+
+\noindent (c) $(A \setminus B) \cup (A \cap C)$
+
+$$(x \in A \wedge x \notin B) \vee (x \in A \wedge x \in C)$$
+
+\noindent (d) $(A \setminus B) \cap (A \setminus C)$
+
+$$(x \in A \wedge x \notin B) \wedge (x \in A \wedge x \notin C)$$
+
+\noindent (e) $A \setminus (B \cup C)$
+
+$$x \in A \wedge \neg (x \in B \vee x \in C)$$
+
+\section*{Exercise 10}
+
+It was shown in this section that for any sets $A$ and $B$, 
+$(A \cup B) \ B \subseteq A$
+
+\noindent (a) Give an example of two sets $A$ and $B$ for which 
+$(A \cup B) \setminus B = A$.
+
+$$A = \{1, 2\}, B = \{3, 4\}$$
+
+(any set where $A$ and $B$ do not share any elements)
+
+\noindent (b) Show that for all sets $A$ and $B$, 
+$(A \cup B) \setminus B = A \setminus B$
+
+Take LHS 
+
+$$(x \in A \vee x \in B) \wedge x \notin B$$
+$$x \in A \wedge x \notin B \vee x \in B \wedge x \notin B$$
+
+Here, the contradiction can be ignored
+
+$$x \in A \wedge x \notin B$$
+$$A \setminus B$$
+
+\section*{Question 11}
+
+\noindent Support A and B are sets. Is it necessarily true that 
+$(A \setminus B) \cup B = A$? If not, is one of these sets necessarily a subset 
+of the other? Is $(A \setminus B) \cup B$ always equal to either $A \setminus B$
+or $A \cup B$?
+
+Take LHS
+
+$$(x \in A \wedge x \notin B) \vee x \in B$$
+$$x \in A \vee x \in B \wedge x \notin B \vee x \in B$$
+$$x \in A \vee x \in B$$
+$$A \cup B$$
+
+\section*{Question 12}
+
+% TODO
+
+\section*{Question 13}
+
+% TODO
+
+\section*{Question 14}
+
+% TODO
+
+\section*{Question 15}
+
+% TODO
+
+\section*{Question 16}
+
+% TODO
+
+\section*{Question 17}
+
+% TODO
 
 
 
