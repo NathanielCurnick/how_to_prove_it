@@ -1,0 +1,65 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{amsmath}
+
+\newcommand{\then}{\rightarrow} 
+\newcommand{\bicond}{\leftrightarrow}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Cheatsheet of Formulas}}
+
+\author{\textbf{Nathaniel Curnick}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section{Logical Formulas}
+
+\subsection{De Morgan's Laws}
+
+$$\neg (P \wedge Q) \equiv \neg P \vee \neg Q$$
+$$\neg (P \vee Q) \equiv \neg P \wedge \neg Q$$
+
+\subsection{Commutative Laws}
+
+$$P \wedge Q \equiv Q \wedge P$$
+$$P \vee Q \equiv Q \vee P$$
+
+\subsection{Associative Laws}
+
+$$P \wedge (Q \wedge R) \equiv  (P \wedge Q) \wedge P$$
+$$P \vee (Q \vee R) \equiv  (P \vee Q) \vee P$$
+
+\subsection{Idempotent Laws}wedge
+
+$$P \wedge P \equiv P$$
+$$P \vee P \equiv P$$
+
+\subsection{Distributive Laws}
+
+$$P \wedge (Q \vee R) \equiv (P \wedge Q) \vee (P \wedge R)$$
+$$P \vee (Q \wedge R) \equiv (P \vee Q) \wedge (P \vee R)$$
+
+\subsection{Absorbtion Laws}
+
+$$P \vee (P \wedge Q) \equiv P$$
+$$P \wedge (P \vee Q) \equiv P$$
+
+\subsection{Double Negation}
+
+$$\neg \neg P \equiv P$$
+
+\section{Conditional and Biconditional Laws}
+$$P \then Q \equiv \neg P \vee Q$$
+$$P \then Q \equiv \neg (P \wedge \neg Q)$$
+$$P \bicond Q \equiv (P \then Q) \wedge (Q \then P)$$
+$$P \bicond Q \equiv (P \then Q) \wedge (\neg P \then \neg Q)$$
+$$P \bicond Q \equiv (\neg P \vee Q) \wedge (\neg Q \vee P)$$
+
+
+\end{document}

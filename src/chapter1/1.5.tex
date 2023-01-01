@@ -1,0 +1,162 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{amsmath}
+
+\newcommand{\then}{\rightarrow} 
+\newcommand{\ifonly}{\leftrightarrow}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Chapter 1: Operations on Sets}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+Analyze the logical forms of the following statements:
+
+\noindent (a) If this gas either has an unpleasant smell or is not explosive, 
+then it isn't hydrogen
+
+$$(S \vee \neg E) \then \neg H$$
+
+Where,
+
+$S$ = Gas has an unpleasant smell,
+$E$ = Gas is explosive,
+$H$ = Gas is hydrogen.
+
+\noindent (b) Having both a fever and a headache is a sufficient condition for 
+George to go to the doctor
+
+$$(F \wedge H) \then D$$
+
+Where,
+
+$F$ = George has a fever,
+$H$ = George has a headache,
+$D$ = George goes to the doctor.
+
+\noindent (c) Both having a fever and having a headache are sufficient conditions
+for George to go to the doctor.
+
+$$(F \vee H) \then D$$
+
+\noindent (d) If $x \neq 2$, then a necessary condition for $x$ to be prime is that
+$x$ be odd.
+
+$$(x \neq 2) \then (P(x) \then O(x))$$
+
+Where,
+
+$P(x)$ is true when $x$ is prime,
+$O(x)$ is true when $x$ is odd.
+
+\section*{Exercise 2}
+
+Analyze the logical forms of the following statements:
+
+\noindent (a) Mary will sell her house only if she can get a good price and find a
+nice apartment.
+
+$$H \then P \wedge A$$
+
+Where,
+$H$ = Mary will sell her house,
+$P$ = Mary will get a good price,
+$A$ = Mary will find a nice apartment.
+
+\noindent (b) Having both a good credit history and an adequate down payment is a
+necessary condition for getting a mortgage.
+
+$$M \then (C \wedge D)$$
+
+$C$ = Having good credit history,
+$D$ = Having adequate down payment,
+$M$ = Getting mortgage.
+
+\noindent (c) John will drop out of school, unless someone stops him
+
+If John is stopped, he will not drop out of school. If John is not stopped, then 
+he will drop out of school
+
+$$\neg S \ifonly D$$
+
+Where,
+$S$ is stops John,
+$D$ is John drops out of school.
+
+\noindent (d) If x is divisible by either 4 or 6, then it isn't prime.
+
+$$D(x, 4) \vee D(x, 6) \then \neg P(x)$$
+
+\noindent Analyze the logical form of the following statement:
+
+
+\noindent (a) If it is raining, then it is windy and the sun is not shining.
+Now analyze the following statements. Also, for each statement determine
+whether the statement is equivalent to either statement (a) or its converse.
+
+$$R \then W \wedge \neg S$$
+
+Where,
+$R$ is it is raining,
+$W$ is it is windy,
+$S$ is sun is shining
+
+\noindent (b) It is windy and not sunny only if it is raining.
+
+$$W \wedge \neg S \then R$$
+
+Converse of (a)
+
+\noindent (c) Rain is a sufficient condition for wind with no sunshine.
+
+$$R \then W \wedge \neg S$$
+
+Equivalent to (a)
+
+\noindent (d) Rain is a necessary condition for wind with no sunshine.
+
+$$W \wedge \neg S \then R$$
+
+Converse of (a)
+
+\noindent (e) It's not raining, if either the sun is shining or it's not windy.
+
+$$S \vee \neg W \then \neg R$$
+
+Equivalent to (a)
+
+\noindent (f) Wind is a necessary condition for it to be rainy, and so is a lack of
+sunshine.
+
+$$(R \then W) \wedge (R \then \neg S)$$ % TODOL: proof
+
+Equivalent to (a)
+
+\noindent (g) Either it is windy only if it is raining, or it is not sunny only if it is
+raining.
+
+$$(W \then R) \vee (\neg S \then R)$$ % TODO: proof
+
+Converse of (a)
+
+\section*{Exercise 4}
+
+% TODO
+
+\section*{Exercise 5}
+
+% TODO
+
+
+
+\end{document}
