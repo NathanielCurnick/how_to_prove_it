@@ -4,7 +4,7 @@
 \usepackage{amsmath}
 
 \newcommand{\then}{\rightarrow} 
-\newcommand{\ifonly}{\leftrightarrow}
+\newcommand{\bicond}{\leftrightarrow}
 
 \title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Chapter 1: Operations on Sets}}
 
@@ -87,7 +87,7 @@ $M$ = Getting mortgage.
 If John is stopped, he will not drop out of school. If John is not stopped, then 
 he will drop out of school
 
-$$\neg S \ifonly D$$
+$$\neg S \bicond D$$
 
 Where,
 $S$ is stops John,
@@ -151,11 +151,447 @@ Converse of (a)
 
 \section*{Exercise 4}
 
-% TODO
+\noindent Use truth tables to determine whether or not the following arguments 
+are valid 
+
+\noindent (a) Either sales or expenses will go up. If sales go up, then the boss
+will be happy. If expenses go up, then the boss will be unhappy. Therefore, 
+sales and expenses will not both go up.
+
+Let's make $S$ mean ``sales will go up'', $E$ mean ``expenses will go up'' and 
+$B$ mean ``boss will be happy''
+
+\[
+  \begin{array}{ r l }
+               & S \vee E \\
+               & S \then B \\
+               & E \then \neg B \\
+    \cline{2-2}
+    \therefore & \neg (S \wedge E)
+  \end{array}
+\]
+
+Let's rewrite this with only logical connectives
+
+\[
+  \begin{array}{ r l }
+               & S \vee E \\
+               & \neg S \vee B \\
+               & \neg E \vee \neg B \\
+    \cline{2-2}
+    \therefore & \neg (S \wedge E)
+  \end{array}
+\]
+
+Let's also define
+$U = S \vee E$, 
+$V = \neg S \vee B$,
+$W = \neg E \vee \neg B$,
+$X = \neg (S \wedge E)$.
+
+\begin{center}
+\begin{tabular}{ c c c c c c c }
+$S$ & $E$ & $B$ & $U$ & $V$ & $W$ & $X$\\ 
+T & T & T & T & T & F & F\\  
+T & T & F & T & F & T & F\\
+T & F & T & T & T & T & T\\  
+T & F & F & T & F & T & T\\
+F & T & T & T & T & F & T\\  
+F & T & F & T & T & T & T\\
+F & F & T & F & T & T & T\\  
+F & F & F & F & T & T & T\\
+\end{tabular}
+\end{center}
+
+The only lines where the premises are all true are lines 3 and 6, and the 
+conclusion is truth both times. Therefore, the argument is valid
+
+\noindent (b) If the tax rate and the unemployment rate both go up, then there 
+will be a recession. If the GDP goes up, then there will not be a recession. The 
+GDP and taxes are both going up. Therefore, the unemployment rate is not going up 
+
+Let's define $T$ to mean ``tax rate go up'', $U$ to mean ``unemployment go up'',
+$R$ to mean ``will be a recession'' and $G$ to mean ``GDP will go up''.
+
+\[
+  \begin{array}{ r l }
+               & (T \wedge U) \then R \\
+               & G \then \neg R \\
+               & G \wedge T\\
+    \cline{2-2}
+    \therefore & \neg U
+  \end{array}
+\]
+
+Rewriting with logical connectives 
+
+\[
+  \begin{array}{ r l }
+               & \neg (T \wedge U) \vee R \\
+               & \neg G \vee \neg R \\
+               & G \wedge T\\
+    \cline{2-2}
+    \therefore & \neg U
+  \end{array}
+\]
+
+Let's also define
+$A = \neg (T \wedge U) \vee R$,
+$B = \neg G \vee \neg R$,
+$C = G \wedge T$
+$D = \neg U$.
+
+\begin{center}
+\begin{tabular}{ c c c c c c c c }
+$T$ & $U$ & $R$ & $G$ & $A$ & $B$ & $C$ & $D$\\
+T & T & T & T & T & F & T & F\\
+T & T & T & F & T & T & F & F\\
+T & T & F & T & F & T & T & F\\
+T & T & F & F & F & T & F & F\\
+T & F & T & T & T & F & T & T\\
+T & F & T & F & T & T & F & T\\
+T & F & F & T & T & T & T & T\\
+T & F & F & F & T & T & F & T\\
+F & T & T & T & T & F & F & F\\
+F & T & T & F & T & T & F & F\\
+F & T & F & T & T & T & F & F\\
+F & T & F & F & T & T & F & F\\
+F & F & T & T & T & F & F & T\\
+F & F & T & F & T & T & F & T\\
+F & F & F & T & T & T & F & T\\
+F & F & F & F & T & T & F & T\\
+\end{tabular}
+\end{center}
+
+The premises are all true on line 7 only, where the conclusion is true, so the 
+argument is valid
+
+\noindent (c) The warning light will come on if and only if the pressure is too
+high and the relief valve is clogged. The relief valve is not clogged. 
+Therefore, the warning light will come on if and only if the pressure is too
+high
+
+Let's define
+$W$ is ``warning light will come on'',
+$P$ is ``pressure too high'',
+$R$ is ``relief valve clogged''.
+
+\[
+  \begin{array}{ r l }
+               & W \bicond (P \wedge R)\\
+               & \neg R \\
+    \cline{2-2}
+    \therefore & W \bicond P
+  \end{array}
+\]
+
+Rewriting with logical connectives 
+
+\[
+  \begin{array}{ r l }
+               & (\neg W \vee (P \wedge R)) \wedge (\neg (P \wedge R) \vee W)\\
+               & \neg R \\
+    \cline{2-2}
+    \therefore & (\neg Q \vee P) \wedge (\neg P \vee W)
+  \end{array}
+\]
+
+Let's also define
+$A = (\neg W \vee (P \wedge R)) \wedge (\neg (P \wedge R) \vee W)$,
+$B = \neg R$
+$C = (\neg Q \vee P) \wedge (\neg P \vee W)$.
+
+\begin{center}
+\begin{tabular}{ c c c c c c }
+$W$ & $P$ & $R$ & $A$ & $B$ & $C$\\ 
+T & T & T & T & F & T\\  
+T & T & F & F & T & T\\
+T & F & T & F & F & F\\  
+T & F & F & F & T & F\\
+F & T & T & F & F & F\\  
+F & T & F & T & T & F\\
+F & F & T & T & F & T\\  
+F & F & F & T & T & T\\
+\end{tabular}
+\end{center}
+
+Lines 6 and 8 have all premises true, yet on line 6 the conclusion is false. 
+Therefore, this is not a valid argument
 
 \section*{Exercise 5}
 
-% TODO
+\noindent (a) If Jones is convicted then he will go to prison. Jones will be 
+convicted only if Smith testifies against him. Therefore, Jones won't go to 
+prison unless Smith testifies against him.
+
+Let's define 
+$C$ as ``Jones is convicted'',
+$P$ as ``Jones will go to prison'',
+$S$ as ``Smith testifies''
+
+The line ``Jones won't go to prison unless Smith testifies against him'' can be 
+quite tricky due to the negative. But, this has the same meaning as 
+``If Smith testifies then Jones goes to prison''. 
+
+\[
+  \begin{array}{ r l }
+               & C \then P\\
+               & P \then S \\
+    \cline{2-2}
+    \therefore & S \then P
+  \end{array}
+\]
+
+Rewriting with logical connectives
+
+\[
+  \begin{array}{ r l }
+               & \neg C \vee P\\
+               & \neg P \vee S \\
+    \cline{2-2}
+    \therefore & \neg S \vee P
+  \end{array}
+\]
+
+Let's also define 
+$X = \neg C \vee P$,
+$Y = \neg P \vee S$,
+$Z = \neg S \vee P$
+
+\begin{center}
+\begin{tabular}{ c c c c c c }
+$C$ & $P$ & $S$ & $X$ & $Y$ & $Z$\\ 
+T & T & T & T & T & T\\  
+T & T & F & T & F & T\\
+T & F & T & F & T & F\\  
+T & F & F & F & T & T\\
+F & T & T & T & T & T\\  
+F & T & F & T & F & T\\
+F & F & T & T & T & F\\  
+F & F & F & T & T & T\\
+\end{tabular}
+\end{center}
+
+Lines 1, 5, 7 and 8 all have true premises, yet line 7 has a false conclusion, 
+therefore this argument is not valid
+
+\noindent (b) Either the Democrats or the Republicans will have a majority in
+the Senate, but not both. Having a Democratic majority is a necessary condition
+for the bill to pass. Therefore, if the Republicans have a majority in the 
+Senate then the bill won't pass.
+
+Let's define 
+$D$ as ``Democratic majority'',
+$R$ as ``Republican majority'',
+$B$ as ``bill passes''
+
+\[
+  \begin{array}{ r l }
+               & (D \vee R) \wedge \neg (D \wedge R)\\
+               & B \then D \\
+    \cline{2-2}
+    \therefore & R \then \neg B
+  \end{array}
+\]
+
+Let's rewrite with only logical connections
+
+\[
+  \begin{array}{ r l }
+               & (D \vee R) \wedge \neg (D \wedge R)\\
+               & \neg B \vee D \\
+    \cline{2-2}
+    \therefore & \neg R \vee \neg B
+  \end{array}
+\]
+
+Let's also define 
+$X = (D \vee R) \wedge \neg (D \wedge R)$,
+$Y = \neg B \vee D$,
+$Z = \neg R \vee \neg B$
+
+\begin{center}
+\begin{tabular}{ c c c c c c }
+$D$ & $R$ & $B$ & $X$ & $Y$ & $Z$\\ 
+T & T & T & F & T & F\\  
+T & T & F & F & T & T\\
+T & F & T & T & T & T\\  
+T & F & F & T & T & T\\
+F & T & T & T & F & F\\  
+F & T & F & T & T & T\\
+F & F & T & F & F & T\\  
+F & F & F & F & T & T\\
+\end{tabular}
+\end{center}
+
+Lines 3, 4 and 6 all have the premises true, and the conclusions are all true, 
+therefore, this is a valid argument
+
+\section*{Exercise 6}
+
+\noindent (a) Show that $P \bicond Q$ is equivalent to 
+$(P \wedge Q) \vee (\neg P \wedge \neg Q)$
+
+Taking LHS
+
+$$(P \then Q) \wedge (Q \then P)$$
+$$(\neg P \vee Q) \wedge (\neg Q \vee P)$$
+$$((\neg P \vee Q) \wedge \neg Q) \vee ((\neg P \vee Q) \wedge P)$$
+$$(\neg P \wedge \neg Q) \vee (Q \wedge \neg Q) \vee (\neg P \wedge P) \vee (Q \wedge P)$$
+
+Contradictions can be ignored here
+
+$$(\neg P \wedge \neg Q) \vee (Q \wedge P)$$
+
+\noindent (b) Show that $(P \then Q) \vee (P \then R)$ is equivalent to 
+$P \then (Q \vee R)$
+
+Taking LHS
+
+$$\neg P \vee Q \vee \neg P \vee R$$
+$$\neg P \vee (Q \vee R)$$
+$$P \then (Q \vee R)$$
+
+\section*{Exercise 7}
+
+\noindent (a) Show that $(P \then R) \wedge (Q \then R)$ is equivalent to 
+$(P \vee Q) \then R$
+
+Taking LHS
+
+$$(\neg P \vee R) \wedge (\neg Q \vee R)$$
+$$((\neg P \vee R) \wedge \neg Q) \vee ((\neg P \vee R) \wedge R)$$
+$$\neg P \wedge \neg Q \vee R \wedge \neg Q \vee \neg P \wedge R \vee R \wedge R$$
+
+Use of absorbtion and idempotent laws 
+
+$$\neg P \wedge \neg Q \vee R$$
+
+Use of De Morgan law 
+
+$$\neg (P \vee Q) \vee R$$
+$$(P \vee Q) \then R$$
+
+\noindent (b) Formulate and verify a similar equivalence involving 
+$(P \then R) \vee (Q \then R)$
+
+$$\neg P \vee R \vee \neg Q \vee R$$
+$$\neg P \vee \neg Q \vee R$$
+$$\neg (P \wedge Q) \vee R$$
+$$(P \wedge Q) \then R$$
+
+\section*{Exercise 8}
+
+\noindent (a) Show that $(P \then Q) \wedge (Q \then R)$ is equivalent to 
+$(P \then R) \wedge ((P \bicond Q) \vee (R \bicond Q))$
+
+Use a truth table for this one 
+
+$$(P \then Q) \wedge (Q \then R) \equiv (\neg P \vee Q) \wedge (\neg Q \vee R) = A$$
+
+$$
+    (P \then R) \wedge ((P \bicond Q) \vee (R \bicond Q)) 
+    \equiv 
+    \neg P \vee R \wedge (\neg P \vee Q \wedge \neg Q \vee P) \vee (\neg R \vee Q \wedge \neg Q \vee R)
+    = B
+$$
+
+Use truth table for
+
+\begin{center}
+\begin{tabular}{ c c c c c }
+    $P$ & $Q$ & $R$ & $A$ & $B$ \\ 
+T & T & T & T & T\\  
+T & T & F & F & F\\
+T & F & T & F & F\\  
+T & F & F & F & F\\
+F & T & T & T & T\\  
+F & T & F & F & F\\
+F & F & T & T & T\\  
+F & F & F & T & T\\
+\end{tabular}
+\end{center}
+
+\noindent (b) Show that $(P \then Q) \vee (Q \then R)$ is a tautology
+
+$$\neg P \vee Q \vee \neg Q \vee R$$
+
+$$Q \vee \neg Q$$ 
+
+is always true, therefore, tautology
+
+\section*{Exercise 9}
+
+\noindent Find a formula involving only the connectives $\neg$ and $\then$ that 
+is equivalent to $P \wedge Q$
+
+$$\neg (P \then \neg Q)$$
+$$\neg (\neg P \vee \neg Q)$$
+$$P \wedge Q$$
+
+\section*{Exercise 10}
+
+\noindent Find a formula involving only the connectives $\neg$ and $\then$ that 
+is equivalent to $P \bicond Q$
+
+$$(P \then Q) \wedge (\neg P \then \neg Q)$$
+
+\section*{Exercise 11}
+
+\noindent (a) Show that $(P \vee Q) \bicond Q$ is equivalent to $P \then Q$
+
+Taking LHS
+
+$$(P \vee Q) \then Q \wedge Q \then (P \vee Q)$$
+$$\neg (P \vee Q) \vee Q \wedge (\neg Q \vee P \vee Q)$$
+
+Ignore the tautology in this case
+
+$$\neg (P \vee Q) \vee Q$$
+$$(P \vee Q) \then Q$$
+
+\noindent (b) Show that $(P \wedge Q) \bicond Q$ is equivalent to $Q \then P$
+
+Taking LHS
+
+$$(P \wedge Q) \then Q \wedge Q \then (P \wedge Q)$$
+$$\neg (P \wedge Q) \vee Q \wedge \neg Q \vee (P \wedge Q)$$
+$$\neg P \vee Q \vee \neg Q \wedge \neg Q \vee (P \wedge Q)$$
+
+Can ignore tautology in this case
+
+$$\neg Q \vee (P \wedge Q)$$
+$$Q \then (P \wedge Q)$$
+
+\section*{Exercise 12}
+
+\noindent Which of the following are equivalent?
+
+\noindent (a) $P \then (Q \then R)$
+
+$$\neg P \vee \neg Q \vee R$$
+
+\noindent (b) $Q \then (P \then R)$
+
+$$\neg Q \vee \neg P \vee R$$
+
+\noindent (c) $(P \then Q) \wedge (P \then R)$
+
+$$\neg P \vee Q \wedge \neg P \vee R$$
+$$\neg P \vee (Q \wedge R)$$
+
+\noindent (d) $(P \wedge Q) \then R$
+
+$$\neg (P \wedge Q) \vee R$$
+$$\neg P \vee \neg Q \vee R$$
+
+\noindent (e) $P \then (Q \wedge R)$
+
+$$\neg P \vee (Q \wedge R)$$
+
+Therefore a, b, d are equivalent and c, e are equivalent
+
+
 
 
 
