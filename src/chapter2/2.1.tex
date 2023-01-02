@@ -20,4 +20,286 @@
 
 \section*{Exercise 1}
 
+\noindent Analyse the logical forms of the following statements
+
+\noindent (a) Anyone who has forgiven at least one person is a saint
+
+$$\forall x (\exists y F(x, y) \then S(x))$$
+
+Where $F(x, y)$ is ``$x$ has forgiven $y$'' and $S(x)$ is ``$x$ is a saint''
+
+\noindent (b) Nobody in the calculus class is smarter than everybody in the 
+discrete math class
+
+$$\neg \exists ( C(x) \wedge \forall y (D(y) \then S(x, y)))$$
+
+Where 
+$C(x)$ means ``$x$ is in the calculus class'',
+$D(x)$ means ``$x$ is in the discrete math class'',
+$S(x, y)$ means ``$x$ is smarter than $y$''
+
+\noindent (c) Everyone likes Mary, except Mary herself 
+
+$$\forall x (\neg (x = m) \then L(x, m))$$
+
+Where $m$ means ``Mary'' and $L(x, m)$ means ``$x$ likes $m$''
+
+\noindent (d) Jane saw a police officer, and Roger saw him too 
+
+$$\exists x (P(x) \wedge S(j, x)) \wedge \exists y (P(y) \wedge S(r, y))$$
+
+Where 
+$P(x)$ means ``$X$ is a police officer'',
+$S(x, y)$ means ``$x$ saw $y$'',
+$j$ means ``Jane'',
+$r$ means ``Roger''
+
+\noindent (e) Jane saw a police officer, and Roger saw him too 
+
+$$\exists x (P(x) \wedge S(j, x) \wedge S(r, x))$$
+
+\section*{Exercise 2}
+
+\noindent Analyse the logical forms of the following statements
+
+\noindent (a) Anyone who has bought a Rolls Royce with cash must have a rich uncle 
+
+$$\forall x (R(x) \then U(x))$$
+
+Where 
+$R(x)$ means ``$x$ bought a Rolls Royce'',
+$U(x)$ means ``$x$ has a rich uncle''
+
+\noindent (b) If anyone in the dorm has the measles, then everyone who has a 
+friend in the dorm will have to be quarantined 
+
+$$\exists x (D(x) \wedge M(x)) \then \forall y (\exists z (F(y, z) \wedge D(z) \then Q(y))$$
+
+Where
+$D(x)$ means ``$x$ is in the dorm'',
+$M(x)$ means ``$x$ has measles'',
+$F(x, y)$ means ``$x$ and $y$ are friends'',
+$Q(y)$ means ``$y$ must quarantine''
+
+\noindent (c) If nobody failed the test, then everybody who got an A will tutor someone who got a D
+
+$$\neg \exists x F(x) \then \forall y (G(y, \text{`}A\text{'}) \then \exists z (G(z, \text{`}D\text{'}) \wedge T(y, z)))$$
+
+Where
+$F(x)$ means ``$x$ failed the test'',
+$G(x, \text{`}X\text{'})$ ``$x$ got grade `X' on the test'',
+$T(y, z)$ means ``$y$ tutors $z$''
+
+\noindent (d) If anyone can do it, Jones can
+
+$$\exists x (D(x) \then D(j))$$
+
+Where $D(x)$ means ``$x$ can do it'' and $j$ means ``Jones''
+
+\noindent (e) If Jones can do it, then anyone can
+
+$$D(j) \then \forall x D(x)$$
+
+\section*{Exercise 3}
+
+\noindent (a) Every number that is larger than $x$ is larger than $y$
+
+$$\forall z (z > x \then z > y)$$
+
+Free variables are $x$ and $y$
+
+\noindent (b) For every number $a$, the equation $ax^2 + 4x - 2 = 0$ has at 
+least one solution iff $a \geq -2$
+
+$$\forall a \exists x (ax^2 + 4x - 2 = 0) \bicond a \geq -2$$
+
+No free variables
+
+\noindent (c) All solutions of the inequality $x^3 - 3x < 3$ are smaller than 10
+
+$$\forall x (x^2 - 3x < 3 \then x < 10)$$
+
+No free variables
+
+\noindent (d) If there is a number $x$ such that $x^2 + 5x = w$ and there is a 
+number $y$ such that $4 - y^2 = w$, then $w$ is strictly between -10 and 10
+
+$$\exists x (x^2 + 5x = w \wedge \exists y (4 - y^2 = w) \then -10 \leq w \leq 10)$$
+
+$w$ is free
+
+\section*{Exercise 4}
+
+\noindent Translate the following statements into idiomatic English
+
+\noindent (a) $\forall x ((H(x) \wedge \neg \exists y M(x, y)) \then U(x))$, 
+where $H(x)$ means ``$x$ is a man'', $M(x, y)$ ``$x$ is married to $y$'',
+and $U(x)$ means ``$x$ is unhappy''
+
+All unmarried men are unhappy
+
+\noindent (b) $\exists z (P(z, x) \wedge S(z, y) \wedge W(y))$, where $P(z, x)$ 
+means ``$z$ is a parent of $x$'', $S(z, y)$ means ``$z$ and $y$ are siblings'',
+and $W(y)$ means ``$y$ is a woman''
+
+$y$ is a sister of one of $x$'s parents i.e. $y$ is $x$'s aunt
+
+\section*{Exercise 5}
+
+\noindent Translate the following statements into idiomatic mathematical 
+English
+
+\noindent (a) $\forall x ((P(x) \wedge \neg (x = 2)) \then O(x))$ where $P(x)$ 
+means ``$x$ is prime'' and $O(x)$ means ``$x$ is odd''
+
+All the prime number thats are not 2 are odd
+
+\noindent (b) $\exists x (P(x) \wedge \forall y (P(y) \then y \leq x))$ where 
+$P(x)$ means ``$x$ is a perfect number''
+
+There exists a perfect number such that all perfect numbers are less than or 
+equal to it (i.e. there is a largest perfect number)
+
+\section*{Exercise 6}
+
+\noindent Translate the following statements into idiomatic mathematical 
+English. Are they true or false? The universe of discourse is $\mathbb{R}$
+
+\noindent (a) $\neg \exists x (x^2 + 2x + 3 = 0 \wedge x^2 + 2x - 3 = 0)$
+
+$x^2 + 2x + 3 = 0$ and $x^2 + 2x - 3 = 0$ do not share a solution
+
+Solutions to $x^2 + 2x + 3 = 0$ are $-1 + i \sqrt{2}$ or $-1 - i \sqrt{2}$. 
+Solutions to $x^2 + 2x - 3 = 0$ are $-3$ and $1$. 
+Therefore, this statement is true
+
+\noindent (b) $\neg (\exists x (x^2 + 2x + 3 = 0) \wedge \exists x (x^2 + 2x - 3 = 0))$
+
+$x^2 + 2x + 3 = 0$ and $x^2 + 2x - 3 = 0$ do not share a solution.
+(This is stated differently to (a). In this one we consider all the solutions 
+of $x^2 + 2x - 3 = 0$ against each solution of $x^2 + 2x + 3 = 0$ rather than 
+in (a) where we compare each possible solution at the same time)
+
+This is true, for the same reasons as (a)
+
+\noindent (c) $\neg \exists x (x^2 + 2x + 3 = 0) \wedge \neg \exists x (x^2 + 2x - 3 = 0)$
+
+Neither $x^2 + 2x + 3 = 0$ or $x^2 + 2x - 3 = 0$ have a solution
+
+This statement is false, since $x^2 + 2x - 3 = 0$ has a solution. 
+($x^2 + 2x + 3 = 0$ doesn't, since the universe of discourse is $\mathbb{R}$)
+
+\section*{Exercise 7}
+
+\noindent Are these statements true or false? The universe of discourse is the 
+set of all people, and $P(x, y)$ means ``$x$ is a parent of $y$''
+
+\noindent (a) $\exists x \forall y P(x, y)$
+
+There exists some parent who is the parent of everyone. False, since nobody 
+can be their own parent 
+
+\noindent (b) $\forall x \exists y P(x, y)$
+
+Everyone is a parent to someone. False, since some people do not have children.
+
+\noindent (c) $\neg \exists x \exists y P(x, y)$
+
+There does not exist anyone who is a parent of someone, so it is false
+
+\noindent (d) $\exists x \neg exist y P(x, y)$
+
+There is someone who is a parent of nobody, which is true 
+
+\noindent (e) $\exists x \exists y \neg P(x, y)$
+
+There exists someone who is not a parent, so true
+
+\section*{Exercise 8}
+
+\noindent Are these statements true or false? The universe of discourse is $\mathbb{N}$
+
+\noindent (a) $\forall x \exists y (2x - y = 0)$
+
+For all $x$, there exists a $y$ such that $2x - y = 0$, which is true 
+
+\noindent (b) $\exists y \forall x (2x - y = 0)$
+
+False - we can not use \textit{any} $x$ for a given $y$
+
+\noindent (c) $\forall x \exists y (x - 2y = 0)$
+
+This is false. Consider $x = 1$, then $y = 0.5$ but we are in $\mathbb{N}$, so 
+not fractional numbers 
+
+\noindent (d) $\forall x (x < 10 \then \forall y (y < x \then y < 9))$
+
+True 
+
+\noindent (e) $\exists y \exists z (y + z = 100)$
+
+True 
+
+\noindent (f) $\forall x \exists y (y > x \wedge \exists z (y + z = 100))$
+
+False, since if $x > 100$ then $z < 0$ and we do not have negative numbers 
+(domain is $\mathbb{N}$)
+
+\section*{Exercise 9}
+
+\noindent Same as exercise 8 but with $\mathbb{R}$ as the universe of discourse
+
+\noindent (a)
+
+True 
+
+\noindent (b) 
+
+False 
+
+\noindent (c) 
+
+True 
+
+\noindent (d) 
+
+False e.g. $x=9.9$, $y = 9.8$
+
+\noindent (e) 
+
+True 
+
+\noindent (f)
+
+True 
+
+\section*{Exercise 10}
+
+\noindent Same as exercise 8. but with $\mathbf{Z}$ as the universe of discourse 
+
+\noindent (a)
+
+True 
+
+\noindent (b) 
+
+True 
+
+\noindent (c) 
+
+False 
+
+\noindent (d) 
+
+True
+
+\noindent (e) 
+
+True 
+
+\noindent (f)
+
+True 
+
+
 \end{document}
