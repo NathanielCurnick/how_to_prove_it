@@ -35,7 +35,7 @@ $$P \vee Q \equiv Q \vee P$$
 $$P \wedge (Q \wedge R) \equiv  (P \wedge Q) \wedge P$$
 $$P \vee (Q \vee R) \equiv  (P \vee Q) \vee P$$
 
-\subsection{Idempotent Laws}wedge
+\subsection{Idempotent Laws}
 
 $$P \wedge P \equiv P$$
 $$P \vee P \equiv P$$
@@ -55,11 +55,24 @@ $$P \wedge (P \vee Q) \equiv P$$
 $$\neg \neg P \equiv P$$
 
 \section{Conditional and Biconditional Laws}
+
 $$P \then Q \equiv \neg P \vee Q$$
 $$P \then Q \equiv \neg (P \wedge \neg Q)$$
 $$P \bicond Q \equiv (P \then Q) \wedge (Q \then P)$$
 $$P \bicond Q \equiv (P \then Q) \wedge (\neg P \then \neg Q)$$
 $$P \bicond Q \equiv (\neg P \vee Q) \wedge (\neg Q \vee P)$$
+
+\section{Quantifier Negation Laws}
+
+$$\neg \exists P(x) \equiv \forall x \neg P(x)$$
+$$\neg \forall x P(x) \equiv \exists x \neg P(x)$$
+$$\neg \forall x (x \in A \then P(x)) \equiv \exists x \in A \neg P(x)$$
+$$\forall x \in A P(x) \equiv \neg \exists x \in A \neg P(x)$$
+
+\section{Other Quantifier Laws}
+
+$$\exists! x P(x) \equiv \exists x (P(x) \wedge \neg \exists y (P(y) \wedge y \neq x))$$
+
 
 
 \end{document}
