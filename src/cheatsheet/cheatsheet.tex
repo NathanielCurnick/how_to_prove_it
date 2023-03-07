@@ -2,9 +2,11 @@
 \usepackage{amssymb}
 \usepackage{tipa}
 \usepackage{amsmath}
+\usepackage[scr]{rsfso}
 
 \newcommand{\then}{\rightarrow} 
 \newcommand{\bicond}{\leftrightarrow}
+\newcommand{\powerset}[1]{\mathscr{P}(#1)}
 
 \title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Cheatsheet of Formulas}}
 
@@ -62,6 +64,9 @@ $$P \bicond Q \equiv (P \then Q) \wedge (Q \then P)$$
 $$P \bicond Q \equiv (P \then Q) \wedge (\neg P \then \neg Q)$$
 $$P \bicond Q \equiv (\neg P \vee Q) \wedge (\neg Q \vee P)$$
 
+\section{Set Laws}
+$$A \subseteq B \equiv \forall x (x \in A \then x \in B)$$
+
 \section{Quantifier Negation Laws}
 
 $$\neg \exists P(x) \equiv \forall x \neg P(x)$$
@@ -73,6 +78,7 @@ $$\forall x \in A P(x) \equiv \neg \exists x \in A \neg P(x)$$
 
 $$\exists! x P(x) \equiv \exists x (P(x) \wedge \neg \exists y (P(y) \wedge y \neq x))$$
 
+\section{More Set Operations}
 
-
+$$\powerset{A}$$
 \end{document}
