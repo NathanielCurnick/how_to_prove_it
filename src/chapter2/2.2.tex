@@ -1,0 +1,375 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{amsmath}
+
+\newcommand{\then}{\rightarrow} 
+\newcommand{\bicond}{\leftrightarrow}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Chapter 1: Operations on Sets}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+Negate these statements and then reexpress the results as equivalent positive
+statements
+
+\noindent (a) Everyone who is majoring in math has a friend who needs help with 
+his or her homework
+
+$$\exists x (M(x) \wedge \forall y (F(y, x) \then \neg H(y)))$$
+
+Where $M(x)$ means ``$x$ is majoring in math'',
+$F(y,x)$ means ``$y$ is friends with $x$'',
+and $H(y)$ means ``$y$ needs help with their homework''.
+
+There is a math major whos friends don't need help with their homework
+
+\noindent (b) Everyone has a roommate who dislikes everyone
+
+$$\exists x \forall y (R(x, y) \then \exists z L(y, z))$$
+
+Where $R(x, y)$ means ``$x$ and $y$ are roommates'' and 
+$L(y, z)$ means ``$y$ likes $z$''.
+
+There is someone who all of their roommates like someone
+
+\noindent (c) $A \cup B \subseteq C \setminus D$
+
+$$\forall x (x \in (A \cup B) \then x \in (C \setminus D))$$
+
+$$\forall x (x \in A \vee x \in B \then x \in C \wedge x \notin D)$$
+
+$$\neg \forall x (x \in A \vee x \in B \then x \in C \wedge x \notin D)$$
+
+$$\exists x \neg (\neg(x \in A \vee x \in B) \vee x \in C \wedge x \notin D)$$
+
+$$\exists x (x \in A \vee x \in B \wedge x \notin C \vee x \in D)$$
+
+\noindent (d) $\exists x \forall y (y > x \then \exists z (z^2 + 5z = y))$
+
+$$\neg \exists x \forall y (y > x \then \exists z(z^2 + 5z = y))$$
+
+$$\forall x \neg \forall y (y > x \then \exists z (z^2 + 5z = y))$$
+
+$$\forall x \exists y \neg (y > x \then \exists z (z^2 + 5z = y))$$
+
+$$\forall x \exists y \neg (\neg (y > x) \vee \exists z (z^2 + 5z = y))$$
+
+$$\forall x \exists y (y > x \wedge \neg \exists z (z^2 + 5z = y))$$
+
+$$\forall x \exists y (y > x \wedge \forall z (z^2 + 5z \neq y))$$
+
+\section*{Exercise 2}
+
+Negate these statements and then reexpress the results as equivalent positive 
+statements
+
+\noindent (a) There is someone in the freshman class who doesn't have a roommate
+
+$$\forall x (F(x) \then \exists y R(x,y))$$
+
+Where $F(x)$ means ``$x$ is a freshman'' and $R(x,y)$ means ``$x$ and $y$ are 
+roommates''
+
+\noindent (b) Everyone likes someone, but no one likes everyone
+
+$$\exists x \forall y \neg L(x, y) \vee \exists z \forall a L(z, a)$$
+
+Where $L(x,y)$ means ``$x$ likes $y$''
+
+Either someone doesn't like anyone or likes everyone
+
+\noindent (c) $\forall a \in A \exists b \in B (a \in C \bicond b \in C)$
+
+TODO
+
+\noindent(d) $\forall y > 0 \exists x (ax^2 + bx + c = y)$
+
+TODO
+
+\section*{Exercise 3}
+
+Are these statements true or false? The universe of discourse is $\mathbb{N}$
+
+\noindent (a) $\forall x (x < 7 \then \exists a \exists b \exists c (a^2 + b^2 + c^2 = x))$
+
+True, if we make a table for all possible $x$ then we find 
+
+\begin{center}
+    \begin{tabular}{ c c c c c }
+    $x$ & $a$ & $b$ & $c$ & $a^2 + b^2 + c^2$ \\ 
+    0 & 0 & 0 & 0 & 0\\  
+    1 & 1 & 0 & 0 & 1\\
+    2 & 1 & 1 & 0 & 2\\  
+    3 & 1 & 1 & 1 & 3\\
+    4 & 2 & 0 & 0 & 4\\
+    5 & 2 & 1 & 0 & 5\\
+    6 & 2 & 1 & 1 & 6
+    \end{tabular}
+\end{center}
+
+\noindent (b) $\exists! x(x^2 + 3 = 4x)$
+
+$$x^2 - 4x + 3 = 0$$
+
+$$(x-1)(x-3)$$
+
+$$x = 1, x = 3$$
+
+Therefore, false 
+
+\noindent (c) $\exists! x(x^2 = 4x + 5)$
+
+$$x^2 - 4x + 5 = 0$$
+
+$$x = 2 \pm i$$
+
+Therefore, false 
+
+\noindent (d) $\exists x \exists y (x^2 = 4x + 5 \wedge y^2 = 4y + 5)$
+
+$$x^2 - 4x - 5 = 0$$
+
+$$(x-5)(x+1)$$
+
+$$x = 5, x = -1$$
+
+Therefore, true 
+
+\section*{Exercise 4}
+
+Show that the second quantifier negation law, which says that 
+$\neg \forall x P(x)$ is equivalent to $\exists x \neg P(x)$, can be derived
+from the first, which says that $\neg \exists x P(x)$ is equivalent to 
+$\forall x \neg P(x)$
+
+Show: $\neg \forall x P(x) \equiv \exists x \neg P(x)$
+
+From: $\neg \exists x P(x) \equiv \forall x \neg P(x)$
+
+$$\neg \exists x \neg P(x) = \forall x \neg \neg P(x)$$
+
+$$\neg \exists x \neg P(x) = \forall x P(x)$$
+
+$$\neg \neg \exists x \neg P(x) = \neg \forall x P(x)$$
+
+$$\exists x \neg P(x) = \neg \forall x P(x)$$
+
+\section*{Exercise 5}
+
+Show that $\neg \exists x \in A P(x)$ is equivalent to 
+$\forall x \in A \neg P(x)$
+
+$$\neg \exists x (x \in A \wedge P(x))$$
+
+$$\forall x \neg (x \in A \wedge P(x))$$
+
+$$\forall x (x \notin A \vee \neg P(x))$$
+
+$$\forall x (x \in A \then \neg P(x))$$
+
+$$\forall x \notin A \neg P(x)$$
+
+\section*{Exercise 6}
+
+Show that the existential quantifier distributes over disjunction. In other
+words, show hat $\exists x (P(x) \vee Q(x))$ is equivalent to 
+$\exists x P(x) \vee \exists x Q(x)$.
+
+$$\exists x (P(x) \vee Q(x))$$
+
+$$\neg \neg \exists x (P(x) \vee Q(x))$$
+
+$$\neg \forall x \neg (P(x) \vee Q(x))$$
+
+$$\neg \forall x (\neg P(x) \wedge \neg Q(x))$$
+
+$$\neg \forall x \neg P(x) \wedge \neg \forall x \neg Q(x)$$
+
+$$\neg \exists P(x) \wedge \neg \exists x Q(x)$$
+
+$$\exists x P(x) \vee \exists x Q(x)$$
+
+\section*{Exercise 7} 
+
+Show that $\exists x (P(x) \then Q(x))$ is equivalent to 
+$\forall x P(x) \then \exists x Q(x)$
+
+$$\exists x (\neg P(x) \vee Q(x))$$
+
+$$\exists x \neg P(x) \vee \exists x Q(x)$$
+
+$$\neg \forall x P(x) \vee \exists x Q(x)$$
+
+$$\forall x P(x) \then \exists x Q(x)$$
+
+\section*{Exercise 8}
+
+Show that $(\forall x \in A P(x)) \wedge (\forall x \in B P(x))$ is equivalent 
+to $\forall x \in (A \cup B) P(x)$
+
+$$\forall x (x \in A \then P(x)) \wedge \forall x (x \in B \then P(x))$$
+
+$$\forall x ((x x \in A \then P(x)) \wedge (x \in B \then P(x)))$$
+
+$$\forall x ((x \notin A \vee P(x)) \wedge (x \notin B \vee P(x)))$$
+
+$$\forall x ((x \notin A \wedge x \notin B) \vee P(x))$$
+
+$$\forall x (\neg (x \in A \vee x \in B) \vee P(x))$$
+
+$$\forall x ((x \in A \vee x \in B) \then P(x))$$
+
+$$\forall x (x \in (A \cup B) \then P(x))$$
+
+$$\forall x \in (A \cup B) P(x)$$
+
+\section*{Exercise 9}
+
+Is $\forall x (P(x) \vee Q(x))$ equivalent to 
+$\forall x P(x) \vee \forall x Q(x)$?
+
+No 
+
+Consider this:
+$P(x)$ means ``bright eyed'' and $Q(x)$ means ``bushy tailed''
+
+For $\forall x (P(x) \vee Q(x))$ it would mean ``everyone is either bright eyed
+or bushy tailed'' i.e. each person is individually bright eyed or bushy tailed 
+
+For $\forall x P(x) \vee \forall x Q(x)$ it would mean ``Everyone is either
+bright eyed or everyons is bushy tailed'' i.e. everyone belongs to the set of 
+bright eyed people or everyone belongs to the set of bushy tailed people 
+
+\section*{Exercise 10}
+
+\noindent (a) Show that $\exists x \in A P(x) \vee \exists x \in B P(x)$ is 
+equivalent to $\exists x \in (A \cup B) P(x)$
+
+$$\exists x (x \in A \then P(x) \vee \exists x (x \in B \then P(x)))$$
+
+$$\exists x (x \in A \then P(x) \vee x \in B \then P(x))$$
+
+$$\exists x ((x \notin A \vee P(x)) \vee (x \notin B \vee P(x)))$$
+
+$$\exists x ((x \in A \wedge x \in B) \then P(x))$$
+
+$$\exists x (x \in (A \cap B) \then P(x))$$
+
+$$\exists x \in (A \cap B) P(x)$$
+
+\noindent (b) Is $\exists x \in A P(x) \wedge \exists x \in B P(x)$ equivalent 
+to $\exists x \in (A \cap B) P(x)$? Explain
+
+No, since $\exists$ is not distributive over $\wedge$
+
+\section*{Exercise 11}
+
+Show that the statements $A \subseteq B$ and $A \setminus B = \emptyset$ are 
+equivalent by writing each in logical symbols and then showing that the 
+resulting formulas are equivalent 
+
+$$A \subseteq B = \forall x (x \in A \then x \in B)$$
+
+$$A \setminus B = \emptyset = \neg \exists x (x \in A \wedge x \notin B)$$
+
+$$\forall x (x \in A \then x \in B)$$
+
+$$\neg \exists x \neg (x \notin A \vee x \in B)$$
+
+$$\neg \exists x (x \in A \wedge x \notin B)$$
+
+\section*{Exercise 12}
+
+Show that the statements $C \subseteq A \cup B$ and $C \setminus A \subseteq B$
+are equivalent by writing each in logical symbols and then showing that the 
+resulting formulas are equivalent 
+
+$$C \subseteq A \cup B = \forall x (x \in C \then x \in (A \cup B))$$
+
+$$\forall x (x \in C \then (x \in A \vee x \in B))$$
+
+$$\forall x (x \notin C \vee (x \in A \vee x \in B))$$
+
+$$C \setminus A \subseteq B = \forall x (x \in (C \setminus A) \then x \in B)$$
+
+$$\forall x (x \in (C \setminus A) \then x \in B)$$
+
+$$\forall x ((x \in C \wedge x \notin A) \then x \in B)$$
+
+$$\forall x (\neg (x \in C \wedge x \notin A) \vee x \in B)$$
+
+$$\forall x (x \notin C \vee x \in A \vee x \in B)$$
+
+\section*{Exercise 13}
+
+\noindent (a) Show that the statements $A \subseteq B$ and $A \cup B = B$ are 
+equivalent by writing each in logical symbols and then showing that the 
+resulting formulas are equivalent
+
+$$A \subseteq B = \forall x (x \in A \then x \in B)$$
+
+$$A \cup B = B \equiv \forall x ((x \in A \vee x \in B) \then x \in B)$$
+
+$$\forall x (\neg (x \in A \vee x \in B) \vee x \in B)$$
+
+$$\forall x ((x \notin A \wedge x \notin B) \vee x \in B)$$
+
+$$\forall x (x \notin A \vee x \in B \wedge x \notin B \vee x \in B)$$
+
+$$\forall x (x \notin A \vee x \in B)$$
+
+$$\forall x (\neg (x \in A) \vee x \in B)$$
+
+$$\forall x (x \in A \then x \in B)$$
+
+\noindent (b) Show that the statements $A \subseteq B$ and $A \cap B = A$ are 
+equivalent
+
+TODO
+
+\section*{Exercise 14}
+
+Show that the statements $A \subseteq B$ and $A \cap B = A$ are equivalent
+
+TODO
+
+\section*{Exercise 15}
+
+Let $T(x, y)$ mean ``$x$ is a teacher of $y$''. What do the following statements
+mean? Under what circumstances would each one be true? Are any of them
+equivalent to each other?
+
+\noindent (a) $\exists! y T(x,y)$
+
+$x$ teaches only one person
+
+\noindent (b) $\exists x \exists! y T(x,y)$
+
+There is at least one teacher who only teaches one student 
+
+\noindent (c) $\exists! x \exists y T(x,y)$
+
+There is at least one student who has one teacher
+
+\noindent (d) $\exists y \exists! x T(x, y)$
+
+Equivalent to (c)
+
+\noindent (e) $\exists! x \exists! y T(x, y)$
+
+There is exactly one student who has exactly one teacher 
+
+\noindent (f) TODO
+
+\end{document}
