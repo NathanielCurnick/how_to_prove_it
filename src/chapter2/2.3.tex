@@ -1,0 +1,383 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{amsmath}
+\usepackage[scr]{rsfso}
+
+
+\newcommand{\then}{\rightarrow} 
+\newcommand{\bicond}{\leftrightarrow}
+\newcommand{\powerset}[1]{\mathscr{P}(#1)}
+\newcommand{\family}{\mathcal{F}}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Chapter 1: Operations on Sets}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+Analyse the logical forms of the following statements. You may use the symbols
+$\in$, $\notin$, $=$, $\neq$, $\wedge$, $\vee$, $\then$, $\bicond$, $\forall$,
+$\exists$ in your answers, but not $\subseteq$, $\nsubseteq$, $\mathscr{P}$, 
+$\cup$, $\cap$, $\setminus$, $\{$, $\}$, or $\neg$. (Thus, you must write out the
+definitions of some set theory notation, and you must use equivalences to get 
+rid of any occurances of $\neg$).
+
+\noindent (a) $\family \subseteq \powerset{A}$
+
+$$\forall x (x \in \family \then \forall y (y \in x \then y \in A))$$
+
+\noindent (b) $A \subseteq (2n + 1 | n \in \mathbb{N})$
+
+$$\forall x (x \in A \then \exists n \in \mathbb{N} (x = 2n + 1))$$
+
+\noindent (c) $\{n^2 + n + 1 | n \in \mathbb{N}\} \subseteq 
+\{2n + 1 | n \in \mathbb{N}\}$
+
+$$\forall x (\exists x \in \mathbb{N} (x = 2n + 1) 
+\then \exists x \in \mathbb{N} (2n + 1))$$
+
+\noindent (d) $\powerset{\bigcup_{i \in I} A_i} \nsubseteq 
+\bigcup_{i \in I} \powerset{A_i}$
+
+TODO
+
+\section*{Exercise 2}
+
+Analyse the logical forms of the following statements. You may use the symbols
+$\in$, $\notin$, $=$, $\neq$, $\wedge$, $\vee$, $\then$, $\bicond$, $\forall$,
+$\exists$ in your answers, but not $\subseteq$, $\nsubseteq$, $\mathscr{P}$, 
+$\cup$, $\cap$, $\backslash$, $\{$, $\}$, or $\neg$. (Thus, you must write out the
+definitions of some set theory notation, and you must use equivalences to get 
+rid of any occurances of $\neg$).
+
+\noindent (a) $x \in \bigcup \family \setminus \bigcup \mathcal{G}$
+
+$$x \in \bigcup \family \wedge x \notin \bigcup \mathcal{G}$$
+
+$$\exists A \in \family (x \in A) \wedge \forall A \in \mathcal{G} (x \notin A)$$
+
+\noindent (b) $\{x \in B | x \notin C\} \in \powerset{A}$
+
+$$\forall x ((x \in B \wedge x \notin C) \then x \notin \powerset{A})$$
+
+$$\forall x ((x \in B \wedge x \notin C) \then x \in A)$$
+
+\noindent (c) $x \in \bigcap_{i \in I} (A_i \cup B_i)$
+
+$$\forall i \in I (x \in A_i \vee x \in B_i)$$
+
+\noindent (d) $x \in (\bigcap_{i \in I} A_i) \cup (\bigcap_{i \in I} B_i)$
+
+$$\forall i \in I (x \in A_i) \vee \forall i \in I (x \in B_i)$$
+
+\section*{Exercise 3}
+
+We've seen that $\powerset{\emptyset} = \{\emptyset\}$, and 
+$\{\emptyset\} = \emptyset$. What is $\powerset{\{\emptyset\}}$?
+
+$$\powerset{\{\emptyset\}} = \{\emptyset, \{\emptyset\}\}$$
+
+\section*{Exercise 4}
+
+Suppose $\family = \{ \{\text{red, green, blue}\}, 
+\{\text{orange, red, blue}\}, \{\text{purple, red, green, blue}\} \}$. Find 
+$\bigcap \family$ and $\bigcup \family$.
+
+$$\bigcap \family = \{\text{red, blue}\}$$
+
+$$\bigcup \family = \{\text{red, green, blue, orange, purple}\}$$
+
+\section*{Exercise 5}
+
+Suppose $\family = \{ \{3, 7, 12\}, \{5, 7, 16\}, \{5, 12, 23\} \}$. Find 
+$\bigcap \family$ and $\bigcup \family$.
+
+$$\bigcap \family = \{\} = \emptyset$$
+
+$$\bigcup \family = \{3,7,12,5,16,23\}$$
+
+\section*{Exercise 6}
+
+Let $I = \{2, 3, 4, 5\}$, and for each $i \in I$ let $A_i = \{i, i+1, i-1, 2i\}$
+
+\noindent (a) List the elements of all the sets $A_i$, for $i \in I$
+
+$$A = \{ \{2,3,1,4\}, \{3,4,2,6\}, \{4,5,3,8\}, \{5,6,4,10\} \}$$
+
+\noindent (b) Find $\bigcap_{i \in I} A_i$ and $\bigcup_{i \in I} A_i$
+
+$$\bigcup A = \{2,3,1,4,6,5,8,10\}$$
+
+$$\bigcap A = \{4\}$$
+
+\section*{Exercise 8}
+
+Let $I = \{2,3\}$ and for each $i \in I$ let $A_i = \{i. 2i\}$ 
+and $B_i = \{i, i+1\}$
+
+\noindent (a) List the elements of the sets $A_i$ and $B_i$ for $i \in I$
+
+$$A = \{ \{2,4\}, \{3,6\} \}$$
+
+$$B = \{ \{2,3\}, \{3,4\} \}$$
+
+\noindent (b) Find $\bigcap_{i \in I} (A_i \cup B_i)$ and 
+$(\bigcap_{i \in I} A_i) \cup (\bigcap_{i \in I} B_i)$. Are they the same?
+
+$$A_i \cup B_i = \{\{2,3,4\}, \{3,4,6\}\}$$
+
+$$\bigcap_{i \in I} (A_i \cup B_i) = \{3,4\}$$
+
+$$\bigcap_{i \in I} A_i = \{\}$$
+
+$$\bigcap_{i \in I} B_i = \{3\}$$
+
+$$(\bigcap_{i \in I} A_i) \cup (\bigcap_{i \in I} B_i) = \{3\}$$
+
+\noindent (c) In parts (c) and (d) of exercise 2 you analysed the statements 
+$x \in \bigcap_{i \in I} (A_i \cup B_i)$ and 
+$x \in (\bigcap_{i \in I} A_i) \cup (\bigcap_{i \in I} B_i)$. What can you 
+conclude from your answer to part (b) about whether or not these statements 
+are equivalent?
+
+Not equivalent
+
+\section*{Exercise 9} 
+
+\noindent (a) Analyse the logical forms of the statements 
+$x \in \bigcup_{i \in I} (A_i \setminus B_i)$, 
+$x \in (\bigcup_{i \in I} A_i) \setminus (\bigcup_{i \in I} B_i)$ and 
+$x \in (\bigcup_{i \in I} A_i) \setminus (\bigcup_{i \in I} B_i)$. Do you think 
+any of these statements are equivalent to each other?
+
+$$x \in \bigcup_{i \in I} (A_i \setminus B_i) = 
+\exists i \in I (x \in A_i \wedge \notin B_i)$$
+
+$$x \in (\bigcup_{i \in I} A_i) \setminus (\bigcup_{i \in I} B_i) = 
+\exists i \in I (x \in A_i) \wedge \neg \exists i \in I (x \in B_i)$$
+
+$$x \in (\bigcup_{i \in I} A_i) \setminus (\bigcup_{i \in I} B_i) =
+\exists i \in I (x \in A_i) \wedge \neg \forall i \in I (x \in B_i)$$
+
+None are equivalent
+
+\noindent (b) Let $I$, $A_i$ and $B_i$ be defined as in exercise 8. Find 
+$x \in \bigcup_{i \in I} (A_i \setminus B_i)$, 
+$x \in (\bigcup_{i \in I} A_i) \setminus (\bigcup_{i \in I} B_i)$ and 
+$x \in (\bigcup_{i \in I} A_i) \setminus (\bigcup_{i \in I} B_i)$.
+Now do you think any of the statements in part (a) are equivalent?
+
+$$x \in \bigcup_{i \in I} (A_i \setminus B_i) = \{4, 6\}$$
+
+$$x \in (\bigcup_{i \in I} A_i) \setminus (\bigcup_{i \in I} B_i) = \{6\}$$
+
+$$x \in (\bigcup_{i \in I} A_i) \setminus (\bigcup_{i \in I} B_i) = \{2, 4, 6\}$$
+
+\section*{Exercise 10}
+
+Give an example of an index set $I$ and indexed families os sets 
+$\{A_i | i \in I\}$ and $\{B_i | i \in I\}$ such that 
+$\bigcup_{i \in I} (A_i \cap B_i) \neq 
+(\bigcup_{i \in I} A_i) \cap (\bigcup_{i \in I} B_i)$.
+
+$$I = \{1, 2\}$$
+
+$$A = \{i\}$$
+
+$$B = \{2i\}$$
+
+$$A = \{\{1\}, \{2\}\}$$
+
+$$B = \{\{2\}, \{4\}\}$$
+
+$$\bigcup_{i \in I} (A_i \cap B_i) = \emptyset$$
+
+$$(\bigcup_{i \in I} A_i) \cap (\bigcup_{i \in I} B_i) = \{2\}$$
+
+\section*{Exercise 11}
+
+Show that for any sets $A$ and $B$, 
+$\powerset{A \cap B} = \powerset{A} \cap \powerset{B}$, by showing that the 
+statements $x \in \powerset{A \cap B}$ and $x \in \powerset{A} \cap \powerset{B}$
+are equivalent
+
+$$x \in \powerset{A \cap B} = \forall y (y \in x \then (y \in A \wedge y \in B))$$
+
+$$x \in \powerset{A} \cap \powerset{B} = 
+\forall y (y \in x \then y \in A) \wedge \forall y (y \in x \then y \in B)$$
+
+$$\forall y (y \in x \then (y \in A \wedge y \in B))$$
+
+$$\forall y (y \in x \then y \in A \wedge y \in x \then y \in B)$$
+
+$$\forall y (y \in x \then y \in A) \wedge \forall y (y \in x \then y \in B)$$
+
+\section*{Exercise 12} 
+
+Give examples of sets $A$ and $B$ for which 
+$\powerset{A \cup B} = \powerset{A} \cup \powerset{B}$
+
+$$A = \{1, 2\}, B = \{2 ,3\}$$
+
+\section*{Exercise 13}
+
+Verify the following identities by writing out (using logical symbols) what it 
+means for an object $x$ to be an element of each set and then using logical 
+equivalences
+
+\noindent (a) $\bigcup_{i \in I} (A_i \cup B_i) = 
+(\bigcup_{i \in I} A_i) \cup (\bigcup_{i \in I} B_i)$
+
+$$\bigcup_{i \in I} (A_i \cup B_i) = 
+(\bigcup_{i \in I} A_i) \cup (\bigcup_{i \in I} B_i)$$
+
+$$\bigcup_{i \in I} (A_i \cup B_i)$$
+
+$$\exists i \in I (x \in A_i \vee x \in B_i)$$
+
+$$\exists i \in I (x \in A_i) \vee \exists i \in I (x \in B_i)$$
+
+$$(\bigcup_{i \in I} A_i) \cup (\bigcup_{i \in I} B_i)$$
+
+\noindent (b) $(\bigcap \family) \cap (\bigcap \mathcal{G}) = 
+\bigcap (\family \cup \mathcal{G})$
+
+$$\forall A \in \family (x \in A) \wedge \forall A \in \mathcal{G} (x \in A)$$
+
+$$\forall A \in \family \cup \mathcal{G} (x \in A)$$
+
+$$\bigcap (\family \cup \mathcal{G})$$
+
+\noindent (c) $\bigcap_{i \in I} (A_i \setminus B_i) = 
+(\bigcap_{i \in I} A_i) \setminus (\bigcup_{i \in I} B_i)$
+
+$$\forall i \in I (x \in A_i \wedge x \notin B_i)$$
+
+$$\forall i \in I x \in A_i \wedge \forall i \in I x \notin B_i$$
+
+$$(\bigcap_{i \in I}) A_i \setminus (\bigcup_{i \in I} B_i)$$
+
+\section*{Exercise 14}
+
+Sometimes  each set in an indexed family of sets has \textit{two} indicies.
+For this problem, use the following definitions:
+$I = \{1,2\}, J = \{3,4\}$. For each $i \in I$ and $j \in J$, let 
+$A_{i, j} = \{i, j, i+j\}$. Thus, for example, $A_{2, 3} = \{2,3,5\}$.
+
+\noindent (a) For each $j \in J$ let 
+$B_j = \bigcup_{i \in I} A_{i,j} = A_{1,j} \cup A_{2,j}$. Find $B_3$ and $B_4$.
+
+For $j = 3$
+
+$$A_{1,3} = \{1,3,4\}$$
+
+$$A_{2,3} = \{2,3,5\}$$
+
+$$B_3 = \{1,3,4,2,5\}$$
+
+For $j = 4$
+
+$$A_{1,4} = \{1,4,5\}$$
+
+$$A_{2,4} = \{2,4,6\}$$
+
+$$B_4 = \{1,4,5,2,6\}$$
+
+\noindent (b) Find $\bigcap_{j \in J} B_j$. (Note that, replacing $B_j$ with its
+definition, we could say that $\bigcap_{j \in J} B_j = 
+\bigcap_{j \in J} (\bigcup_{i \in I} A_{i, j}))$
+
+$$B_3 = \{1,3,4,2,5\}$$
+
+$$B_4 = \{1,4,5,2,6\}$$
+
+$$B_3 \cap B_4 = \{1,4,5,2\}$$
+
+\noindent (c) Find $\bigcup_{i \in I} (\bigcap_{j \in J} A_{i, j})$. (Hint: You 
+may want to do this in two steps, corresponding to parts (a) and (b).) Are 
+$\bigcap_{j \in J} (\bigcup_{i \in I} A_{i, j})$ and 
+$\bigcup_{i \in I} (\bigcap_{j \in J} A_{i, j})$ equal?
+
+Start with $\bigcup_{i \in I} (\bigcap_{j \in J} A_{i, j})$. Define 
+$\bigcap_{j \in J} A_{i, j} = A_{i, 3} \cap A_{i, 4} = C_i$
+
+$$C_1 = \{1, 4\}$$
+
+$$C_2 = \{2\}$$
+
+$$C_1 \cup C_2 = \{1,2,4\}$$
+
+Not equivalent
+
+\noindent (d) Analyse the logical forms of the statements 
+$x \in \bigcap_{j \in J} (\bigcup_{i \in I} A_{i, j})$ and 
+$x \in \bigcup_{i \in I} (\bigcap_{j \in J} A_{i, j})$. Are they equivalent?
+
+$$x \in \bigcap_{j \in J} (\bigcup_{i \in I} A_{i, j})$$
+
+$$\forall j \in J \exists i \in I (x \in A_{i, j})$$
+
+$$x \in \bigcup_{i \in I} (\bigcap_{j \in J} A_{i, j})$$
+
+$$\exists i \in I \forall j \in J (x \in A_{i, j})$$
+
+Not equivalent!
+
+\section*{Exercise 15}
+
+\noindent (a) Show that if $\family = \emptyset$, then the statement 
+$x \in \bigcup \family$ will be false no matter what $x$ is. It follows that 
+$\bigcup \emptyset = \emptyset$.
+
+$$x \in \bigcup \family = \exists A \in \family (x \in A)$$
+
+Since $\family = \emptyset$, then there is no set $A \in \family$.
+
+\noindent (b) Show that if $\family = \emptyset$, then the statement 
+$x \in \bigcap \family$ will be true no matter what $x$ is.
+
+$$x \in \bigcap \family = \forall A \in \family (x \in A)$$
+
+This is vacuously true, since for all $A$ in $\family$ is empty
+
+\section*{Exercise 16} In Section 2.3 we saw that a set can have other sets as 
+elements. When discussing sets whos elements are sets, it might seem most 
+natural to consider the universe of discourse to be the set of all sets. 
+However, as we will see in this problem, assuming that there is such a set leads 
+to contradictions.
+
+Suppose $U$ were the set of all sets. Note that in particular $U$ is a set, so 
+we would have $U \in U$. This is not yet a contradiction; although most sets are
+not elements of themselves, perhaps some sets are elements of themselves. 
+But it siggests that the sets in the universe $U$ could be split into two 
+categories: the unusual sets that, like $U$ itself, are elements of themselves, 
+and the more typical sets that are not. Let $R$ be the set of sets in the second 
+category. In other words, $R = \{A \in U | A \notin A\}$. This means that for 
+any set $A$ in the universe $U$, $A$ will be an element of $R$ iff $A \notin A$.
+In other words, we have $\forall A \in U (A \in R \bicond A \notin A)$.
+
+\noindent (a) Show that applying this last fact to the set $R$ itself (in other 
+words, plugging $R$ for $A$) leads to a contradiction. This contradiction was
+discovered by Bertrand Russell (1872-1970) in 1901, and is known as 
+\textit{Russell's Paradox}.
+
+$$\forall A \in U (A \in R \bicond A \notin A)$$
+
+Thus, $R \in R \bicond R \notin R$. This is clearly a contradiction.
+
+\noindent (b) Think some more about the paradox in part (a). What do you think 
+it tells us about sets?
+
+There is no universal set of all sets
+
+
+\end{document}

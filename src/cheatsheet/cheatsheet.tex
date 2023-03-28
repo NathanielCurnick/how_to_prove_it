@@ -7,6 +7,7 @@
 \newcommand{\then}{\rightarrow} 
 \newcommand{\bicond}{\leftrightarrow}
 \newcommand{\powerset}[1]{\mathscr{P}(#1)}
+\newcommand{\family}{\mathcal{F}}
 
 \title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Cheatsheet of Formulas}}
 
@@ -80,5 +81,7 @@ $$\exists! x P(x) \equiv \exists x (P(x) \wedge \neg \exists y (P(y) \wedge y \n
 
 \section{More Set Operations}
 
-$$\powerset{A}$$
+$$\powerset{A} = \{x | x \subseteq A\}$$
+$$\bigcap \family = \{x | \forall A \in \family (x \in A)\} = \{x | \forall A (A \in \family \then x \in A)\}$$
+$$\bigcup \family = \{x | \exists A \in \family (x \in A)\} = \{x | \exists A (A \in \family \wedge x \in A)\}$$
 \end{document}
