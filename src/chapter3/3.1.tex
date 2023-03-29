@@ -1,0 +1,310 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{amsmath}
+\usepackage[scr]{rsfso}
+
+
+\newcommand{\then}{\rightarrow} 
+\newcommand{\bicond}{\leftrightarrow}
+\newcommand{\powerset}[1]{\mathscr{P}(#1)}
+\newcommand{\family}{\mathcal{F}}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Chapter 1: Operations on Sets}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+Consider the following theorem. (This theorem was proven in the introduction)
+
+\textbf{Theorem}. Suppose $n$ is an integer larger than 1 and $n$ is not prime.
+Then $2^n - 1$ is not prime 
+
+\noindent (a) Identify the hypotheses and conclusion of the theorem. Are the 
+hypotheses true when n = 6? What does the theorem tell you in this instance? 
+Is it right?
+
+Hypotheses are:
+
+\begin{itemize}
+    \item Universe of discourse is $\mathbb{N}$;
+    \item $n > 1$;
+    \item $n$ is not prime.
+\end{itemize}
+
+Conclusion is $2^n - 1$ is not prime.
+
+When $n = 6$ then $2^6 - 1 = 63$ which is not prime. This is consistent with the 
+theorem, but does not prove it.
+
+\noindent (b) What can you conclude from the theorem in the case $n = 15$? 
+Check directly that this conclusion is correct
+
+$2^15 - 1 = 32767$, and 32767 is not prime, so the theorem is again consistent
+
+\noindent (c) What can you conclude from the theorem in the case $n=11$?
+
+Nothing, since 11 is prime, which contradicts the hypotheses
+
+\section*{Exercise 2}
+
+Consider the following theorem. (The theorem is correct, but we will not ask 
+you to prove it here)
+
+\textbf{Theorem}. Suppose that $b^2 > 4ac$. Then the quadratic equation 
+$ax^2 + bx + c = 0$ has exactly two real solutions.
+
+\noindent (a) Identify the hypotheses and conclusions of the theorem
+
+Hypotheses are $b^2 > 4ac$.
+
+Conslusions are $x$ has two real solutions in the equation $ax^2 + bx + c = 0$
+
+\noindent (b) To give an instance of the theorem, you must specify values for 
+$a$, $b$, and $c$, but not $x$. Why?
+
+$a$, $b$, and $c$ are free values in the theorem.
+
+\noindent (c) What can you conclude from the theorem in the case $a=2, b=-5, 
+c=3$? Check directly that the conclusion is correct
+
+$-5^2 = 25$ and $4 \times 2 \times 3 = 24$, thus our hypotheses are satisfied.
+
+The solutions to $2x^2 -5x + 3 = 0$ are 1.5 and 1, which are both real numbers.
+This is consistent with the theorem.
+
+\noindent (d) What can you conclude from the theorem in the case $a=2, b=4, c=3$?
+
+$4^2 = 16$ and $4 \times 2 \times 3 = 24$, so $b^2 < 4ac$. This contradicts the 
+hypotheses, so we can say nothing about the theorem in this case.
+
+\section*{Exercise 3}
+
+Consider the following incorrect theorem
+
+\textbf{Incorrect Theorem}. Suppose $n$ is a natural number larger than 2, and 
+$n$ is not a prime number. Then $2n + 13$ is not a prime number.
+
+What are the hypotheses and conclusion of this theorem? Show that the theorem is 
+incorrect by finding a counterexample
+
+Hypotheses are 
+
+\begin{itemize}
+    \item Universe of discourse is $\mathbb{N}$;
+    \item $n > 2$,
+    \item $n$ is not prime.
+\end{itemize}
+
+Conclusion is $2n + 13$ is not prime.
+
+If $n=8$, then $2 \times 8 + 13 = 29$, which is prime. Thus, the theorem is 
+disproven.
+
+\section*{Exercise 4}
+
+Complete the following alternative proof of the theorem in Example 3.1.2
+
+\textit{Proof}. Suppose $0 < a < b$. Then $b - a > 0$
+
+[Fill in proof of $b^2 - a^2 > 0$ here]
+
+Since $b^2 - a^2 > 0$, it follows that $a^2 < b^2$. Therefore, if $0 < a < b$
+then $a^2 < b^2$.
+
+\vspace{5pt}
+\hrule
+\vspace{5pt}
+
+Suppose $0 < a < b$, then $b - a > 0$. Multiply both sides by $(b + a)$
+
+$$(b + a)(b - a) > 0$$
+
+$$b^2 - a^2 > 0$$
+
+\section*{Exercise 5}
+
+Suppose $a$ and $b$ are real numbers. Prove that if $a < b < 0$ then $a^2 > b^2$
+
+Since $a < b$, if we multiply by $a$ then $a^2 > ab$. Equally, $ab > b^2$. 
+So, $a^2 > ab > b^2$, so $a^2 > b^2$ as required
+
+\section*{Exercise 6}
+
+Suppose $a$ and $b$ are real numbers. Prove that if $0 < a < b$ then $1/b < 1/a$
+
+$$0 < a < b$$
+
+$$0 < \frac{a}{ab} < \frac{b}{ab}$$
+
+$$0 < \frac{1}{b} < \frac{1}{a}$$
+
+\section*{Exercise 7}
+
+Suppose that $a$ is a real number. Prove that if $a^3 > a$ then $a^5 > a$.
+
+So, $a^3 - a > 0$. Multiply by $a^2 + 1$ (which is a positive number)
+
+$$(a^3 - a)(a^2 + 1) > 0$$
+
+$$a^5 - a > 0$$
+
+$$a^5 > a$$
+
+\section*{Exericse 8}
+
+Suppose $A \setminus B \subseteq C \cap D$ and $x \in A$. Prove that if 
+$x \notin D$ then $x \in B$.
+
+We will prove the contrapositive by assuming that $x \notin B$ and proving 
+$x \in D$.
+
+Since $x \in A$ and $x \notin B$ then $x \in A \setminus B$. Since 
+$A \setminus B \subseteq C \cap D$ then $x \in C \cap D$. Thus $x \in D$.
+
+Therefore, if $x \notin D$ then $x \in B$.
+
+
+\section*{Exercise 9}
+
+Suppose $A \cap B \subseteq C \setminus D$. Prove that if $x \in A$, then if 
+$x \in D$, then $x \notin B$
+
+We will assume that $x \in B$, and prove that $x \notin D$.
+
+Since $x \in A$ and $x \in B$, then $x \in A \cap B$. Since 
+$A \cap B \subseteq C \setminus D$, then $x \in C \setminus D$. 
+However, if $x \in D$, then $x \notin C \setminus D$. 
+Therefore $x \notin D$.
+
+Prooven by contrapositive, so if $x \in D$ then $x \notin B$.
+
+\section*{Exercise 10}
+
+Suppose $a$ and $b$ are real numbers. Prove that if $a < b$ then $(a + b)/2<b$
+
+$$\frac{a + b}{2} < b$$
+
+$$a + b < 2b$$
+
+$$a < b$$
+
+\section*{Exercise 11}
+
+Suppose $x$ is a real number and $x \neq 0$. Prove that if 
+$(\sqrt[3]{x} + 5)/(x^2 + 6) = 1/x$ then $x \neq 8$.
+
+Let's assume $x = 8$
+
+$$\frac{(\sqrt[3]{x} + 5)}{(x^2 + 6)} = \frac{1}{10}$$
+
+This is clearly not $1/8$.
+
+\section*{Exercise 12}
+
+Suppose $a, b, c$ and $d$ are real numbers, $0 < a < b$, and $d > 0$. Prove 
+that if $ac \geq bd$ then $c > d$.
+
+We will assume $c < d$ and prove $ac < bd$. Since $a < b$ and $c < d$, then 
+$ac < db$. We have proven the contrapositive, so if $ac \geq bd$ then $c > d$.
+
+\section*{Exercise 13}
+
+Suppose $x$ and $y$ are real numbers. Prove that if $x^2 + y = -3$ and 
+$2x - y = 2$ then $x = -1$.
+
+We will prove the contrapositive by assuming that $y > 1$ and proving that 
+$x < 1$. 
+
+$$3x + 2y \leq 5$$
+
+$$3x \leq 5 - 2y$$
+
+Since $y > 1$ then the largest the RHS can be is 
+
+$$3x < 3$$
+
+Thus,
+
+$$x < 1$$
+
+\section*{Exercise 14}
+
+Suppose that $x$ and $y$ are real numbers. Prove that if $x^2 + y = -3$
+and $2x - y = 2$ then $x = -1$.
+
+Solve the simultaneous equations by adding theorem
+
+$$x^2 + 2x + 1 = 0$$
+
+Factorise to 
+
+$$(x + 1)(x + 1) = 0$$
+
+Thereofre, $x = -1$
+
+\section*{Exercise 15}
+
+Prove the first theorem in Example 3.1.1
+
+Suppose $x > 3$ and $y < 2$. Then $x^2 - 2y > 5$.
+
+This can become 
+
+$$x^2 > 5 + 2y$$
+
+$y < 2$ so the largest the RHS can be is $x^2 > 9$, so $x > 3$.
+
+\section*{Exercise 16}
+
+Consider the following theorem
+
+\textbf{Theorem}. Suppose $x$ is a real number and $x \neq 4$. If 
+$(2x - 5)/(x - 4) = 3$ then $x = 7$.
+
+\noindent (a) What's wrong with the following proof of the theorem?
+
+\textit{Proof}. Suppose $x=7$. Then $(2x - 5)/(x-4) = (2(7) - 5)/(7-4)=9/3=3$.
+Therefore if $(2x-5)/(x-4)=3$ then $x = 7$.
+
+The reasoning is backwards. We want to prove $(2x - 5)/(x - 4) = 3 \then x = 7$.
+But this proves that if $x = 7 \then (2x - 5)/(x - 4) = 3$.
+
+\noindent (b) Give a correct proof of the theorem 
+
+Suppose $(2x - 5).(x - 4) = 3$
+
+$$2x - 5 = 3x - 12$$
+$$3x - 2x = -5 + 12$$
+$$x = 7$$
+
+\section*{Exercise 17}
+
+Consider the following incorrect theorem:
+
+\textbf{Incorrect Theorem}. Suppose that $x$ and $y$ are real numbers and
+$x \neq 3$. If $x^2 y = 9y$ then $y = 0$
+
+\noindent (a) What's wrong with the following proof of the theorem?
+
+\textit{Proof}. Suppose that $x^2 y = 9y$. Then $(x^2 - 9)y = 0$. Since 
+$x \neq 3, x^2 \neq 9$ so $x^2 - 9 = 0$. Therefore we can divide both sides of 
+the equation by $(x^2 - 9)y = 0$ by $x^2 - 9$, which leads to the conclusion 
+that $y = 0$. Thus, if $x^2 y = 9y$ then $y = 0$.
+
+The mistake is in assuming $x^2 \neq 9$, since $-3^2 = 9$.
+
+\noindent (b) Show that the theorem is incorrect by finding a counterexample
+
+$x = -3, y = 1$ is a suitable counterexample
+
+\end{document}
