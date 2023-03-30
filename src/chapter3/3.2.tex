@@ -1,0 +1,292 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{amsmath}
+\usepackage[scr]{rsfso}
+
+
+\newcommand{\then}{\rightarrow} 
+\newcommand{\bicond}{\leftrightarrow}
+\newcommand{\powerset}[1]{\mathscr{P}(#1)}
+\newcommand{\family}{\mathcal{F}}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Chapter 1: Operations on Sets}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+\noindent (a) Suppose $P \then Q$ and $Q \then R$ are both true. Prove that 
+$P \then R$ is true.
+
+Suppose $P$. If $P$, then $Q$. Since $Q$, then $R$. Therefore, if $P$, then $R$.
+
+\noindent (b) Suppose $\neg R \then (P \then \neg Q)$ is true. Prove that 
+$P \then (Q \then R)$ is true.
+
+Suppose $P$. To prove $Q \then R$ we will prove the contrapositive. So, suppose 
+$\neg R$. Since $\neg R$, then $P \then \neg Q$. Since $P$ then $\neg Q$. Thus,
+if $Q \then R$. Thus $P \then (Q \then R)$.
+
+\section*{Exercise 2}
+
+\noindent (a) Suppose $P \then Q$ and $R \then \neg Q$ are both true. Prove that 
+$P \then \neg R$ is true.
+
+Suppose $P$. Since $P$ then $Q$. Since $R \then \neg Q$, by 
+\textit{modus tollens} R. Thus $P \then \neg R$.
+
+\noindent (b) Suppose that $P$ is true. Prove that 
+$Q \then \neg (Q \then \neg P)$ is true.
+
+Suppose $P$. Suppose also $Q$. Assume also $Q \then \neg P$. Since $Q$ therefore 
+$\neg P$. But this contradicts $P$. Therefore $Q \then \neg (Q \then \neg P)$
+
+\section*{Exercise 3}
+
+Suppose $A \subseteq C$ and $B$ and $C$ ar disjoint. Prove that if $x \in A$
+then $x \notin B$.
+
+Suppose $A \subseteq C$. Also suppose $B \cap C = \emptyset$. This also 
+necessarily means $x \in C \then x \notin B$. Suppose $x \in A$. Since 
+$A \subseteq C$, then $x \in C$. But if $x \in C$, therefore $x \notin B$.
+
+\section*{Exercise 4}
+
+Suppose $A \setminus B$ is disjoint from $C$ and $x \in A$. Prove that if 
+$x \in C$ then $x \in B$.
+
+Suppose $A \setminus B \cap C = \emptyset$. This means 
+$x \in C \then x \notin A \setminus B$. Also suppose $x \in A$ and $x \in C$.
+Since $x \in C$, then $x \notin A \setminus B$. Since $x \in A$, in order for 
+$x \notin A \setminus B$, then $x \in B$.
+
+\section*{Exercise 5}
+
+Prove that is can not be the case that $x \in A \ setminus B$ and 
+$x \in B \setminus C$.
+
+If $x \in B \setminus C$ then $x \in B$. If $x \in A \setminus B$ then 
+$x \notin B$. This is a contradiction, so both can not be true at once.
+
+\section*{Exercise 6}
+
+Use the method of proof by contradiction to prove the theorem in Example 3.2.1.
+
+Suppose $A \cap B \setminus B$ and $a \in C$. Prove that 
+$a \notin A \setminus B$.
+
+Suppose $a \in A \setminus B$, therefore $a \in A$ and $a \notin B$. Since 
+$a \in C$ then $a \in A \cap C$. Since $A \cap C \subseteq B$ then $a \in B$.
+However, this is a contradiction so $a \notin A \setminus B$.
+
+\section*{Exercise 7}
+
+Use the method of proof by contradiction to prove the theorem in Example 3.2.5
+
+Suppose $A \subseteq B$, $a \in A$ and $a \notin B \setminus C$. Prove $a \in C$
+
+Suppose $a \notin C$. Since $a \notin B \setminus C$, then $a \notin B$. 
+$a \in A$, since $A \subseteq B$, then $a \in B$. This is a contradiction so 
+$a \in C$.
+
+\section*{Exercise 8}
+
+Suppose that $y + x = 2y - x$ and $x$ and $y$ are not both zero. Prove that 
+$y \neq 0$.
+
+Rearrange to $2x = y$. Suppose $y = 0$, then $x = 0$. But since $x$ and $y$ 
+are both not 0, then this is a contradiction. Therefore $y \neq 0$.
+
+\section*{Exercise 9}
+
+Suppose that $a$ and $b$ are nonzero real numbers. Prove that if 
+$a < 1/a < b < 1/b$ then $a < -1$
+
+Suppose $a \geq 1$. Thus $1 \geq 1/a$. Thus $a \geq 1/a$, which contradicts that 
+$a < 1/a$. Thus $a < 1$. 
+
+Suppose $a > 0$, then $1 < 1/a$, and since $1/a < b$ it follows that $b > 1$.
+Thus $1 > 1/b$ and with $b > 1$ this implies that $b > 1/b$, but that 
+contradicts that $b < 1/b$. Also, $a \neq 0$, so $a < 0$.
+
+Suppose $a \geq -1$. We can conclude that $-1 \geq 1/a$. Combining $a \geq -1$ 
+and $-1 \geq 1/a$ we get $a \geq 1/a$ contradicting that $a < 1/a$. Therefore 
+$a < -1$
+
+\section*{Exercise 10}
+
+Suppose that $x$ and $y$ are real numbers. Prove that if $x^2 y = 2x + y$,
+then if $y \neq 0$ then $x \neq 0$.
+
+Assume that $x = 0$. Therefore, $0 \times y = 0 + y$, or in other words, 
+$y = 0$. This proves the contrapositive, so when $y \neq 0$ then $x \neq 0$.
+
+
+\section*{Exercise 11}
+
+Suppose that $x$ and $y$ are real numbers. Prove that if $x \neq 0$, then 
+if $y = (3x^2 + 2y)/(x^2 + 2)$ then $y = 3$.
+
+Assume $x \neq 0$. Then, rearrange into $x^2 y = 3x^2$ and finally to $y = 3$. 
+
+\section*{Exercise 12}
+
+Consider the following incorrect theorem:
+
+\textbf{Incorrect Theorem}. Suppose $x$ and $y$ are real numbers and
+$x + y = 10$. Then $x \neq 3$ and $y \neq 8$.
+
+\noindent (a) What's wrong with the following proof of the
+theorem?
+
+\textit{Proof}. Suppose the conclusion of the theorem is false. Then $x = 3$ 
+and $y = 8$. But then $x + y = 11$, which contradicts the given information 
+$x + y = 10$. Therefore, the conclusion must be true.
+
+The issue is that $x + y = 10$ does not contradict $x + y = 11$.
+
+\noindent (b) Show that the theorem is incorrect by finding a counterexample
+
+$x = 3, y = 7$ is a suitable counterexample
+
+\section*{Exercise 13}
+
+Consider the following incorrect theorem:
+
+\textbf{Incorrect Theorem}. Suppose that $A \subseteq B, B \subseteq C$ and
+$x \in A$. Then $x \in B$.
+
+\noindent (a) What's wrong with the following proof of the theorem?
+
+\textit{Proof}. Suppose that $x \notin B$. Since $x \in A$ and $A \subseteq C$,
+$x \in C$. Since $x \notin B$ and $B \subseteq C$, $x \notin C$. But now we have 
+proven both $x \in C$ and $x \notin C$, so we have reached a contradiction.
+Therefore $x \in B$.
+
+The issue with this proof is in the reasoning 
+$x \notin B \wedge B \subseteq C \then x \notin C$. $B$ is a subset of $C$, so 
+while all the elements of $B$ are in $C$, not all of the elements of $C$ are 
+necessarily in $B$.
+
+\noindent (b) Show that the theorem is incorrect by finding a counterexample
+
+$A = \{1,2,3,4\}, C=\{1,2,3,4,5\}, B=\{2,3,4,5\}$
+
+\section*{Exercise 14}
+
+Use truth tables to show that modus tollens is a valid rule of inference 
+
+\begin{center}
+    \begin{tabular}{ c c c  }
+     $P$ & $Q$ & $\neg P \vee Q$\\ 
+    T & T & T\\  
+    T & F & F\\
+    F & T & T\\  
+    F & F & T
+    \end{tabular}
+\end{center}
+
+\section*{Exercise 15}
+
+Use truth tables to check the correctness of the theorem in Example 3.2.4
+
+Suppose $P \then (Q \then R)$ prove $\neg R \then (P \then \neg Q)$
+
+\begin{center}
+    \begin{tabular}{ c c c c c }
+     $P$ & $Q$ & $R$ & $(P \vee Q)$ & $(\neg P \vee R)$\\ 
+    T & T & T & T & T \\  
+    T & T & F & F & / \\
+    T & F & T & T & T \\  
+    T & F & F & T & T \\
+    F & T & T & T & T \\  
+    F & T & F & T & T \\
+    F & F & T & T & T \\  
+    F & F & F & T & T 
+    \end{tabular}
+\end{center}
+
+\section*{Exercise 16}
+
+Use truth tables to check the correctness of the statements in exercise 1
+
+\noindent (a) If $P \then Q$ and $Q \then R$, prove $P \then R$.
+
+\begin{center}
+    \begin{tabular}{ c c c c c c }
+     $P$ & $Q$ & $R$ & $\neg P \vee Q$ & $\neg Q \vee R$ & $\neg P \vee R$\\ 
+    T & T & T & T & T & T\\  
+    T & T & F & T & F & /\\
+    T & F & T & F & T & /\\  
+    T & F & F & F & T & /\\
+    F & T & T & T & T & T\\  
+    F & T & F & T & F & /\\
+    F & F & T & F & T & T\\  
+    F & F & F & F & T & T
+    \end{tabular}
+\end{center}
+
+\noindent (b) If $\neg R \then (P \then Q)$ prove $P \then (Q \then R)$
+
+\begin{center}
+    \begin{tabular}{ c c c c c }
+     $P$ & $Q$ & $R$ & $R \vee (\neg P \vee \neg Q)$ & $\neg P \vee (\neg Q \vee R)$\\ 
+    T & T & T & T & T \\  
+    T & T & F & F & / \\
+    T & F & T & T & T \\  
+    T & F & F & T & T \\
+    F & T & T & T & T \\  
+    F & T & F & T & T \\
+    F & F & T & T & T \\  
+    F & F & F & T & T 
+    \end{tabular}
+\end{center}
+
+\section*{Exercise 17}
+
+Use truth tables to check the correctness of the statements in exercise 2
+
+\noindent (a) If $P \then Q$ and $R \then \neg Q$ prove $P \then \neg R$
+
+\begin{center}
+    \begin{tabular}{ c c c c c c }
+     $P$ & $Q$ & $R$ & $\neg P \vee Q$ & $\neg R \vee \neg Q$ & $\neg P \vee \neg R$\\ 
+    T & T & T & T & F & /\\  
+    T & T & F & T & T & T\\
+    T & F & T & F & T & /\\  
+    T & F & F & F & T & /\\
+    F & T & T & T & F & /\\  
+    F & T & F & T & T & T\\
+    F & F & T & T & T & T\\  
+    F & F & F & T & T & T
+    \end{tabular}
+\end{center}
+
+\noindent (b) Suppose $P$, then prove $Q \then \neg (Q \then \neg P)$
+
+\begin{center}
+    \begin{tabular}{ c c c  }
+     $P$ & $Q$ & $\neg Q \vee \neg (\neg Q \vee \neg P) $\\ 
+    T & T & T\\  
+    T & F & T
+    \end{tabular}
+\end{center}
+
+\section*{Exercise 18} 
+
+Can the proof in Example 3.2.2 be modified to prove that if $x^2 + y = 13$ and 
+$x \neq 3$ then $y \neq 4$? Explain
+
+No, if we try and prove it that way around there is the counterexample of 
+$x = -3$ and $y = 4$
+
+\end{document}
