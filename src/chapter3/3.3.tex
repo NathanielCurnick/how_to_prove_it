@@ -1,0 +1,402 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{amsmath}
+\usepackage[scr]{rsfso}
+
+
+\newcommand{\then}{\rightarrow} 
+\newcommand{\bicond}{\leftrightarrow}
+\newcommand{\powerset}[1]{\mathscr{P}(#1)}
+\newcommand{\family}[1]{\mathcal{#1}}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Chapter 1: Operations on Sets}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+In exercise 7 of section 2.2  you used logical equivalences to show that 
+$\exists x (P(x) \then Q(x))$ is equivalent to 
+$\forall x P(x) \then \exists x Q(x)$. Now use the methods of this section 
+to prove that if $\exists x (P(x) \then Q(x))$ is true, then 
+$\forall x P(x) \then \exists x Q(x)$ is true.
+
+Suppose $\exists x (P(x) \then Q(x))$. We can say that $P(x_0) \then Q(x_0)$.
+Suppose also now $P(x)$. We can thus also conclude $Q(x)$. Therefore, if 
+$\exists x (P(x) \then Q(x))$ is true, then $\forall x P(x) \then \exists Q(x)$ 
+is true.
+
+\section*{Exercise 2}
+
+Prove that if $A$ and $B \setminus C$ are disjoint, then $A \cap B \subseteq C$.
+
+Suppose $A$ and $B \setminus C$ are disjoint. Take some element $x \in A$. 
+Suppose also that $x \in A \cap B$. Since we know $x \in A$, then $x \in B$ also.
+Since $x \in B$ and $x \notin B \setminus C$, then $x \in C$. Therefore, 
+$A \cap B \subseteq C$.
+
+\section*{Exercise 3}
+
+Prove that if $A \subseteq B \setminus C$ then $A$ and $C$ are disjoint
+
+Suppose $A \subseteq B \setminus C$. This means that $x \in A$ and 
+$x \in B \setminus C$. In order for $x \in B \setminus C$, $x \notin C$. 
+Therefore, $A \cap C = \emptyset$.
+
+\section*{Exercise 4}
+
+Suppose $A \subseteq \powerset{A}$. Prove that 
+$\powerset{A} \subseteq \powerset{\powerset{A}}$
+
+TODO
+
+\section*{Exercise 5}
+
+The hypothesis of theorem proven in exercise 4 is $A \subseteq \powerset{A}$.
+
+\noindent (a) Can you think of a set $A$ for which the hypothesis is true?
+
+$$A = \{1,2,3\}$$
+
+\noindent (b) Can you think of another?
+
+$$A = \{4,5,6\}$$
+
+\section*{Exercise 6}
+
+Suppose $x$ is a real number
+
+\noindent (a) Prove that if $x \neq 1$ then there is a real number $y$ such that 
+$\frac{y + 1}{y - 2} = x$
+
+Let $y = \frac{2x + 1}{x - 1}$ which is defined since $x \neq 1$. Then 
+
+$$\frac{y + 1}{y - 2} = 
+\frac{\frac{2x + 1}{x - 1} + 1}{\frac{2x + 1}{x - 1} - 2} =
+\frac{\frac{3x}{x-1}}{\frac{3}{x - 1}} =
+x$$
+
+\noindent (b) Prove that if there is a real number $y$ such that 
+$\frac{y + 1}{y - 2} = x$ then $x \neq 1$.
+
+Suppose $x = 1$. Then, $y + 1 = y - 2$. Therefore, $1 = -2$. This is obviously 
+a contradiction. Therefore, $x \neq 1$.
+
+\section*{Exercise 7}
+
+Prove that for every real number $x$, if $x > 2$ then there is a real number 
+$y$ such that $y + 1/y = x$
+
+$$y = \frac{(x + \sqrt{x^2 - 4})}{2}$$
+
+$$y + \frac{1}{y} = \frac{(x + \sqrt{x^2 - 4})}{2} + \frac{2}{(x + \sqrt{x^2 - 4})}$$
+
+$$y + \frac{1}{y} = \frac{x^2 + 2x \sqrt{x^2 - 4} + x^2 - 4 + 4}{2x + 2 \sqrt{x^2 - 4}}$$
+
+$$y + \frac{1}{y} = \frac{2x^2 + 2x \sqrt{x^2 - 4}}{2x + 2 \sqrt{x^2 - 4}}$$
+
+$$y + \frac{1}{y} = x$$
+
+\section*{Exercise 8}
+
+Prove that if $\family{F}$ is a family of sets and $A \in \family{F}$ then 
+$A \subseteq \bigcup \family{F}$
+
+Suppose $\family{F}$ is a family of sets and $A \in \family{F}$. Suppose 
+$x \in A$. By the definition of $\bigcup \family{F}$, since $x \in A$ and 
+$A \in \family{F}$ then $x \in \bigcup \family{F}$. Since $x$ was an 
+arbitrary element of $A$, then $A \subseteq \bigcup \family{F}$.
+
+\section*{Exercise 9}
+
+Prove that if $\family{F}$ is a family of sets and $A \in \family{F}$, then 
+$\bigcap \family{F} \subseteq A$.
+
+Suppose $A \in \family{F}$. Suppose some $x \in \bigcap \family{F}$. By the 
+definition of $\bigcap \family{F}$, then $x \in A$. Since $x$ was arbitrary,
+then $\bigcap \family{F} \subseteq A$.
+
+\section*{Exercise 10}
+
+Suppose $\family{F}$ is a nonempty family of sets, $B$ is a set, and 
+$\forall A \in \family{F} (B \subseteq A)$. Prove that 
+$B \subseteq \bigcap \family{F}$.
+
+Suppose $\forall A \in \family{F} (B \subseteq A)$. Suppose that $x \in B$. 
+Suppose $C \in \family{F}$, and since $\forall A \in \family{F} (B \subseteq A)$,
+then $B \subseteq C$. Since $x \in B$, then $x \in C$. But, $C$ was an arbitrary 
+value of $\family{F}$, so it follows that $\forall C \in \family{F} (x \in C)$, 
+and therefore $x \in \bigcap \family{F}$. Since $x$ was an arbitrary element of 
+$B$, we can conclude that $B \subseteq \bigcap \family{F}$.
+
+\section*{Exercise 11}
+
+Suppose that $\family{F}$ is a family of sets. Prove that if 
+$\emptyset \in \family{F}$ then $\bigcap \family{F} = \emptyset$.
+
+Suppose $\emptyset \in \family{F}$. Consider the definition of 
+$\bigcap \family{F} \equiv \forall A (A \in F \then x \in A)$. But, $\emptyset$, 
+by definition, have no elements. Therefore, $\bigcap \family{F} = \emptyset$.
+
+\section*{Exercise 12}
+
+Suppose $\family{F}$ and $\family{G}$ are families of sets. Prove that if
+$\family{F} \subseteq \family{G}$ then $\bigcup \family{F} \subseteq \family{G}$
+
+Suppose $\family{F} \subseteq \family{G}$. Suppose $A \in \bigcup \family{F}$.
+By the definition of $\bigcup \family{F}$, $A \in \family{F}$. Since 
+$\family{F} \subseteq \family{G}$, then $A \in \family{G}$. Again, by the
+definition of $\bigcup \family{G}$, $A \in \bigcup \family{G}$. Since $A$ was an 
+arbitrary element of $\family{G}$, then 
+$\bigcup \family{F} \subseteq \bigcup \family{G}$.
+
+\section*{Exercise 13}
+
+Suppose $\family{F}$ and $\family{G}$ are nonempty families of sets. Prove that 
+if $\family{F} \subseteq \family{G}$ then 
+$\bigcap \family{G} \subseteq \bigcap \family{F}$.
+
+Suppose $\family{F} \subseteq \family{G}$. Let $x \in \bigcap \family{G}$.
+Suppose $A \in \family{F}$. Since $\family{F} \subseteq \family{G}$, then 
+$A \in \family{G}$. By the definition of $\bigcap \family{G}$, 
+$x \in \bigcap \family{G}$ and $A \in \family{G}$ then $x \in A$. Since $A$ was 
+an arbitrary element of $\family{F}$, we can conclude that 
+$\forall A \in \family{F} (x \in A)$, which means that $x \in \bigcap \family{F}$.
+Since $x$ was an arbitrary element of $\bigcap \family{G}$, this shows that 
+$\bigcap \family{G} \subseteq \bigcap \family{F}$.
+
+\section*{Exercise 14}
+
+Suppose that $\{A_i | i \in I\}$ is an indexed family of sets. Prove that 
+$\bigcup_{i \in I} \powerset{A_i} \subseteq \powerset{\bigcup_{i \in I} A_i}$.
+
+Suppose $x \in \bigcup_{i \in I} \powerset{A_i}$. Then we choose some $i \in I$ 
+such that $x \in \powerset{A_i}$, or in other words, $x \subseteq A_i$.
+Now, let $a \in x$. Then $a \in A_i$, thus $a \in \bigcup_{i \in I} A_i$.
+Since $a$ was an arbitrary element of $x$, it follows that 
+$x \subseteq \bigcup_{i \in I} A_i$, which means that 
+$x \in \powerset{\bigcup_{i \in I} A_i}$. Thus 
+$\bigcup_{i \in I} \powerset{A_i} \subseteq \powerset{\bigcup_{i \in I} A_i}$.
+
+\section*{Exercise 15}
+
+Suppose $\{A_i | i \in I\}$ is an indexed family of sets and $I \neq \emptyset$.
+Prove that $\bigcap_{i \in I} A_i \in \bigcap_{i \in I} \powerset{A_i}$
+
+Suppose $i \in I$. Let $x$ be an arbitrary element of $\bigcap_{i \in I} A_i$.
+Then $x \in A_i$. Since $x$ is arbitrary, it follows that 
+$\bigcap_{i \in I} A_i \subseteq A_i$, and therefore 
+$\bigcap_{i \in I} A_i \in \powerset{A_i}$. Since $i$ was arbitrary, then 
+$\bigcap_{i \in I} A_i \in \bigcap_{i \in A} \powerset{A_i}$
+
+\section*{Exercise 16}
+
+Prove the converse of the statement proven in Example 3.3.5. In other words, 
+prove that if $\family{F} \subseteq \powerset{B}$ then 
+$\bigcup \family{F} \subseteq B$.
+
+Suppose $\family{F} \subseteq \powerset{B}$. Suppose there is some 
+$x \in \bigcup \family{F}$ and some $y \in \family{F}$. This would means that 
+$x \in y$. Since $\family{F} \subseteq \powerset{B}$ and $y \in \family{F}$, 
+then $y \in \powerset{B}$. This means that $y \subseteq B$. Since 
+$y \subseteq B$ and $x \in y$, then $x \in B$. But $x$ was an arbitrary element
+of $\bigcup \family{F}$, so $\bigcup \family{F} \subseteq B$.
+
+\section*{Exercise 17}
+
+Suppose $\family{F}$ and $\family{G}$ are nonempty families of sets, and every 
+element of $\family{F}$ is a subset of every element of $\family{G}$. 
+Prove that $\bigcup \family{F} \subseteq \bigcap \family{G}$.
+
+Suppose $A \in \family{F}$ and $B \in \family{G}$. Suppose 
+$A \subseteq \family{G}$. Suppose $x \in \bigcup \family{F}$. Since 
+$A \in \family{F}$ and $x \in \bigcup \family{F}$, $x \in A$. Since 
+$A \subseteq \family{G}$, then $x \in B$. Since $B \in \family{G}$, then 
+$x \in \family{G}$. Since $B$ and $x$ were arbitrary, then 
+$x \in \bigcap \family{G}$. Since $x$ was arbitrary and 
+$x \in \bigcup \family{F}$, then 
+$\bigcup \family{F} \subseteq \bigcap \family{G}$.
+
+\section*{Exercise 18}
+
+In this problem all variables range over $\mathbb{Z}$, the set of all integers.
+
+\noindent (a) Prove that if $a | b$ and $a | c$ then $a | (b + c)$.
+
+If $b = ka$ and $c = ra$, where $k$ and $r$ are both integers, then 
+$b + c = ka + ra = sa$ where $s = k + r$. Thereforem $b + c = sa$. Since 
+$s$ is an integer, $a | (b + c)$.
+
+\noindent (b) Prove that if $ac | bc$ and $c \neq 0$ then $a | b$.
+
+$bc = kac$. Since $c \neq 0$ then $b = ka$. Which is by definition $a | b$.
+
+\section*{Exercise 19}
+
+\noindent (a) Prove that for all real numbers $x$ and $y$ there is a real number 
+$z$ such that $x + z = y - z$.
+
+$$x + z = y - z$$
+
+$$2z = y - x$$
+
+$$\frac{y - x}{2} = z$$
+
+Since $x$ and $y$ are real, so $z$ is real.
+
+\noindent (b) Would the statement in part (a) be correct is ``real number'' were 
+changed to ``integer''?
+
+No because e.g. $y = 2$, $x = 1$ so $z = \frac{2 - 1}{2} = 0.5$ which is not an
+integer (but is a real number)
+
+\section*{Exercise 20}
+
+Consider the following theorem 
+
+\textbf{Theorem}. For every ral number $x$, $x^2 \geq 0$.
+
+What's wrong with the following proof?
+
+\textit{Proof}. Suppose not. Then for every real number $x$, $x^2 < 0$. 
+Thus, $x = 3$ we would get $9 < 0$, which is clearly false. This contradiction 
+shows that for every number $x$, $x^2 \geq 0$.
+
+The issue with this proof is that $x = 3$ is not some arbitrary element. We can 
+not go from an example of the theorem to a general proof.
+
+\section*{Exercise 21}
+
+Consider the following incorrect theorem 
+
+\textbf{Incorrect Theorem}. If $\forall x \in A(x \neq 0)$ and $A \subseteq B$
+then $\forall x \in B(x \neq 0)$.
+
+\noindent (a) What's wrong with the following proof of the theorem?
+
+\textit{Proof}. Suppose that $\forall x \in A (x \neq 0)$ and $A \subseteq B$.
+Let $x$ be an arbitrary element of $A$. Since $\forall x \in A (x \neq 0)$, we 
+can conclude that $x \neq 0$. Also, since $A \subseteq B$, $x \in B$. 
+Since $x \in B$, $x \neq 0$, and $x$ was arbitrary, we can conclude that
+$\forall x \in B(x \neq 0)$.
+
+$x$ is an arbitrary element of $A$, not $B$, in this proof, so we can't just 
+assume that $x \in B$.
+
+\noindent (b) Find a counterexample to the theorem. In other words, find an 
+example of sets $A$ and $B$ for which the hypothesis is of the theorem are true 
+but the conclusion is false.
+
+E.g. $A = \{1\}$ and $B = \{1, 0\}$
+
+\section*{Exercise 22}
+
+Consider the following incorrect theorem
+
+\textbf{Incorrect Theorem}. 
+$\exists x \in \mathbb{R} \forall y \in \mathbb{R} (xy^2 = y - x)$
+
+What's wrong with the following proof of the theorem?
+
+\textit{Proof}. Let $x = y / (y^2 + 1)$ then 
+
+$$y - x = 
+y - \frac{y}{y^2 + 1} = 
+\frac{y^3}{y^2 + 1} = 
+\frac{y}{y^2 + 1} \cdot y^2 = 
+xy^2$$
+
+The issue in this proof is that it is assumed that $xy^2 = y - x$, which is the 
+very thing we are trying to prove.
+
+\section*{Exercise 23}
+
+Consider the following incorrect theorem 
+
+\textbf{Incorrect Theorem}. Suppose $\family{F}$ and $\family{G}$ are families 
+of sets. If $\bigcup \family{F}$ and $\bigcup \family{G}$ are disjoint,
+then so are $\family{F}$ and $\family{G}$.
+
+\noindent (a) What's wrong with the following proof of the theorem?
+
+\textit{Proof}. Suppose $\bigcup \family{F}$ and $\bigcup \family{G}$ are
+disjoint. Suppose $\family{F}$ and $\family{G}$ are not disjoint. Then we can 
+choose some set $A$ such that $A \in \family{F}$ and $A \in \family{G}$. 
+Since $A \in \family{F}$, by exercise 8, $A \subseteq \bigcup \family{F}$, so 
+every element of $A$ is in $\bigcup \family{F}$. Similarly, since 
+$A \in \family{G}$, every element of $A$ is in $\bigcup \family{G}$. But then
+every element of $A$ is in both $\bigcup \family{F}$ and $\bigcup \family{G}$, 
+and this is impossible since $\bigcup \family{F}$ and $\bigcup \family{G}$ are 
+disjoint. Thus, we have reached a contradiction, so $\family{F}$ and $\family{G}$
+must be disjoint.
+
+The issue is if $A = \emptyset$, since it would be vacuously true that every 
+element of $A$ is in $\bigcup \family{F}$ and $\bigcup \family{G}$, but 
+$\bigcup \family{F}$ and $\bigcup \family{G}$ are disjoint.
+
+\noindent (b) Find a counterexample to the theorem 
+
+E.g. $\family{F} = \{\emptyset, \{1\}\}$, $\family{G} = \{ \emptyset, \{2\}\}$.
+
+\section*{Exercise 24} 
+
+Consider the following putative theorem:
+
+\textbf{Theorem?} For all real numbers $x$ and $y$, $x^2 + xy - 2y^2=0$
+
+\noindent (a) What's wrong with the following proof of the theorem?
+
+\textit{Proof}. Let $x$ and $y$ be equal to some arbitrary real number $r$. Then 
+
+$$x^2 + xy - 2y^2 = r^2 + r \cdot r - 2r^2 = 0$$
+
+The issue is that $x$ and $y$ are both set to $r$. They need to be set to
+different values, since both are free variables.
+
+\noindent (b) Is the theorem correct?
+
+E.g. $x = 0, y = 1$
+
+$$0^2 + 0 - 2 = 0$$ 
+
+which is obviously false, so the theorem is incorrect
+
+\section*{Exercise 25}
+
+Prove that for every real number $x$ there is a real number $y$ such that for 
+every real number $z$, $yz = (x + z)^2 - (x^2 + z^2)$.
+
+$$yz = (x + z)^2 - (x^2 + z^2)$$
+
+$$yz = x^2 + 2xz + z^2 -x^2 - z^2$$
+
+$$2x = y$$
+
+\section*{Exericse 26}
+
+\noindent (a) Comparing the various rules for dealing with quantifiers in proofs,
+you shuold see a similarity between the rules for goals of the form 
+$\forall x P(x)$ and givens of the form $\exists x P(x)$. What is this 
+similarity? What about the rules for goals of the form $\exists x P(x)$ and
+givens of the form $\forall x P(x)$?
+
+If the goal is $\forall x P(x)$ and the given is $\exists x P(x)$ then you
+introduce an arbitrary variable. If the goal is of the form $\exists x P(x)$ and
+given of the form $\forall x P(x)$ then you introduce a specific variable.
+
+\noindent (b) Can you think of a reason why these similarities might be expected?
+
+Proof by contradiction ``converts'' a quantifiers, for example, if you are 
+proving $\forall x P(x)$, then you assume $\neg \forall x P(x)$, or in other
+words, $\exists x \neg P(x)$.
+
+\end{document}
