@@ -1,0 +1,537 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{amsmath}
+\usepackage[scr]{rsfso}
+
+
+\newcommand{\then}{\rightarrow} 
+\newcommand{\bicond}{\leftrightarrow}
+\newcommand{\powerset}[1]{\mathscr{P}(#1)}
+\newcommand{\family}[1]{\mathcal{#1}}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Chapter 1: Operations on Sets}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+Use the methods of this chapter to prove that $\forall x (P(x) \wedge Q(x))$ is 
+equivalent to $\forall x P(x) \wedge \forall x Q(x)$.
+
+Suppose $\forall x(P(x) \wedge Q(x))$. Suppose $y$ so that $P(y) \wedge Q(y)$.
+Thus, $\forall x P(x) \wedge \forall x Q(x)$.
+
+Suppose $\forall x P(x) \wedge \forall x Q(x)$. Suppose $y$ so that 
+$P(y) \wedge Q(y)$, but $y$ is arbitrary so $\forall x (P(x) \wedge Q(x))$.
+
+\section*{Exercise 2} 
+
+Prove that is $A \subseteq B$ and $A \subseteq C$ then $A \subseteq B \cap C$.
+
+Suppose $A \subseteq B$ and $A \subseteq C$. Suppose $x \in A$. Then, since 
+$A \subseteq B$, $x \in B$. Similarly, $x \in C$. Since $x \in B$ and $x \in C$, 
+then $x \in B \cap C$. Therefore $A \subseteq B \cap C$. 
+
+\section*{Exercise 3}
+
+Suppose $A \subseteq B$. Prove that for every set $C$, 
+$C \setminus B \subseteq C \setminus A$.
+
+Suppose $A \subseteq B$. Select some $x$ such that $x \in B$ and $x \notin A$. 
+Suppose also $x \in C$. Therefore, $x \notin C \setminus B$ and 
+$x \in C \setminus A$. Thus, $C \setminus B \subseteq C \setminus A$. Suppose 
+now $x \notin C$. Therefore, $x \notin C \setminus B$ and $x \in C \setminus A$,
+and still $C \setminus B \subseteq C \setminus A$.
+
+\section*{Exercise 4}
+
+Prove that if $A \subseteq B$ and $A \nsubseteq C$, then $B \nsubseteq C$
+
+Suppose $A \subseteq B$. Suppose $x \in A$. Thus, $x \in B$. 
+Suppose $A \nsubseteq C$. Then $x \notin C$. Since $x \in B$ and $x \notin C$,
+then $B \nsubseteq C$.
+
+\section*{Exercise 5}
+
+Prove that if $A \subseteq B \setminus C$ and $A \neq \emptyset$ then 
+$B \nsubseteq C$.
+
+Suppose $A \subseteq B \setminus C$ and $A \neq \emptyset$. If $B = C$, then 
+$A \neq \emptyset$. Assume that $B \subseteq C$. Then $B \setminus C = \emptyset$.
+Therefore, $B \nsubseteq C$.
+
+\section*{Exercise 6}
+
+Prove that for any sets $A, B,$ and $C$, 
+$A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$, by finding a 
+string of equivalences starting with $x \in A \setminus (B \cap C)$ and ending 
+with $x \in (A \setminus B) \cup (A \setminus C)$.
+
+We can say 
+
+$$\forall x (x \in A \setminus (B \cap C)) \bicond x \in (A \setminus B) \cup (A \setminus C)$$
+
+So $x \in A \setminus (B \cap C)$ if $x \in A \wedge x \notin (B \cap C)$ if 
+$x \in A \wedge ((x \notin B \wedge x \in C) \vee (x \in B \wedge x \notin C) 
+\vee (x \notin B \wedge x \notin C))$, which is the same thing as 
+$x \in A \wedge \neg (x \in B \wedge x \in C)$.
+
+Now consider $x \in (A \setminus B) \vee (A \setminus C)$ if 
+$x \in A \wedge x \notin B \vee x \notin C$ which is the same thing as 
+$x \in A \wedge \neg (x \in B \wedge x \in C)$.
+
+\section*{Exercise 7}
+
+Use the methods of this chapter to prove that for any sets $A$ and $B$,
+$\powerset{A \cap B} = \powerset{A} \cap \powerset{B}$.
+
+Suppose $x \in \powerset{A \cap B}$. The, $x \subseteq A \cap B$. Since 
+$x \subseteq A \cap B$, $x \subseteq A$. Therefore, $x \in \powerset{A}$. 
+Equally, $x \subseteq B$, so $x \in \powerset{B}$. Then, 
+$x \in \powerset{A} \cap \powerset{B}$.
+
+\section*{Exercise 8}
+
+Prove that $A \subseteq B$ iff $\powerset{A} \subseteq \powerset{B}$.
+
+Suppose $A \subseteq B$. Then $x \subseteq A$ and $x \subseteq B$. Since 
+$A \subseteq A$, $x \in \powerset{A}$. Similarly, $x \in \powerset{B}$. Since 
+$x$ was arbitrary, this means that $\powerset{A} \subseteq \powerset{B}$.
+
+Suppose $\powerset{A} \subseteq \powerset{B}$. Suppose $x \in \powerset{A}$,
+then $x \in \powerset{B}$. Suppose $x \in \powerset{A}$, then $x \subseteq A$.
+And, since $x \in \powerset{B}$, then $x \subseteq B$. Since $x \subseteq A$
+and $x \subseteq B$, $A \subseteq B$.
+
+\section*{Exercise 9}
+
+Prove that if $x$ and $y$ are odd integers, then $xy$ is odd 
+
+Suppose $x = 2m + 1$ and $y = 2n + 1$. Then 
+$xy = (2m + 1)(2n + 1)  = 4nm + 2n + 2m + 1$. $4nm + 2n + 2m$ is obviously 
+even, so $4nm + 2n + 2m + 1$ is odd. 
+
+\section*{Exercise 10}
+
+Prove that is $x$ and $y$ are off integers, then $xy$ is odd
+
+Suppose $x = 2m + 1$ and $y = 2n + 1$ then 
+$x - y = 2m + 1 - 2n - 1 = 2m - 2n$. $2m - 2n$ is obviously even so $x - y$ is 
+even.
+
+\section*{Ecercise 11}
+
+Prove that for every integer $n$, $n^3$ is even iff $n$ is even
+
+Suppose $n$ is odd. Then $n = 2m + 1$. Therefore, 
+$n^3 - (2m + 1)^3 = 2(4m^3 + 6m^2 + 3m) + 1$, which is obviously odd. Therefore,
+$n$ is even.
+
+Suppose $n$ is even. Then $n = 2k$, so $n^3 = 2(4k^3)$, so $n^3$ is even. 
+
+\section*{Exercise 12}
+
+Consider the following putative theorem:
+
+\textbf{Theorem?} Suppose $m$ is an even integer and $n$ is an odd integer. 
+Then $n^2 - m^2 = n + m$
+
+\noindent (a) What's wrong with the following proof of the theorem?
+
+\textit{Proof}. Since $m$ is even, we can choose some integer $k$ such that 
+$m = 2k$. Similarly, since $n$ is odd we have $n = 2k + 1$. Therefore, 
+$$n^2 - m^2 = (2k + 1)^2 - (2k)^2 = 4k^2 + 4k + 1 - 4k^2 = 4k + 1$$
+
+$$n^2 - m^2 = (2k + 1) + 2k = n + m$$
+
+The mistake is that the same variable $k$ is used for $m$ and $n$. However, 
+$m$ and $n$ are not related
+
+\noindent (b) Is the theorem correct? Justify your answer with either a proof or 
+counterexample
+
+Suppose $n = 3$ and $m = 4$, then $3^2 - 4^2 = -7$ and $3 + 4 = 7$. These are 
+obviously different so the theory is incorrect.
+
+\section*{Exercise 13}
+
+Prove that 
+$\forall x \in \mathbb{R} [\exists y \in \mathbb{R} (x + y = xy) \bicond x = 1]$
+
+($\rightarrow$) Suppose $x + y = xy$, then $y = \frac{x}{x - 1}$. Suppose, 
+$x = 1$, then $y$ is undefined, so $x \neq 1$
+
+($\leftarrow$) Suppose $x \neq 1$, $y = xy - x$, then $x = \frac{y}{y - 1}$.
+
+$$
+x + y = 
+x + \frac{x}{x - 1} = 
+\frac{x^2 - x}{x - 1} + \frac{x}{x - 1} = 
+\frac{x^2}{x-1} = 
+x \cdot \frac{x}{x-1} = 
+xy
+$$
+
+\section*{Exercise 14}
+
+Prove that 
+$\exists x \in \mathbb{R} \forall x \in \mathbb{R}^+ [\exists y \in \mathbb{R} (y - x = y / x) \bicond x \neq z]$
+
+($\rightarrow$) Suppose $\exists y \in \mathbb{R} (y - x = y/x)$.
+Let $y_0$ such that $y_0 - x = y_0 / x$. Suppose $z = x = 1$. Then, 
+$y_0 - 1 = y_0 / 1$. If we take $y_0$ away then 
+$y_0 - 1 - y_0 = y_0 - y_0 \equiv -1 = 0$, which is obviously a contradiction,
+so $x \neq z$.
+
+($\leftarrow$) Suppose $x \neq z = 1$. Let $y = x^2 / (x - 1)$, which is defined 
+since $x \neq 1$.
+
+$$
+y - x = 
+\frac{x^2}{x-1} - x = 
+\frac{x^2}{x - 1} - \frac{x^2 - x}{x - 1} = 
+\frac{x}{x - 1} = 
+\frac{\frac{x^2}{x - 1}}{x} = 
+\frac{y}{x}
+$$
+
+\section*{Exercise 15}
+
+Suppose $B$ is a set and $\family{F}$ is a family of sets. Prove that 
+$\bigcup \{A \setminus B | A \in \family{F} \} \subseteq \bigcup (\family{F} \setminus \powerset{B})$
+
+Suppose $x \in \bigcup (A \setminus B | A \in \family{F})$, then there is some 
+$A$ in $\family{F}$ where $x \in A$. In order for 
+$x \in \bigcup (A \setminus B | A \in \family{F})$
+then $x \in A \wedge x \notin B$, so $A \nsubseteq B$. Therefore,
+$A \notin \powerset{B}$. Thus, $x \in \family{F} \wedge A \notin \powerset{B}$.
+Since $x \in A$, it follows that 
+$x \in \bigcup (\family{F} \setminus \powerset{B})$. Since $x$ is arbitrary,
+we can conclude
+$\bigcup \{A \setminus B | A \in \family{F} \} \subseteq \bigcup (\family{F} \setminus \powerset{B})$
+
+\section*{Exercise 16}
+
+Suppose $\family{F}$ and $\family{G}$ are nonempty families of sets and every 
+element of $\family{F}$ is disjoint from some element of $\family{G}$. Prove
+that $\bigcup \family{F}$ and $\bigcap \family{G}$ are disjoint.
+
+Suppose $A \in \family{F}$. Suppose also there exists a $B_0 \in \family{G}$.
+Suppose that $x \in A$, then $x \notin B$. Since every $A \in \family{F}$ has 
+at least one disjoint set in $\family{G}$, then $x \notin \bigcap \family{G}$.
+Therefore $\bigcup \family{F} \cap \bigcap \family{G} = \emptyset$.
+
+\section*{Exercise 17}
+
+Prove that for any set $A, A = \bigcup \powerset{A}$
+
+Let $A$ be an arbitrary set, and $x \in A$. Since $A \subseteq A$, then 
+$A \in \powerset{A}$. Since $x \in A$ and $A \in \powerset{A}$, then 
+$x \in \bigcup \powerset{A}$. Since $x$ is arbitrary, we can conclude
+that $A \subseteq \powerset{A}$.
+
+Now suppose $x \in \bigcup \powerset{A}$. Then suppose $B \in \powerset{A}$,
+such that $x \in B$. Since $B \in \powerset{A}$, $B \subseteq A$. 
+Since $x \in B$ and $B \subseteq A$, then $x \in A$. Since $x$ was arbitrary,
+we can conclude that $\bigcup \powerset{A} \subseteq A$. 
+
+We have proven that $A \subseteq \bigcup \powerset{A}$ and 
+$\bigcup \powerset{A} \subseteq A$, then $A = \bigcup \powerset{A}$.
+
+\section*{Exercise 18}
+
+Suppose $\family{F}$ and $\family{G}$ are families of sets.
+
+\noindent (a) Prove that 
+$\bigcup (\family{F} \cap \family{G}) \subseteq \bigcup \family{F} \cap \bigcup \family{G}$
+
+Suppose $x \in \bigcup (\family{F} \cap \family{G})$. This means that 
+$x \in \family{F} \cap \family{G}$. There must be some $A$, where $x \in A$ 
+and $A \in \family{F} \cap \family{G}$. Therefore, $A \in \family{F}$ and 
+$A \in \family{G}$. Since $A \in \family{F}$ and $x \in A$, then 
+$x \in \bigcup \family{F}$ and the same argument shows that 
+$x \in \bigcup \family{G}$. Therefore, 
+$x \in \bigcup \family{F} \cap \bigcup \family{G}$. Since $x$ was arbitrary, then 
+$\bigcup (\family{F} \cap \family{G}) \subseteq \bigcup \family{F} \cap \bigcup \family{G}$
+
+\noindent (b) What's wrong with the following proof that 
+$\bigcup (\family{F} \cap \family{G}) \subseteq \bigcup \family{F} \cap \bigcup \family{G}$
+
+\textit{Proof}. Suppose $x \in \bigcup \family{F} \cap \family{G}$. This means 
+that $x \in \bigcup \family{F}$ and $x \in \bigcup \family{G}$, so 
+$\exists A \in \family{F} (x \in A)$ and $\exists A \in \family{G} (x \in A)$.
+Thus, we can choose a set $A$ such that $A \in \family{F}$, $A \in \family{G}$
+and $x \in A$. Since $A \in \family{F}$ and $A \in \family{G}$, 
+$A \in \family{F} \cap \family{G}$. Therefore 
+$\exists A \in \family{F} \cap \family{G} (x \in A)$, so 
+$x \in \bigcup (\family{F} \cap \family{G})$. Since $x$ was arbitrary, we can 
+conclude that 
+$\bigcup (\family{F} \cap \family{G}) \subseteq \bigcup \family{F} \cap \bigcup \family{G}$
+
+In this above proof, we can not assume that the sets $A$ are necessarily the 
+same, so we would need to use sets $A_1$ and $A_2$.
+
+\noindent (c) Find an example of families of sets $\family{F}$ and $\family{G}$
+for which
+$\bigcup (\family{F} \cap \family{G}) \neq \bigcup \family{F} \cap \bigcup \family{G}$
+
+One example is 
+
+$$
+\family{F} = \{ \{ 1 \}, \{ 2 \} \}, 
+\family{G} = \{ \{ 1 \}, \{ 1, 2 \} \}, 
+$$
+
+$$\bigcup (\family{F} \cap \family{G}) = \{ 1 \}$$
+
+$$\bigcup \family{F} \cap \bigcup \family{G} = \{ 1, 2 \}$$
+
+\section*{Exercise 19}
+
+Suppose $\family{F}$ and $\family{G}$ are families of sets. 
+Prove that 
+$\bigcup \family{F} \cap \bigcup \family{G}$
+iff
+$\forall A \in \family{F} \forall B \in \family{G} (A \cap B \subseteq \bigcup (\family{F} \cap \family{G}))$
+
+($\rightarrow$) Suppose 
+$\bigcup \family{F} \cap \bigcup \family{G} \subseteq \bigcup (\family{F} \cap \family{G})$.
+Let $A \in \family{F}$ and $B \in \family{G}$. Suppose $x \in B \cap B$, so 
+$x \in A$ and $x \in B$. Since $x \in A$ and $A \in \family{F}$, 
+$x \in \bigcup \family{F}$, and the same argument that $x \in \bigcup \family{G}$.
+Therefore, $x \in \bigcup \family{F} \cap \bigcup \family{G}$, and since 
+$\bigcup \family{F} \cap \bigcup \family{G} \subseteq \bigcup (\family{F} \cap \family{G})$
+it follows that $x \in \bigcup (\family{F} \cap \family{G})$. Since $x$ was 
+arbitrary, we can conclude that $A \cap B \subseteq \bigcup (\family{F} \cap \family{G})$.
+
+($\leftarrow$) Suppose 
+$\forall A \in \family{F} \forall B \in \family{G} (A \cap B \subseteq \bigcup (\family{F} \cap \family{G}))$.
+Let $x$ be an arbitrary element of $\bigcup \family{F} \cap \bigcup \family{G}$.
+Then $x \in \bigcup \family{F}$ and $x \in \bigcup \family{G}$, so we can choose 
+sets $A \in \family{F}$ and $B \in \family{G}$ such that $x \in A$ and $x \in B$.
+By assumption, $A \cap B \subseteq \bigcup (\family{F} \cap \family{G})$.
+Since $x \in A$, and $x \in B$, $x \in A \cap B$. Therefore, 
+$x \in \bigcup (\family{F} \cap \family{G})$. Since $x$ was arbitrary it follows
+that $\bigcup \family{F} \cap \bigcup \family{G} \subseteq \bigcup (\family{F} \cap \family{G})$
+
+\section*{Exercise 20}
+
+Suppose $\family{F}$ and $\family{G}$ are families of sets. Prove that 
+$\bigcup \family{F}$ and $\bigcup \family{G}$ are disjoint iff for all 
+$A \in \family{F}$ and $B \in \family{G}$, $A$ and $B$ are disjoint.
+
+($\rightarrow$) Suppose $\bigcup \family{F} \cap \bigcup \family{G} = \emptyset$.
+Consider an arbitrary $A \in \family{F}$ and $B \in \family{G}$. For 
+$\bigcup \family{F} \cap \bigcup \family{G} = \emptyset$, then there must be 
+some $x \in A$ and $x \notin B$. Thus, $A \cap B = \emptyset$.
+
+($\rightarrow$) Suppose 
+$\forall A \in \family{F} \forall B \in \family{G} (A \cap B = \emptyset)$. For 
+$A \cap B = \emptyset$, then there must be some element $x \in A$ and $x \notin B$.
+Since $x \in A$ and $A \in \family{F}$, $x \in \bigcup \family{F}$. The same 
+argument finds that $x \notin \bigcup \family{G}$. 
+Thus $\bigcup \family{F} \cap \bigcup \family{G} = \emptyset$.
+
+\section*{Exercise 21}
+
+Suppose $\family{F}$ and $\family{G}$ are families of sets.
+
+\noindent (a) Prove that 
+$\bigcup \family{F} \setminus \bigcup \family{G} \subseteq \bigcup (\family{F} \setminus \family{G})$
+
+Suppose $x \in \bigcup \family{F} \setminus \family{G}$, then 
+$x \in \bigcup \family{F}$ and $x \notin \bigcup \family{G}$. So, there is some 
+$A$ such that $x \in A$, $A \in \family{F}$, $A \notin \family{G}$. Since 
+$A \in \family{F}$ and $A \notin \family{G}$, 
+$A \in \family{F} \setminus \family{G}$. Since 
+$A \in \family{F} \setminus \family{G}$, then 
+$x \in \family{F} \setminus \family{G}$, and so 
+$x \in \bigcup (\family{F} \setminus \family{G})$. Thus 
+$\bigcup \family{F} \setminus \bigcup \family{G} \subseteq \bigcup (\family{F} \setminus \family{G})$.
+
+\noindent (b) What's wrong with the following proof that 
+$\bigcup \family{F} \setminus \bigcup \family{G} \subseteq \bigcup (\family{F} \setminus \family{G})$?
+
+\textit{Proof}. Suppose $x \in \bigcup (\family{F} \setminus \family{G})$. 
+Then we can choose some $A \in \family{F} \setminus \family{G}$ such that 
+$x \in A$. Since $A \in \family{F} \setminus \family{G}$, $A \in \family{F}$
+and $A \notin \family{G}$. Since $x \in A$ and $A \in \family{F}$, 
+$x \in \bigcup \family{F}$. Since $x \in A$ and $A \notin \family{G}$,
+$x \notin \bigcup \family{G}$. Therefore, 
+$x \in \bigcup \family{F} \setminus \bigcup \family{G}$.
+
+The mistake is in the line ``Since $x \in A$ and $A \notin \family{G}$,
+$x \notin \bigcup \family{G}$''. $x \notin \bigcup \family{G}$ means 
+$\not \exists A (A \in \family{G} \wedge x \in A)$, but what has been proved is 
+$\exists A (A \notin \family{G} \wedge x \in a)$, which isn't the same thing.
+
+\noindent (c) Prove that
+$\bigcup (\family{F} \setminus \family{G}) \subseteq \bigcup \family{F} \setminus \bigcup \family{G}$
+iff
+$\forall A \in (\family{F} \setminus \family{G}) \forall B \in \family{G} (A \cap B = \setminus)$
+
+($\rightarrow$) Suppose
+$\bigcup (\family{F} \setminus \family{G}) \subseteq \bigcup \family{F} \setminus \bigcup \family{G}$.
+Suppose $A \in \family{F}$ and $B \in \family{G}$. So, $A \subseteq \bigcup \family{F}$
+and $B \subseteq \bigcup \family{G}$. Therefore 
+$A \subseteq \bigcup \family{F} \setminus \bigcup \family{G}$. Equally,
+$A \in \family{F} \setminus \family{G}$, and so 
+$A \subseteq \bigcup (\family{F} \setminus \family{G})$.
+However, these conditions only hold when $A \cap B = \emptyset$, or in other words 
+$\forall A \in (\family{F} \setminus \family{G}) \forall B \in \family{G} (A \cap B = \setminus)$.
+
+($\leftarrow$) Suppose 
+$\forall A \in (\family{F} \setminus \family{G}) \forall B \in \family{G} (A \cap B = \setminus)$.
+Since $B \in \family{G}$ and $A \in \family{F} \setminus \family{G}$, and 
+$A \cap B = \emptyset$, then $A \in \family{F}$. Since 
+$A \in \family{F} \setminus \family{G}$, then 
+$A \subseteq \bigcup (\family{F} \setminus \family{G})$. Since $A \cap B = \emptyset$,
+then $A \subseteq \bigcup \family{F} \setminus \bigcup \family{G}$.
+Thus 
+$\bigcup (\family{F} \setminus \family{G}) \subseteq \bigcup \family{F} \setminus \bigcup \family{G}$.
+
+\noindent (d) Find an example of families of sets $\family{F}$ and $\family{G}$
+for which 
+$\bigcup (\family{F} \setminus \family{G}) \neq \bigcup \family{F} \setminus \bigcup \family{G}$.
+
+One example is 
+$
+\family{F} = \{ \{ 1,2 \}, \{ 3 \} \}, 
+\family{G} = \{ \{ 1 \}, \{ 2, 3 \} \}
+$
+
+$$
+\bigcup (\family{F} \setminus \family{G}) = \{ 1, 2, 3 \},
+\bigcup \family{F} \setminus \bigcup \family{G} = \emptyset
+$$
+
+\section*{Exercise 22}
+
+Suppose $\family{F}$ and $\family{G}$ are families of sets. Prove that if 
+$\bigcup \family{F} \nsubseteq \bigcup \family{G}$, then there is some 
+$A \in \family{F}$ such that for all $B \in \family{G}$, $A \subseteq B$.
+
+Suppose $\bigcup \family{F} \nsubseteq \bigcup \family{G}$. Consider some 
+$A \subseteq \bigcup \family{F}$, $A \in \family{F}$. Consider some 
+$B \subseteq \bigcup \family{G}$, $B \in \family{G}$. If $A \subseteq B$,
+then $A \subseteq \bigcup \family{G}$. Since $A \subseteq \bigcup \family{G}$
+and $A \subseteq \bigcup \family{F}$, then 
+$\bigcup \family{F} \subseteq \bigcup \family{G}$, but this is obviously a 
+contradiction so $A \subseteq B$.
+
+\section*{Exercise 23}
+
+Suppose $B$ is a set, $\{ A_i | i \in I \}$ is an indexed family of sets,
+and $I \neq \emptyset$
+
+\noindent (a) What proof strategies are used in the following proof of the 
+equation $B \cap (\bigcup_{i \in I} A_i) = \bigcup_{i \in I} (B \cap A_i)$?
+
+\textit{Proof}. Let $x$ ve arbitrary. Suppose $x \in B \cap (\bigcup_{i \in I} A_i)$.
+Then $x \in B$ and $x \in \bigcup_{i \in I} A_i$, so we can choose some 
+$i_0 \in I$ such that $x \in A_{i_0}$. Since $x \in B$ and $x \in A_{i_0}$,
+$x \in B \cap A_{i_0}$. Therefore $x \in \bigcup_{i \in I} (B \cap A_i)$
+
+Now suppose $x \in \bigcup_{i \in I} (B \cap A_i)$. Then we can choose some 
+$i_0 \in I$ such that $x \in B \cap A_{i_0}$. Therefore $x \in B$ and 
+$x \in A_{i_0}$. Since $x \in A_{i_0}$, $x \in \bigcup_{i \in I} A_i$.
+Since $x \in B$ and $x \in \bigcup_{i \in I} A_i$, 
+$x \in B \cap (\bigcup_{i \in I} A_i)$
+
+Since $x$ was arbitrary, we have shown that 
+$\forall x [x \in B \cap (\bigcup_{i \in I} A_i) \bicond x \in \bigcup_{i \in I} (B \cap A_i)]$
+so
+$B \cap (\bigcup_{i \in I} A_i) = \bigcup_{i \in I} (B \cap A_i)$
+
+\begin{itemize}
+    \item Proves both directions of the biconditional;
+    \item uses arbitrary $x$;
+    \item existential instantiation of $i_0$
+\end{itemize}
+
+\noindent (b) Prove that 
+$B \setminus (\bigcup_{i \in I} A_i) = \bigcup_{i \in I} (B \setminus A_i)$.
+
+($\rightarrow$) Let $x$. Suppose $x \in B \setminus (\bigcup_{i \in I} A_i)$. 
+Then $x \in B$ and $x \notin \bigcup_{i \in I} A_i$. We can choose some $i_0 \in I$
+such that $x \notin A_{i_0}$. Since $x \in B$, $x \notin A_{i_0}$, 
+$x \in B \setminus A_{i_0}$. Therefore $x \in \bigcup_{i \in I} (B \setminus A_i)$
+
+($\leftarrow$) Let $x$. Suppose $x \in \bigcup_{i \in I} (B \setminus A_i)$.
+Then we choose some $i_0 \in I$ such that $x \in B \setminus A_{i_0}$. 
+Therefore, $x \in B$ and $x \notin A_{i_0}$. Since $x \notin A_{i_0}$,
+then $x \notin \bigcup_{i \in I} A_i$. Since $x \in B$ and 
+$x \notin \bigcup_{i \in I} A_i$ then $x \in B \setminus (\bigcup_{i \in I} A_i)$.
+
+\section*{Exercise 24}
+
+Suppose $\{ A_i | i \in I \}$ and $\{ B_i | i \in I \}$ are indexed families of 
+sets and $I \neq \emptyset$.
+
+\noindent (a) Prove that 
+$\bigcup_{i \in I} (A_i \setminus B_i) \subseteq (\bigcup_{i \in I} A_i) \setminus (\bigcup_{i \in I} B_i)$
+
+Let $x$. Suppose $x \in \bigcup_{i \in I} (A_i \setminus B_i)$. We can choose 
+some $i_0 \in I$ such that $x \in A_{i_0}$, and we can choose some $i_1 \in I$ 
+such that $x \notin B_{i_1}$. Since $x \in A_{i_0}$ then 
+$x \in \bigcup_{i \in I} A_i$. Similarly, $x \notin B_{i_1}$, 
+$x \notin \bigcup_{i \in I} B_i$. Therefore 
+$x \in (\bigcup_{i \in I} A_i) \setminus (\bigcup_{i \in I} B_i)$.
+Since $x$ was arbitrary 
+$\bigcup_{i \in I} (A_i \setminus B_i) \subseteq (\bigcup_{i \in I} A_i) \setminus (\bigcup_{i \in I} B_i)$
+
+\noindent (b) Find and example for which 
+$\bigcup_{i \in I} (A_i \setminus B_i) \neq (\bigcup_{i \in I} A_i) \setminus (\bigcup_{i \in I} B_i)$
+
+One example is $I = \{1, 2\}, A_1 = B_1 = \{1\}, A_2 = B_2 = \{2\}$.
+
+\section*{Exercise 25}
+
+Suppose $\{ A_i | i \in I \}$ and $\{ B_i | i \in I \}$ are indexed families of 
+sets.
+
+\noindent (a) Prove that 
+$\bigcup_{i \in I} (A_i \cap B_i) \subseteq (\bigcup_{i \in I} A_i) \cap (\bigcup_{i \in I} B_i)$
+
+Suppose $x \in \bigcup_{i \in I} (A_i \cap B_i)$. We can choose some $i_0 \in I$ 
+such that $x \in A_{i_0}$ and $x \in B_{i_0}$. Since $x \in A_{i_0}$, then 
+$x \in \bigcup_{i \in I} A_i$ and similarly $x \in \bigcup_{i \in I} B_i$.
+Therefore, $x \in \bigcup_{i \in I} A_i \cap \bigcup_{i \in I} B_i$.
+Since $x$ was arbitrary then 
+$\bigcup_{i \in I} (A_i \cap B_i) \subseteq (\bigcup_{i \in I} A_i) \cap (\bigcup_{i \in I} B_i)$
+
+\noindent (b) Find an example for which 
+$\bigcup_{i \in I} (A_i \cap B_i) \neq (\bigcup_{i \in I} A_i) \cap (\bigcup_{i \in I} B_i)$
+
+One example is $I = \{ 1, 2 \}, A_1 = B_2 =m \{1\}, A_2 = B_1 = \{2\}$
+
+\section*{Exercise 26}
+
+Prove that for all integers $a$ and $b$ there is an integer $c$ such that $a | c$
+and $b | c$
+
+Let $a$ and $b$ be integers. Let $c = ab$, then $a | c$ and $b | c$.
+
+\section*{Exercise 27}
+
+\noindent (a) Prove that for every integer $n$, $15 | n$ iff $3 | n$ and $5 | n $.
+
+($\rightarrow$) Suppose $3 | n$ and $5 | n$. Then $n = 3j = 5k$. 
+
+$$15 (2k - j) = 30k - 15j = 6 \cdot 5k - 5 \cdot 3j = 6n - 5n = n$$
+
+\noindent (b) Prove that it is not true that for every integer $n$, $60 | n$ iff
+$6 | n$ and $10 | n$.
+
+Let $n = 30$. $6 | n$ and $10 | n$, but not $60 | n$
+
+\end{document}
