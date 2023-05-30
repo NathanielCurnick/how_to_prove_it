@@ -131,5 +131,397 @@ $x \in B \setminus C$. Since $x \notin C$, then $x \in B$. Since $x \in B$, then
 $x \in B \cup C$, and since $x \in A$, $x \in A \cup C$. 
 Therefore, $A \cup C \subseteq B \cup C$
 
+\section*{Exercise 8}
+
+Prove that for any sets $A$ and $B$, $\powerset{A} \cup \powerset{B} \subseteq \powerset{A \cup B}$
+
+Suppose $x \in \powerset{A \cup B}$. This means that $x \in A \cup B$. If 
+$x \in A$ then $x \in \powerset{A}$, thus $x \in \powerset{A} \cup \powerset{B}$.
+If on the other hand, $x \in B$, then $x \in \powerset{B}$, so 
+$x \in \powerset{A} \cup \powerset{B}$.
+
+Thus, $\powerset{A} \cup \powerset{B} \subseteq \powerset{A \cup B}$.
+
+\section*{Exercise 9}
+
+Prove that for any sets $A$ and $B$, if 
+$\powerset{A} \cup \powerset{B} = \powerset{A \cup B}$
+then either $A \subseteq B$ or $B \subseteq A$.
+
+Consider $A$ and $B$ not being subsets of each other in any way. So, we have 
+$x \in A$ which $x \notin B$ and $y \in B$ which $y \notin A$. This would mean
+that at least one $X \subseteq \powerset{A \cup B}$ contains both $x$ and $y$.
+However, $\powerset{A}$ contains no sets which have $y$ as an element, and 
+conversely $\powerset{B}$ contains no sets which have $x$ as an element. 
+Therefore, in order for $\powerset{A} \cup \powerset{B} = \powerset{A \cup B}$
+then either $A \subseteq B$ or $B \subseteq A$.
+
+\section*{Exercise 10}
+
+Suppose $x$ and $y$ are real numbers and $x \neq 0$. 
+Prove that $y + 1/x = 1 + y/x$ iff either $x = 1$ or $y = 1$.
+
+First prove $y + 1/x = 1 + y/x \then x=1 \vee y=1$
+
+$y - 1 = y / x - 1/x = (y - 1)/x$. If $y \neq 1$ then $y-1 \neq 0$ so we can 
+divide both sides of the equation by $y-1$ and conclude that $1 = 1/x$ or $x=1$.
+Thus either $x = 1$ or $y = 1$.
+
+Now prove $x = 1 \vee y = 1 \then y + 1/x = 1 + y/x$
+
+If $x = 1$ then $y + 1/1 = 1 + y/1 \equiv y + 1 = y + 1$. If $y = 1$ then 
+$1 + 1/x = 1 + 1/x$
+
+\section*{Exercise 11}
+
+Prove that for every real number $x$, if $| x - 3 | > 3$ then $x^2 > 6x$
+
+If $x - 3 \geq 0$ then $x - 3 > 3$ then $x > 6$. Thus $x^2 > 6x$.
+
+If $x - 3 < 0$ then $3 - x > 3$, so $-x > 0$ or $x < 0$. Therefore 
+$x^2 > 0 > 6x$
+
+\section*{Exercise 12}
+
+Prove that for every real number $x$, $| 2x - 6 | > x$ iff $| x - 4 | > 2$.
+
+First prove $| 2x - 6 | > x \then | x - 4 | > 2$
+
+If $2x - 6 \geq 0$ then $2x - 6 > x$ so $x > 6$. Thus $| x - 4 | > 2$. If 
+$2x - 6 < 0$ then $6 - 2x > x$, so $x < 2$. Thus, $| x - 4 | > 2$.
+
+Now prove $| x - 4 | > 2 \then | 2x - 6 | > x$
+
+If $x - 4 \geq 0$ then $x - 4 > 2$, so $x > 6$, and so $| 2x - 6 > x$.
+If $x - 4 < 0$ then $4 - x > 2$, so $x < -6$ and so $| 2x - 6 | > x$.
+
+\section*{Exercise 13}
+
+TODO
+
+\section*{Exercise 14}
+
+Prove that for every integer $x$, $x^2 + x$ is even.
+
+If $x$ is even, $x^2$ is even, to which we add an even number, so $x^2+x$ is even
+
+If $x$ is odd, then $x^2$ is odd, to which we add an odd number, so $x^2+x$ is odd
+
+\section*{Exercise 15}
+
+Prove that for every integer $x$, the remainder when $x^4$ is divided by 8 is 
+either 0 or 1.
+
+If $x$ is even then $x = 2m$. $(2m)^4 = 2^4 m^4$. $8 = 2^3$. So 
+$\frac{2^4 m^4}{2^3} = 2m^4$ i.e. no remainder 
+
+If $x$ is odd, then $x = 2m + 1$. 
+$(2m + 1)^4 = 16m^4 + 32m^3 + 24m^2 + 8m + 1$. 
+
+$$\frac{16m^4 + 32m^3 + 24m^2 + 8m}{8} = 8m^4 + 4m^3 + 3m^2 + m$$
+
+with remainder 1
+
+\section*{Exercise 16}
+
+Suppose $\family{F}$ and $\family{G}$ are nonempty families of sets
+
+\noindent (a) Prove that $\bigcup (\family{F} \cup \family{G}) = \bigcup \family{F} \cup \bigcup \family{G}$
+
+First prove $\bigcup (\family{F} \cup \family{G}) \subseteq \bigcup \family{F} \cup \bigcup \family{G}$
+
+Suppose $x \in \bigcup (\family{F} \cup \family{G})$. This means $x$ is in some 
+$A$, which is in either $\family{F}$ or $\family{G}$. Whichever $A$ is an element of 
+then $x \in \bigcup \family{F} \cup \bigcup \family{G}$, so 
+$\bigcup (\family{F} \cup \family{G}) = \bigcup \family{F} \cup \bigcup \family{G}$.
+
+Now prove $\bigcup \family{F} \cup \bigcup \family{G} \subseteq \bigcup (\family{F} \cup \family{G})$.
+
+Suppose $x \in \bigcup \family{F}$, then $x$ is in some $A$ in $\family{F}$. 
+Thus $A \in \family{F} \cup \family{G}$ and so $x \in \bigcup (\family{F} \cup \family{G})$.
+Suppose now $x \in \bigcup \family{G}$. Then there is some $A$ in $\family{G}$.
+Thus $A \in \family{F} \cup \family{G}$ and so $x \in \bigcup (\family{F} \cup \family{G})$.
+Therefore $\bigcup \family{F} \cup \bigcup \family{G} \subseteq \bigcup (\family{F} \cup \family{G})$.
+
+Since we have proven both sets to be subsets of the other, then we have proven 
+them to be equal.
+
+\noindent (b) Prove that $B \cup \bigcup \family{F} = \bigcup_{A \in \family{F}} (B \cup A)$.
+
+First prove $B \cup \bigcup \family{F} \subseteq \bigcup_{A \in \family{F}} (B \cup A)$
+
+If $x \in B$ then $x \in B \cup \bigcup \family{F}$.
+Also, $x \in B \cup A$ where $A \in \family{F}$. 
+If $x \in \bigcup \family{F}$, then $x \in A$, where $A \in \family{F}$. Since 
+$x \in A$ then $x \in B \cup A$.Therefore 
+$B \cup \bigcup \family{F} \subseteq \bigcup_{A \in \family{F}} (B \cup A)$
+
+No prove $\bigcup_{A \in \family{F}} (B \cup A) \subseteq B \cup \bigcup \family{F}$
+
+Suppose $x \in B$ then $x \in B \cup A$, and thus $x \in B \cup \bigcup \family{F}$.
+If $x \in A$, then $x \in B \cup A$. Since $A \in \family{F}$, then 
+$x \in \bigcup \family{F}$. Therefore $x \in B \cup \bigcup \family{F}$. 
+So $\bigcup_{A \in \family{F}} (B \cup A) \subseteq B \cup \bigcup \family{F}$.
+
+Since we have proven both sets to be subsets of the other, then we have proven 
+them to be equal.
+
+\noindent (c) Can you discover and prove a similar theorem about 
+$\bigcap (\family{F} \cup \family{G})?$
+
+$$\bigcap (\family{F} \cup \family{G}) = \bigcap \family{F} \cap \bigcap \family{G}$$
+
+First prove $\bigcap (\family{F} \cup \family{G}) \subseteq \bigcap \family{F} \cap \bigcap \family{G}$
+
+Suppose $x \in \bigcap (\family{F} \cup \family{G})$. This means there was some 
+set $A \in \family{F}$ and some set $B \in \family{G}$ such that $x \in A$ and 
+$x \in B$. Thus, $x \in \bigcap \family{F}$ and $x \in \bigcap \family{G}$.
+Thus, $x \in \bigcap \family{F} \cap \bigcap \family{G}$. 
+Therefore, $\bigcap (\family{F} \cup \family{G}) \subseteq \bigcap \family{F} \cap \bigcap \family{G}$.
+
+Now prove $\bigcap \family{F} \cap \bigcap \family{G} \subseteq \bigcap (\family{F} \cup \family{G})$
+
+Suppose $x \in \bigcap \family{F} \cap \bigcap \family{G}$. Then, 
+$x \in \bigcap \family{F}$, and $x \in \bigcap \family{G}$. Suppose $x \in A$ 
+where $A \in \family{F}$ and $x \in B$ where $B \in \family{G}$. Thus 
+$A \in \family{F} \cup \family{G}$ (and $B \in \family{F} \cup \family{G}$), so 
+$x \in \bigcap (\family{F} \cup \family{G})$. Thus 
+$\bigcap \family{F} \cap \bigcap \family{G} \subseteq \bigcap (\family{F} \cup \family{G})$.
+
+Since we have proven both sets to be subsets of the other, then we have proven 
+them to be equal.
+
+\section*{Exercise 17}
+
+Suppose $\family{F}$ is a nonempty family of sets and $B$ is a set
+
+\noindent (a) Prove that $B \cup \bigcup \family{F} = \bigcup (\family{F} \cup \{B\})$
+
+First prove $B \cup \bigcup \family{F} \subseteq \bigcup (\family{F} \cup \{B\})$
+
+Suppose $x \in B$, then $x \in B \cup \bigcup \family{F}$. Then $B$ obviously 
+is in $\family{F} \{B\}$, and so $x \in \bigcup (\family{F} \cup \{B\})$, 
+thus $B \cup \bigcup \family{F} \subseteq \bigcup (\family{F} \cup \{B\})$
+
+Now prove $\bigcup (\family{F} \cup \{B\}) \subseteq B \cup \bigcup \family{F}$
+
+Suppose $x \in \bigcup (\family{F} \cup \{B\})$. Suppose $x \in A$ where $A \in \family{F}$.
+Thus $x \in \bigcup \family{F}$, and so $x \in B \cup \bigcup \family{F}$. Suppose 
+now $x \in B$, thus $x \in B \cup \bigcup \family{F}$, so 
+$\bigcup (\family{F} \cup \{B\}) \subseteq B \cup \bigcup \family{F}$.
+
+\noindent (b) Prove that $B \cup \bigcap \family{F} = \bigcap_{A \in \family{F}} (B \cup A)$
+
+First prove $B \cup \bigcap \family{F} \subseteq \bigcap_{A \in \family{F}} (B \cup A)$
+
+Suppose $x \in B$, then $x \in B \cup A$, so $x \in \bigcap_{A \in \family{F}} (B \cup A)$.
+Suppose $x \in \bigcap \family{F}$. Then $x \in A$, where $A \in \family{F}$.
+Since $x \in A$ then $x \in B \cup A$, so $x \in \bigcap_{A \in \family{F}} (B \cup A)$.
+
+Now prove $\bigcap_{A \in \family{F}} (B \cup A) \subseteq B \cup \bigcap \family{F}$.
+
+Suppose $x \in \bigcap_{A \in \family{F}} (B \cup A)$. Suppose that $x \in B$,
+then $x \in B \cup \bigcap \family{F}$. Suppose instead that $x \in A$. Since 
+$A \in \family{F}$, then $x \in \bigcap \family{F}$. Thus $x \in B \cup \bigcap \family{F}$
+Therefore $\bigcap_{A \in \family{F}} (B \cup A) \subseteq B \cup \bigcap \family{F}$.
+
+Since we have proven both sets to be subsets of the other, then we have proven 
+them to be equal.
+
+\noindent (c) Can you discover and prove similar theorems about 
+$B \cap \bigcup \family{F}$ and $B \cap \bigcap \family{F}$?
+
+$$B \cap \bigcup \family{F} = \bigcup_{A \in \family{F}} (B \cap A)$$
+
+First prove $B \cap \bigcup \family{F} \subseteq \bigcup_{A \in \family{F}} (B \cap A)$
+
+Suppose $x \in B \cap \cup \family{F}$. Thus $x \in B$ and $x \in \bigcup \family{F}$.
+Since $x \in \bigcup \family{F}$, $x \in A$ since $A \in \family{F}$. Since 
+$x \in B$ and $x \in A$ then $x \in \bigcup_{A \in \family{F}} (B \cap A)$. So 
+$B \cap \bigcup \family{F} \subseteq \bigcup_{A \in \family{F}} (B \cap A)$.
+
+Now prove $\bigcup_{A \in \family{F}} (B \cap A) \subseteq B \cap \bigcup \family{F}$
+
+Suppose $x \in \bigcup_{A \in \family{F}} (B \cap A)$. Since $A \in \family{F}$,
+so $x \in \bigcup \family{F}$. Since $x \in B$ and $x \in \bigcup \family{F}$,
+then $x \in B \cap \bigcup \family{F}$. So 
+$\bigcup_{A \in \family{F}} (B \cap A) \subseteq B \cap \bigcup \family{F}$
+
+Since we have proven both sets to be subsets of the other, then we have proven 
+them to be equal.
+
+\section*{Exercise 18}
+
+Suppose $\family{F}$, $\family{G}$ and $\family{H}$ are nonempty families of 
+sets and for every $A \in \family{F}$, and every $B \in \family{G}$, $A \cup B \in \family{H}$.
+Prove that $\bigcap \family{H} \subseteq \bigcap \family{F} \cup \bigcap \family{G}$.
+
+Suppose $x \in A$ and $y \in B$. $A \cup B \in \family{H}$. Suppose $A \in \family{H}$,
+then $x \in \bigcap \family{H}$. Since $A \in \family{F}$, $x \in \bigcap \family{F}$
+and thus $x \in \bigcap \family{F} \cup \bigcap \family{G}$. 
+Suppose $B \in \family{H}$, then $y \in \bigcap \family{H}$. Since 
+$B \in \family{G}$, then $y \in \bigcap \family{G}$, and thus 
+$y \in \bigcap \family{F} \bigcup \bigcap \family{G}$. So 
+$\bigcap \family{H} \subseteq \bigcap \family{F} \cup \bigcap \family{G}$.
+
+\section*{Exercise 19}
+
+Suppose $A$ and $B$ are sets. Prove that 
+$\forall x ((x \in A \triangle B) \bicond (x \in A \bicond x \notin B))$
+
+First prove $x \in A \triangle B \then x \in A \bicond x \notin B$
+
+Suppose $x \in A \setminus B \cup B \setminus A$ then $x \in A \setminus B$ or 
+$x \in B \setminus A$. In order for $x \in A \setminus B$, then $x \in A$ but 
+iff $x \notin B$ i.e. $x \in A \bicond x \notin B$.
+
+Now prove $x \in A \bicond x \notin B \then x \in A \triangle B$
+
+If $x \in A$ and $x \notin B$, then $x \in A \setminus B$ and so 
+$x \in A \setminus B \cup B \setminus A$, so $x \in A \triangle B$. However,
+if $x \in A$ and $x \in B$ then this no longer holds (or indeed if $x \notin A$).
+
+\section*{Exercise 20}
+
+Suppose $A$, $B$ and $C$ are sets. Prove that $A \triangle B$ and $C$ are 
+disjoint iff $A \cap C = B \cap C$
+
+In other words we need to prove 
+$A \triangle B \cap C = \emptyset \bicond A \cap C = B \cap C$
+
+First prove $A \triangle B \cap C = \emptyset \then A \cap C = B \cap C $
+
+If $x \in A \setminus B$ then $x \in A$ and $x \notin B$. In order to be 
+disjoint, then $x \notin C$. So $x \notin A \cap C$ and $x \notin B \cap C$.
+If $x \in B \setminus A$ then $x \in A$ and $x \notin B$. In order to be disjoint,
+then $x \notin C$. So $x \notin A \cap C$ and $x \notin B \cap C$.
+Suppose instead $x \in C$, then $x \notin A \setminus B \cup B \setminus A$.
+Thus $x \in A \cap B$ or $x \notin A$ and $x \notin B$. Thus, either 
+$x \in A \cap C$ and $x \in B \cap C$ or $x \notin A \cap C$ and $x \notin B \cap C$.
+
+In all four cases, $A \cap C = B \cap C$.
+
+Now prove $A \cap C = B \cap C \then A \triangle B \cap C = \emptyset$
+
+If $x \in A \cap C$ then $x \in B \cap C$ so $x \in A \cap B \cap C$. This means 
+$x \notin A \triangle B$ but $x \in C$ so $A \triangle B \cap C = \emptyset$.
+If instead $A \notin A \cap C$ then $x \notin B \cap C$. If $x \in A \cap B$ but 
+$x \notin C$ then $x \notin A \triangle B$ and $A \triangle B \cap C = \emptyset$.
+If $x \in C$ then $x \notin A$ and $x \notin B$. So $x \notin A \triangle B$, 
+so $A \triangle B \cap C = \emptyset$.
+
+\section*{Exercise 21}
+
+Suppose $A$, $B$, $C$ are sets. Prove that $A \triangle B \subseteq C$ iff 
+$A \cup C = B \cup C$.
+
+Prove $A \triangle B \subseteq C \then A \cup C = B \cup C$.
+
+For $A \triangle B \subseteq C$, then $x \in A \triangle B$ and $x \in C$. There 
+are two cases for $x \in A \triangle B$ to be considered. 
+Consider $x \in A \setminus B$ where $x \in A$ and $x \notin B$. Thus 
+$x \in A \cup C$ and $x \in B \cup C$. Consider not $x \in B \setminus A$, thus 
+$x \in B$ and $x \notin A$, so still $x \in A \cup C$ and $x \in B \cup C$.
+Thus, $A \cup C = B \cup C$.
+
+Now prove $A \cup C = B \cup C \then A \triangle B \subseteq C$
+
+Suppose $A \cup C = B \cup C$. Suppose $x \in A \triangle B$. Then, 
+$x \in A \setminus B \cup B \setminus A$. Then either $x \in A \setminus B$
+or $x \in B \setminus A$. Consider $x \in A \setminus B$ - this means 
+$x \in A$ and $x \notin B$. Since $A \cup C = B \cup C$ then $x \in C$. 
+Thus $A \triangle B \subseteq C$. Consider now $x \in B \setminus A$ - this means 
+$x \in B$ and $x \notin A$. Since $A \cup C = B \cup C$ then $x \in C$. 
+Thus $A \triangle B \subseteq C$.
+
+\section*{Exercise 22}
+
+Suppose $A$, $B$ and $C$ are sets. Prove that $C \subseteq A \triangle B$ iff 
+$C \subseteq A \cup B$ and $A \cap B \cap C = \emptyset$.
+
+In other words, prove $C \subseteq A \triangle B \bicond 
+C \subseteq A \cup B \cap (A \cap B \cap C = \emptyset)$
+
+First prove $C \subseteq A \triangle B \then 
+C \subseteq A \cup B \cap (A \cap B \cap C = \emptyset)$
+
+Suppose $x \in C$. Since $C \subseteq A \triangle B$, then $x \in A \triangle B$.
+There are two cases. First consider $A \in A \setminus B$. This means $x in A$ and
+$x \notin B$. So, $x \in A \cup B$, and since $x \in C$, then $C \subseteq A \cup B$.
+But recall that $x \notin B$ so $A \cap B \cap C = emptyset$. Consider now 
+$x \in B \setminus A$, which follows a symmetric argument where $x \in B$ and 
+$x \notin A$ to reach the same result.
+
+Now prove $C \subseteq A \cup B \cap (A \cap B \cap C = \emptyset) \then 
+C \subseteq A \triangle B$
+
+Suppose $x \in C$, then $x \in A \cup B$ too. Since $A \cap B \cap C = \emptyset$, 
+and $x \in C$, then $x \in A$ or $x \in B$ but not both. Therefore we can consider 
+two cases. First consdier $x \in A$ and $x \notin B$, so $x \in A \setminus B$,
+so $x \in A \triangle B$, thus $C \subset A \triangle B$. Now consider 
+$x \in B$ and $x \notin A$, and by symmetric argument $x \in B \setminus A$, 
+so $x \in A \triangle B$ thus $C \subseteq A \triangle B$.
+
+\section*{Exercise 23}
+
+Suppose $A$, $B$ and $C$ are sets.
+
+\noindent (a) Prove that $A \setminus B \subseteq (A \setminus B) \cup (B \setminus C)$
+
+Suppose $x \in A \setminus C$. This means $x \in A$ and $x \notin C$. $B$ has two
+cases. Consider first $x \in B$. This means $x \notin A \setminus B$ but 
+$x \in B \setminus C$, so $x \in A \setminus B \cup B \setminus C$, so 
+$A \setminus C \subseteq A \setminus B \cup B \setminus C$. Consider now $x \notin B$,
+so $x \in A \setminus B$ but $x \notin B \setminus C$. Still, 
+$x \in A \setminus B \cup B \setminus C$, so 
+$A \setminus C \subseteq A \setminus B \cup B \setminus C$
+
+\noindent (b) Prove that $A \triangle C \subseteq (A \triangle B) \cup (B \triangle C)$
+
+$x \in A \triangle C$. This means either $x \in A \setminus C$ or $x \in c \setminus A$.
+Consider $x \in A \setminus C$, so $x \in A$ and $x \notin C$. This has two cases to consider.
+First, $x \in B$, thus $x \in B \setminus C$ so $x \in B \triangle C$. Thus 
+$x \in A \triangle B \cup B \triangle C$. Second, $x \notin B$, in this case 
+$x \in A \setminus B$, so $x \in A \triangle B$, thus $x \in A \triangle B \cup B \triangle C$.
+Consider now $x \in C \setminus A$, so $x \in C$ and $x \notin A$. This has 
+two cases to consider. First, $x \in B$, so $x \in A \triangle B$, so 
+$x \in A \triangle B \cup B \triangle C$. 
+Thus $A \triangle C \subseteq A \triangle B \cup B \triangle C$. Secondly, 
+$x \notin B$, so $x \in B \triangle C$, so 
+$x \in A \triangle B \cup B \triangle C$, thus 
+$A \triangle C \subseteq A \triangle B \cup B \triangle C$
+
+In all cases $A \triangle C \subseteq A \triangle B \cup B \triangle C$.
+
+\section*{Exercise 24}
+
+Suppose $A$, $B$ and $C$ are sets.
+
+\noindent (a) Prove that $(A \cup B) \triangle C \subseteq (A \triangle C) \cup (B \triangle C)$
+
+$x \in (A \cup B) \triangle C$ so 
+$x \in (A \cup B) \setminus C \cup C \setminus (A \cup B)$.
+
+There are three truth cases to consider. First consider $x \in A, x \notin C$.
+Thus $x \in A \triangle C$ so $x \in A \triangle C \cup B \triangle C$ so 
+$(A \cup B) \triangle C \subseteq (A \triangle C) \cup (B \triangle C)$. Second,
+consider $x \in B$ and $x \notin C$, we use a symmetric argument as the first case
+to arrive at the same conclusion.
+Third, consider $x \in C$, $x \notin A$ and $x \notin B$. 
+Then $x \in A \triangle C$ and $x \in B \triangle C$, so 
+$x \in A \triangle C \cup B \triangle C$, so 
+$(A \cup B) \triangle C \subseteq A \triangle C \cup B \triangle C$
+
+\noindent (b) Find an example of sets $A$, $B$ and $C$ such that 
+$(A \cup B) \triangle C \neq (A \triangle C) \cup (B \triangle C)$.
+
+One example is $A = \{1\}, B = \{2\}, C = \{3\}$.
+
+\section*{Exercise 25} 
+
+Suppose $A$, $B$ and $C$ are sets 
+
+\noindent (a) Prove that $(A)
+
 
 \end{document}
