@@ -1,0 +1,135 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{amsmath}
+\usepackage[scr]{rsfso}
+
+
+\newcommand{\then}{\rightarrow} 
+\newcommand{\bicond}{\leftrightarrow}
+\newcommand{\powerset}[1]{\mathscr{P}(#1)}
+\newcommand{\family}[1]{\mathcal{#1}}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Chapter 3.5: Proofs Involving Disjunctions}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+Suppose $A$, $B$ and $C$ are sets. Prove that $A \cap (B \cup C) \subseteq (A \cap B)$
+
+Consider $x \in A \cap B$, then $x \in A$ and $x \in B$. By definition, 
+$x \in (A \cap B) \cup C$. Since $x \in B$, then $x \in B \cup C$. And since 
+$x \in A$ also, then $x \in A \cap (B \cup C)$. Subce $x$ was arbitrary, we can 
+conclude that $A \cap (B \cup C) \subseteq (A \cap B) \cup C$
+
+\section*{Exercise 2}
+
+Suppose $A$, $B$, and $C$ are sets. Prove that 
+$(A \cup B) \setminus C \subseteq A \cup (B \setminus C)$.
+
+Suppose $x \in B \setminus C$, then $x \in B$ and $x \notin C$. Therefore, 
+$x \in A \cup (B \setminus C)$. Since $x \in B$, then $x \in A \cup B$ and 
+since $x \notin C$, $x \in (A \cup B) \setminus C$. Since $x$ is arbitrary, we
+can conclude that $(A \cup B) \setminus A \cup (B \setminus C)$
+
+\section*{Exercise 3}
+
+Suppose $A$ and $B$ are sets. Prove that $A \setminus (A \setminus B) = A \cap B$.
+
+First prove $A \setminus (A \setminus B) \subseteq A \cap B$
+
+Suppose $x \in A \setminus (A \setminus B)$ then $x \in A$ and 
+$x \notin A \setminus B$. This means $x \in B$. Since $x \in A$ and $x \in B$, 
+then $x \in A \cap B$. In other words $A \setminus (A \setminus B) \subseteq A \cap B$.
+
+Now prove $A \cap B \subseteq A \setminus (A \setminus B)$
+
+Suppose $x \in A \cap B$, then $x \in A$ and $x \in B$. Therefore, 
+$x \notin A \setminus B$, so $x \in A \setminus (A \setminus B)$. Thus 
+$A \cap B \subseteq A \setminus (A \setminus B)$.
+
+Since we have proven both sets to be subsets of the other, then we have proven 
+them to be equal.
+
+\section*{Exercise 4}
+
+Suppose $A$, $B$, and $C$ are sets. Prove that 
+$A \setminus (B \setminus C) = (A \setminus B) \cup (A \cap C)$
+
+First prove $A \setminus (B \setminus C) = (A \setminus B) \cup (A \cap C)$
+
+Suppose $x \in A \setminus (B \setminus C)$. Thus 
+$x \in A$ and $x \notin B \setminus C$. Suppoe $x \in B$, then $x \in C$. In this 
+instance, $x \notin A \setminus B$, but $x \in A \cap C$, so 
+$x \in (A \setminus B) \cup (A \cap C)$. Suppose now $x \notin B$, then 
+$x \in A \setminus B$, so $x \in (A \setminus B) \cup (A \cap C)$. Thus 
+$A \setminus (B \setminus C) \subseteq (A \setminus B) \cup (A \cap C)$.
+
+Now prove $(A \setminus B) \cup (A \cap C) \subseteq A \setminus (B \setminus C)$
+
+Suppose $x \in (A \setminus B) \cup (A \cap C)$. Suppose $x \in A$ and 
+$x \notin B$, such that $x \in A \setminus B$. Since $x \in A$ and $x \notin B$,
+then $x \in A \setminus (B \setminus C)$. Suppose instead that $x \in (A \cap C)$,
+then $x \in A$ and $x \in C$. This means that $x \in A \setminus (B \setminus C)$,
+therefore $(A \setminus B) \cup (A \cap C) \subseteq A \setminus (B \setminus C)$
+
+Since we have proven both sets to be subsets of the other, then we have proven 
+them to be equal.
+
+\section*{Exercise 5}
+
+Suppose $A \cap C \subseteq B \cap C$, and $A \cup C \subseteq B \cup C$. Prove 
+that $A \subseteq B$.
+
+Suppose $x \in A$. This gives two cases, either $x \in C$ or $x \notin C$.
+
+For $x \in C$, then $x \in A \cap C$, and since $A \cap C \subseteq B \cap C$,
+$x \in B \cap C$. Therefore, $x \in B$. For $x \notin B$, then $x \in A \cup C$,
+and since $A \cup C \subseteq B \cup C$ and $x \notin C$ then $x \in B$. 
+
+Either way, $x \in B$, so $A \subseteq B$.
+
+\section*{Exercise 6}
+
+Recall from Section 1.4 that the symmetric difference of two sets $A$ and $B$ is 
+the set $A \triangle B = (A \setminus B) \cup (B \setminus A) = 
+(A \cup B) \setminus (A \cap B)$. Prove that if $A \triangle B \subseteq A$ then 
+$B \subseteq A$.
+
+Suppose $B \nsubseteq A$. Let's choose some $x \in B$, $x \notin A$. This would 
+mean $x \in (B \setminus A)$, and so $x \in (A \setminus B) \cup (B \setminus A)$.
+However, $(A \setminus B) \cup (B \setminus A) \subseteq A$, so this would imply 
+that $x \in A$, but this is a contradiction with our assumptions, so 
+$B \subseteq A$.
+
+\section*{Exercise 7}
+
+Suppose $A$, $B$ and $C$ are sets. Prove that $A \cup C \subseteq B \cup C$ iff 
+$A \subseteq C \subseteq B \setminus C$.
+
+First we will prove $A \cup C \subseteq B \cup C \then A \subseteq C \subseteq B \setminus C$
+
+Suppose $x \in A \setminus C$ which means $x \in A$ and $x \notin C$. $x \in A \cup C$,
+and since $A \cup C \subseteq B \cup C$, then $x \in B \cup C$. Since $x \notin C$, then 
+$x \in B$. Therefore $x \in B \setminus C$. Since $x \in A \setminus C$, and 
+$x \in B \setminus C$, therefore $A \setminus C \subseteq B \setminus C$.
+
+Now we will prove $A \subseteq C \subseteq B \setminus C \then A \cup C \subseteq B \cup C$
+
+Since $A \setminus C \subseteq B \setminus C$, we know that $x \in A \setminus C$.
+Thus $x \in A$ and $x \notin C$. Since $A \setminus C \subseteq B \setminus C$, then 
+$x \in B \setminus C$. Since $x \notin C$, then $x \in B$. Since $x \in B$, then 
+$x \in B \cup C$, and since $x \in A$, $x \in A \cup C$. 
+Therefore, $A \cup C \subseteq B \cup C$
+
+
+\end{document}
