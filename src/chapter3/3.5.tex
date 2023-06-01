@@ -521,7 +521,179 @@ One example is $A = \{1\}, B = \{2\}, C = \{3\}$.
 
 Suppose $A$, $B$ and $C$ are sets 
 
-\noindent (a) Prove that $(A)
+\noindent (a) Prove that 
+$(A \triangle C) \cap (B \triangle C) \subseteq (A \cap B) \triangle C$
+
+Suppose $x \in (A \triangle C \cap B \triangle C)$, so $x$ needs to be in both 
+$A \triangle C$ and $B \triangle C$. So, either $x \in C, x \notin A, x \notin B$
+or $x \in A, x \in B, x \notin C$. 
+
+Consider first $x \in C, x \notin A, x \notin B$. Thus, 
+$x \in C \setminus (A \cap B)$, so $x \in (A \cap B) \triangle C$.
+
+Consider now $x \in A, x \in B, x \notin C$. $x \in (A \cap B) \setminus C$ 
+so $x \in (A \cap B) \triangle C$. 
+
+Both cases have been covered and we can see that 
+$(A \triangle C) \cap (B \triangle C) \subseteq (A \cap B) \triangle C$
+
+\noindent (b) Is it always true that 
+$(A \cap B) \triangle C \subseteq (A \triangle C) \cap (B \triangle C)$? Give 
+either a proof or a counterexample.
+
+No, a counterexample is $A = \{1\}, B = \{2\}, C = \{1,2\}$
+
+\section*{Exercise 26}
+
+Suppose $A$, $B$ and $C$ are sets. Consider the sets $(A \setminus B) \triangle C$
+and $(A \triangle C) \setminus (B \triangle C)$. Can you prove either is a subset 
+of the other? Justify your conclusions with either proofs or counterexamples.
+
+Let's prove $(A \triangle C) \setminus (B \triangle C)$
+
+Suppose $x \in (A \triangle C) \setminus (B \triangle C)$, so $x \in A \triangle C$
+and $x \notin B \triangle C$. In order for this to be true, there are two cases 
+$x \in A, x \notin B, x \notin C$ or $x \in C, x \in B, x \notin A$.
+
+Consider $x \in A, x \notin B, x \notin C$. $x \in A \setminus B$, so 
+$x \in (A \setminus B) \setminus C$, thus $x \in (A \setminus B) \triangle C$.
+
+Consider $x \in C, x \in B, x \notin A$. $x \in C \setminus (A \setminus B)$,
+so $x \in (A \setminus B) \triangle C$.
+
+In all possible cases we see $(A \triangle C) \setminus (B \triangle C)$
+
+\section*{Exercise 27}
+
+Conside the follow putative theorem.
+
+\textbf{Theorem?} For every real number $x$, if $| x - 3 | < 3$ then $0 < x < 6$
+
+Is the following proof correct? If so, what proof strategies does it use? If not, 
+can it be fixed? Is the theorem correct?
+
+\textit{Proof.} Let $x$ be an arbitrary real number, and cuppose $| x - 3 | < 3$.
+We consider two cases
+
+Case 1. $x - 3 \geq 0$. Then $| x - 3 | = x - 3$. Plugging this into the 
+assumption that $| x - 3 | < 3$, we get $x - 3 < 3$, so clearly $x < 6$
+
+case 2. $x - 3 < 0$. Then $| x - 3 | = 3 - x$, so the assumption $| x - 3 | < 3$
+means that $3 - x < 3$. Therefore $3 < 3 + x$, so $0 < x$.
+
+Since we have proven both $0 < x$ and $x < 6$, we can conclude that $0 < x < 6$
+
+\par\noindent\rule{\textwidth}{0.4pt}
+
+The proof is incorrect, since it only establishes $0 < x$ or $x < 6$, but we 
+need to prove $0 < 6$ and $x < 6$. It can be fixed though. In case 1 we 
+establish that $x < 6$, but also since $x - 3 > 0$, then $x > 0$. Case 2
+already shows that $x > 0$ but also $3 - x < 3$, so $x < 6$. Thus the proof is 
+fixed.
+
+\section*{Exercise 28}
+
+Consider the following putative theorem.
+
+\textbf{Theorem?} For any sets $A$, $B$ and $C$ if $A \setminus B \subseteq C$
+and $A \nsubseteq C$ then $A \cap B \neq \emptyset$.
+
+Is the following proof correct? If so, what proof strategies does it use? If not, 
+can it be fixed? Is the theorem correct?
+
+\textit{Proof.} Supppose $A \setminus B \subseteq C$ and $A \nsubseteq C$. 
+Since $A \nsubseteq C$, we can choose some $x$ such that $x \in A$ and $x \notin C$.
+Since $x \notin C$ and $A \setminus B \subseteq C$, $x \notin A \setminus B$.
+Therefore either $x \notin A$ or $x \in B$. But we already know that $x \in A$,
+so it follows that $x \in B$. Since $x \in A$ and $x \in B$, $x \in A \cap B$.
+Therefore $A \cap B \neq \emptyset$.
+
+\par\noindent\rule{\textwidth}{0.4pt}
+
+The theory is correct % TODO: Elaborate 
+
+\section*{Exercise 29}
+
+Consider the following putative theorem 
+
+\textbf{Theorem?} $\forall x \in \mathbb{R} \exists y \in \mathbb{R} ( x y^2 \neq y - x)$
+
+Is the following proof correct? If so, what proof strategies does it use? If not, 
+can it be fixed? Is the theorem correct?
+
+\textit{Proof.} Let $x$ be an arbitrary real number.
+
+Case 1. $x = 0$. Let $y = 1$. Then $xy^2 = 0$ and $y - x = 1 - 0 = 1$ 
+so $xy^2 \neq y - x$
+
+Case 2. $x = 0$. Let $y = 0$. Then $xy^2 = 0$ and $y - x \neq -x = 0$, 
+so $xy^2 \neq y - x$
+
+Since these cases are exhaustive, we have shown that 
+$\exists y \in \mathbb{R} (xy^2 \neq y - x)$. Since $x$ was arbitrary, this shows 
+that $\forall x \in \mathbb{R} \exists y \in \mathbb{R} (x y^2 \neq y - x)$
+
+\par\noindent\rule{\textwidth}{0.4pt}
+
+The proof is correct % TODO: Elaborate 
+
+\section*{Exercise 30}
+
+Prove that if $\forall x P(x) \then \exists x Q(x)$ then 
+$\exists x (P(x) \then Q(x))$
+
+Demonstrate that LHS is equivalent to RHS
+
+$$\neg \forall x P(x) \vee \exists x Q(x)$$
+$$\exists x \neg P(x) \vee \exists x Q(x)$$
+$$\exists x (\neg P(x) \vee Q(x))$$
+$$\exists x (P(x) \then Q(x))$$
+
+\section*{Exercise 31}
+
+Consider the following putative theorem.
+
+\textbf{Theorem?} Suppose $A$, $B$, and $C$ are sets and $A \subseteq B \cup C$.
+Then either $A \subseteq B$ or $A \subseteq C$.
+
+Is the following proof correct? If so, what proof strategies does it use? If not, 
+can it be fixed? Is the theorem correct?
+
+\textit{Proof.} Let $x$ be an arbitrary element of $A$. 
+Since $A \subseteq B \cup C$ it follows that $x \in B$ or $x \in C$.
+
+Case 1. $x \in B$. Since $x$ was an arbitrary element of $A$, it follows that 
+$\forall x \in A(x \in B)$, which means that $A \subseteq B$.
+
+Case 2. $x \in C$. Similarly, since $x$ was an arbitrary element of $A$, we can 
+conclude that $A \subseteq C$.
+
+Thus either $A \subseteq B$ or $A \subseteq C$.
+
+\par\noindent\rule{\textwidth}{0.4pt}
+
+The proof is incorrect. A counterexample is $A = \{1,2\}, B = \{1\}, C = \{2\}$.
+
+\section*{Exercise 32}
+
+Suppose $A$, $B$ and $C$ are sets $A \subseteq B \cup C$. Prove that either 
+$A \subseteq B$, or $A \cap B \neq \emptyset$.
+
+Suppose $x \in A$, so $x \in B \cup C$. Consider the case $x \in B, x \notin C$.
+Since $x \in A$ and $x \in B$ then $A \subseteq B \cup C$. Consider the case 
+$x \notin B, x \in C$. Since $x \in A$ and $x \in C$, then $x \in A \cap C$, 
+so $A \cap C \neq \emptyset$
+
+\section*{Exercise 33}
+
+Prove $\exists x (P(x) \then \forall y P(y))$
+
+Case 1. $\forall y P(y)$ is true. This means that there was some 
+$P(a) \then \forall y P(y)$. Thus $\exists x (P(x) \then \forall y P(y))$.
+
+Case 2. $\neg \forall y P(y)$ then $\exists x \neg P(x)$, so we can choose 
+some object $a$ such that $P(a)$ is false. Therefore $P(a) \then \forall y P(y)$
+is true, so $\exists x (P(x) \then \forall y P(y))$.
 
 
 \end{document}
