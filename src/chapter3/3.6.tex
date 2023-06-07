@@ -1,0 +1,361 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{amsmath}
+\usepackage[scr]{rsfso}
+
+
+\newcommand{\then}{\rightarrow} 
+\newcommand{\bicond}{\leftrightarrow}
+\newcommand{\powerset}[1]{\mathscr{P}(#1)}
+\newcommand{\family}[1]{\mathcal{#1}}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Chapter 3.5: Proofs Involving Disjunctions}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+Prove that for every real number $x$ there is a unique real number $y$ such that 
+$x^y = x - y$
+
+Let $x$ be an arbitrary real number. Let $y = x / (x^2 + 1)$ then 
+
+$$x - y =
+x - \frac{x}{x^2 + 1} =
+\frac{x^3 + x}{x^2 + 1} - \frac{x}{x^2 + 1} =
+\frac{x^3}{x^2 + 1} =
+x^2 \frac{x}{x^2 + 1} =
+x^2 y$$
+
+To see that $y$ is unique, suppose that $x^2 z = x - z$. Then $z(x^2 + 1) = x$,
+and since $x^2 + 1 \neq 0$, we can divide both sides by $x^2 + 1$ to show that 
+$z = x / (x^2 + 1) = y$
+
+\section*{Exercise 2}
+
+Prove that there is a unique real number $x$ such that for every real number 
+$y$, $xy + x - 4 = 4y$
+
+Let $x = 4$. Let $y$ be an arbitrary real number. Then 
+$xy + x - 4 = 4y + 4 - 4 = 4y$
+
+To prove that $x$ is unique, suppose $z$ is a real number such that for every 
+real number $y$, $zy + z - 4 = 4y$. So setting $y = 0$ we get $z - 4 = 0$,
+so $z = 4 = x$.
+
+\section*{Exercise 3}
+
+Prove that for every real number $x$, if $x \neq 0$ and $x \neq 1$ then there is 
+a unique real number $y$ such that $y/x = y - x$ 
+
+Let $x$ be an arbitrary real number, and assume that $x \neq 0$ and $x \neq 1$.
+Let $y = x^2 / (x-1)$ (which we can since we assumed $x \neq 1$).
+
+$$y - x = 
+\frac{x^2}{x - 1} - x =
+\frac{x^2}{x-1} - \frac{x^2 - x}{x - 1} =
+\frac{x}{x - 1} =
+\frac{\frac{x^2}{x-1}}{x} =
+\frac{y}{x}$$
+
+To show that $y$ is unique, suppose that $z$ is a real number such that 
+$z/x = z - x$. Multiplying both sides by $x$, we conclude that 
+$z = zx - x^2$, so $x^2 = z(x-1)$ and therefore $z = x^2/(x-1) = y$.
+
+\section*{Exercise 4}
+
+Prove that for every real number $x$, if $x \neq 0$ then there is a unique real 
+number $y$ such that for every real number $z$, $zy = z/x$.
+
+let $y = \frac{1}{x}$ (which is defined since we suppose $x \neq 0$).
+Then $zy = z(1/x) = z/x$.
+
+We can see $y$ is unique by supposing $w$ which has the property
+$\forall z \in \mathbb{R} (zy = z/x)$, then taking $z = 1$ we have $w = 1/x$
+so $w = y$.
+
+\section*{Exercise 5}
+
+Recall that if $\family{F}$ is a family of sets, then 
+$\bigcup \family{F} = \{ x | \exists A (A \in \family{F} \wedge x \in A) \}$.
+Suppose we define a new set $\bigcup! \family{F}$ by the formula 
+$\bigcup! \family{F} = \{ x | \exists! A (A \in \family{F} \wedge x \in A) \}$
+
+\noindent (a) Prove that for any family of sets, $\family{F}$, 
+$\bigcup! \family{F} \subseteq \bigcup \family{F}$.
+
+Suppose $A \in \family{F}$ and suppose $x \in A$. Then $x \in \bigcup! \family{F}$.
+However, all $x \in \bigcup! \family{F}$ came from an $A$ which is also in 
+$\family{F}$. In other words, all $x \in \bigcup! \family{F}$ is also 
+$x \in \bigcup \family{F}$. 
+Thus, $\bigcup! \family{F} \subseteq \bigcup \family{F}$.
+
+\noindent (b) A family of sets $\family{F}$ is said to be 
+\textit{pairwise disjoint} if every pair of distinct elements of $\family{F}$ are 
+disjoint; that is, 
+$\forall A \in \family{F} \forall B \in \family{F} (A \neq B \then A \cap B = \emptyset)$.
+Prove that for any family of sets $\family{F}$, 
+$\bigcup! \family{F} = \bigcup \family{F}$ iff $\family{F}$ is pairwise disjoint.
+
+In other words, we need to prove 
+$\bigcup! \family{F} = \bigcup \family{F} \bicond 
+\forall A \in \family{F} \forall B \in \family{F} (A \neq B \then A \cap B = \emptyset)$
+
+($\rightarrow$) Suppose $\bigcup! \family{F} = \bigcup \family{F}$. Suppose 
+$A \cap B \neq \emptyset$. Then $A \in \family{F}, x \in A, B \in \family{F},
+x \in B$. Since $\bigcup! \family{F} = \bigcup \family{F}$, then there is only 
+one set in $\family{F}$ which contains $x$, but we have just demonstrated that 
+$A$ and $B$ contains $x$. Thus, $A \cap B = \emptyset$, by contradiction.
+
+($\leftarrow$) Suppose $A \in \family{F}$ and $B \in \family{F}$. Suppose 
+$A \cap B = \emptyset$. Thus, we choose some $x \in A$ but $x \notin B$. 
+Since the only element of $\family{F}$ that contains $x$ is $A$, then 
+$\bigcup \family{F} = \bigcup! \family{F}$.
+
+\section*{Exercise 6}
+
+Let $U$ be any set
+
+\noindent (a) Prove that there is a unique $A \in \powerset{U}$ such that for 
+every $B \in \powerset{U}, A \cup B = B$
+
+Suppose $A = \emptyset, A \in \powerset{U}$. Then, for every $B \in \powerset{U},
+B \cup \emptyset = B$. To show that $A$ is unique suppose 
+$A^\prime \in \powerset{U}$ and for all $B \in \powerset{U}, A^\prime \cup B = B$.
+Then, taking $B = \emptyset$ we can conclude that 
+$A^\prime \cup \emptyset = \emptyset$. But, clearly, 
+$A^\prime \cup \emptyset = A^\prime$, so $A^\prime = \emptyset = A$.
+
+\noindent (b) Prove that there is a unique $A \in \powerset{U}$ such that for 
+every $B \in \powerset{U}, A \cup B = A$
+
+Let $A = U$. Let $B \in \powerset{U}$ be arbitrary. Then $B \subseteq U = A$ so 
+$A \cap B = B$. To see that $A$ is unique, suppose $A^\prime \in \powerset{U}$
+and $\forall B \in \powerset{U} (A^\prime \cup B = B)$. In particular,
+since $U \in \powerset{U}, A^\prime \cup U = U$. But $A^\prime \in \powerset{U}$
+so $A^\prime \subseteq U$, and $A^\prime \cup U = U$. So $A^\prime = U = A$.
+
+\section*{Exercise 7}
+
+Let $U$ be any set 
+
+\noindent (a) Prove that there is a unique $A \in \powerset{U}$ such that for 
+every $B \in \powerset{U}, A \cap B = B$
+
+Let $A = U$, also let $B \in \powerset{U}$ be arbitrary. Then $B \subseteq U = A$,
+so $A \cap B = B$. To show that $A$ is unique suppose $A^\prime \in \powerset{U}$
+and for all $B \in \powerset{U}$, $A \cap B = B$. Taking $B = U$ we can conclude 
+that $A^\prime \cap B = U$, but this is $A$ so $A^\prime = A$.
+
+\noindent (b) Prove that there is a unique $A \in \powerset{U}$ such that for 
+every $B \in \powerset{U}, A \cap B = A$
+
+Let $A = \emptyset$. Let $B \in \powerset{U}$ be arbitrary then 
+$\emptyset \cap B = \emptyset$. To prove $A$ is unique suppose 
+$A^\prime \in \powerset{U}$ and 
+$\forall B \in \powerset{U} (A^\prime \cap B = A^\prime)$. Since 
+$\emptyset \in \powerset{U}, A^\prime \cap \emptyset = A^\prime$. But 
+$A^\prime \cap \emptyset = \emptyset$, so $A^\prime = \emptyset = A$.
+
+\section*{Exercise 8}
+
+Let $U$ be any set 
+
+\noindent (a) Prove that for every $A \in \powerset{U}$ such that for every 
+$C \in \powerset{U}, C \setminus A = C \cap B$
+
+Suppose $A \in \powerset{U}$, let $B = U \setminus A$. Let $C \in \powerset{U}$
+be arbitrary. Then $C \subseteq U$. Now to prove $C \setminus A = C \cap B$
+suppose $x \in C \setminus A$. Then $x \in C$ and $x \notin A$. Since 
+$x \in C$, $C \subseteq U$ then $x \in U$. Since $x \in U$ and $x \notin A$ 
+then $x \in U \setminus A = B$. Therefore $x \in C \cap B$. 
+
+Suppose now $x \in C \cap B$. Then $x \in C$ and $x \in B = U \setminus A$ so 
+$x \notin A$. Therefore $x \in C \setminus A$, so $C \setminus A = C \cap B$
+
+Now to prove $B$ is unique suppose $B^\prime \in \powerset{U}$ and 
+$\forall C \in \powerset{U} (C \setminus A = C \cap B^\prime)$, 
+$U \setminus A = U \cap B$. But $B^\prime \subseteq U$ so 
+$U \cap B^\prime = B^\prime$. Therefore $B^\prime = U \setminus A = B$.
+
+\noindent (b) Prove that for every $A \in \powerset{U}$ such that for every 
+$C \in \powerset{U}, C \cap A = C \setminus B$
+
+Suppose $A \in \powerset{U}$. Let $B = U \setminus A$. Let $C \in \powerset{U}$
+be arbitrary. Then $C \subseteq U$. We claim now that $C \cap A = C \setminus B$.
+To prove this, suppose $x \in C \cap A$. Then, $x \in C$ and $x \in A$. Since 
+$x \in A$, $x \notin U \setminus A = B$, so $x \in C \setminus B$. Now suppose 
+$x \in C \setminus B$. Then $x \in C$ and $x \notin B = U \setminus A$, so 
+either $x \notin U$ or $x \in A$. But, since $x \in C$ and $C \subseteq U$,
+so $x \in U$. Therefore, $x \in A$ so $x \in C \cap A$.
+
+To prove that $B$ is unique suppose $B^\prime \in \powerset{U}$ and 
+$\forall C \in \powerset{U} (C \cap A = C \setminus B^\prime)$. Then 
+$U \cap A = U \setminus B^\prime$. Since $A \subseteq U$, $U \cap A = A$ so 
+$U \setminus B^\prime = A$. We claim now $B^\prime = U \setminus A$. To prove 
+this suppose $x \in B^\prime$. Then $x \notin U \setminus B^\prime = A$. Also,
+since $x \in B^\prime$ and $B^\prime \subseteq U$ then $x \in U$. Thus, 
+$x \in U \setminus A$. Suppose $x \in U \setminus A$ then 
+$x \in U$ and $x \notin A = U \setminus B^\prime$, so either $x \notin U$ or 
+$x \in B^\prime$. Since $x \in U$, $x \in B^\prime$. Thus, 
+$B^\prime = U \setminus A = B$.
+
+\section*{Exercise 9}
+
+Recall that you showed in exercise 14 of section 1.4 that symmetric difference is 
+associative; in other words, for all sets $A$, $B$ and $C$ 
+$A \triangle (B \triangle C) = (A \triangle B) \triangle C$. You mat also find it 
+useful in this problem to note that symmetric difference is clearly 
+commutative; in other words, for all sets $A$ and $B$, 
+$A \triangle B = B \triangle A$.
+
+\noindent (a) Prove that there is a unique identity element for symmetric 
+difference. In other words, there is a unique set $X$ such that for every 
+set $A$, $A \triangle X = A$.
+
+$x = \emptyset$, then 
+$A \triangle X = (A \setminus \emptyset) \cup (\emptyset \setminus A) = A$.
+
+To see that this is unique suppose $X_1$ and $X_2$ such that 
+$\forall A (A \triangle X_1 = A)$ and $\forall A (A \triangle X_2 = A)$, but 
+applying these statements to each other yields 
+$X_2 \triangle X_1 = X_2$ and $X_1 \triangle X_2 = X_1$. This is obvious
+nonsense unless $X_1 = X_2$.
+
+\noindent (b) Prove that every set has a unique inverse for the operation of 
+symmetric difference. In other fors, for every set $A$ there is a unique 
+set $B$ such that $A \triangle B = X$, where $X$ is the identity element from 
+part (a).
+
+Suppose $A = B$ then 
+$A \triangle B = (A \setminus B) \cup (B \setminus A) = \emptyset = X$. Now 
+suppose $B_1$ and $B_2$ fulfil this condition 
+
+$$B_1 = 
+B_1 \triangle \emptyset = 
+B_1 \triangle (A \triangle B_2) =
+(B_1 \triangle A) \triangle B_2 =
+\emptyset \triangle B_2 =
+B_2$$
+
+\noindent (c) Prove that for any sets $A$ and $B$ there is a unique set $C$ 
+such that $A \triangle C = B$
+
+Suppose $C = A \triangle B$ then 
+
+$$A \triangle C =
+A \triangle (A \triangle B) = 
+(A \triangle A) \triangle B =
+\emptyset \triangle B =
+B$$
+
+Now suppose $C_1$ and $C_2$ are such that $A \triangle C_1 = A \triangle C_2 = B$ then 
+
+$$C_1 =
+\emptyset \triangle C_1 =
+(A \triangle A) \triangle C_1 = 
+A \triangle (A \triangle C_1) =
+A \triangle (A \triangle C_2) = 
+(A \triangle A) \triangle C_2 =
+\emptyset \triangle C_2 =
+C_2$$
+
+\noindent (d) Prove that for every set $A$ there is a unique set $B \subseteq A$
+such that for every set $C \subseteq A, B \triangle C = A \setminus C$.
+
+Let $B = A$, suppose $C \subseteq A$ then
+
+$$B \triangle C = 
+(A \setminus C) \cup (C \setminus A) =
+(A \setminus C) \cup \emptyset = 
+A \setminus C$$
+
+\section*{Exercise 10}
+
+Suppose $A$ is a set, and for every family of sets $\family{F}$, if 
+$\bigcup \family{F} = A$ then $A \in \family{F}$. Prove that $A$ has exactly one 
+element.
+
+I think there is an error in the book, and that this is not actually true.
+Instead, I present a counterexample showing that it is a false claim. 
+Suppose $A = \{1,2\}$, which obviously has more than one element. Suppose 
+$\family{F} = \{ \{1,2\}, \{2\} \}$, and obviously $A \in \family{F}$.
+$\bigcup \family{F} = \{1,2\} = A$, despite $A$ having more than one element.
+
+\section*{Exercise 11}
+
+Suppose $\family{F}$ is a family of sets that has the property that for every 
+$\family{G} \subseteq \family{F}, \bigcup \family{G} \in \family{F}$. Prove that 
+there is a unique set $A$ such that $A \in \family{F}$ and 
+$\forall B \in \family{F} (B \subseteq A)$.
+
+Since $\family{F} \subseteq \family{F}, \bigcup \family{F} \in \family{F}$. 
+Let $A = \bigcup \family{F}$ and suppose $B \in \family{F}$ thus 
+$B \subseteq \bigcup \family{F} = A$. Suppose now that 
+$A_1 \in \family{F}, A_2 \in \family{F}, \forall B \in \family{F} (B \subseteq A_1)$
+and $\forall B \in \family{F} (B \subseteq A_2)$. Applying this last fact with 
+$B = A_1$ we can conclude that $A_1 \subseteq A_2$ but by symmetry $A_2 \subseteq A_1$
+or in other words $A_1 = A_2$.
+
+\section*{Exercise 12}
+
+\noindent (a) Suppose $P(x)$ is a statement with a free variable $x$. Find a formula using 
+the logical symbols we have studied that means ``there are exactly two values 
+of $x$ for which $P(x)$ is true.''
+
+$$\exists x \exists y (P(x) \wedge P(y) \wedge x \neq y \wedge \forall z (P(x) \then (z = x \vee z = y)))$$
+
+\noindent (b) Based on your answer to part (a), design a proof strategy for proving
+a statement for the form ``there are exactly two values 
+of $x$ for which $P(x)$ is true.''
+
+Find two objects $a$ and $b$ such that $P(a)$ and $P(b)$ are both true,
+$a \neq b$ and 
+$\forall z (P(z) \then (z = a \vee z = b))$
+
+\noindent (c) Prove that there are exactly two solutions to the equation 
+$x^3 = x^2$
+
+Obviously $x = 1$ and $x = 0$ are both solutions. Suppose we have some other 
+solution $z$. Then we could divide both sides by $z^2$, so $z^3 = z^2$, then 
+$z = 1$ but this is the same as one of our original solutions.
+
+\section*{Exercise 13}
+
+\noindent (a) Prove that there is a unique real number $c$ such that there is a 
+unique real number $x$ such that $x^2 + 3x + c = 0$
+
+Let $c = 9/4$ so $x^2 + 3x + 9/4 = 0$. Consider the quadratic formula 
+
+$$\frac{-3 \pm \sqrt{9-9}}{2} = \frac{-3}{2}$$
+
+Consider if $c > 9/4$ (which I call $d$) then 
+
+$$\frac{-3 \pm \sqrt{9-d}}{2}$$
+
+which clearly produces additional imaginary solutions.
+
+Consider now $c < 9/4$ (which I call $e$) then 
+
+$$\frac{-3 \pm \sqrt{9-e}}{2}$$
+
+which produces additional real solutions.
+
+\noindent (b)
+
+Show that it is \textit{not} the case that there is a unique real number $x$ 
+such that there is a unique real number $c$ such that $x^2 + 3x + c = 0$.
+
+For every $x$ there is always $x = x^2 -3x$ which is a unique solution.
+
+
+\end{document}
