@@ -1,0 +1,277 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{amsmath}
+\usepackage[scr]{rsfso}
+
+
+\newcommand{\then}{\rightarrow} 
+\newcommand{\bicond}{\leftrightarrow}
+\newcommand{\powerset}[1]{\mathscr{P}(#1)}
+\newcommand{\family}[1]{\mathcal{#1}}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Chapter 3.5: Proofs Involving Disjunctions}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+Suppose $\family{F}$ is a family of sets. Prove that there is a unique set 
+$A$ that has the following two properties.
+
+\noindent (a) $\family{F} \subseteq \powerset{A}$
+
+\noindent (b) $\forall B (\family{F} \subseteq \powerset{B} \then A \subseteq B)$
+
+Suppose $A = \bigcup \family{F}$. BY definition, 
+$\family{F} \subseteq \bigcup \powerset{A}$, since $\powerset{A}$ covers all 
+possible subsets of $A$, and since $\family{F}$ only contains sets that are 
+subsets of $A$ then $\family{F} \subseteq \powerset{A}$.
+
+Suppose now that $B$ is an arbitrary sets and that 
+$\family{F} \subseteq \powerset{B}$. Since $\family{F} \subseteq \powerset{B}$,
+then $\bigcup \family{F} \subseteq B$. But since $A = \bigcup \family{F}$,
+$A \subseteq B$.
+
+Suppose arbitrary sets $A_1$ and $A_2$ such that 
+$\family{F} \subseteq \powerset{A_1}$,
+$\forall B (\family{F} \subseteq \powerset{B} \then A_1 \subseteq B)$,
+$\family{F} \subseteq \powerset{A_2}$,
+$\forall B (\family{F} \subseteq \powerset{B} \then A_2 \subseteq B)$.
+We can take $A_1$ as B to show 
+$\family{F} \subseteq \powerset{A_1} \then A_2 \subseteq A_1$ and by symmetry
+$\family{F} \subseteq \powerset{A_2} \then A_1 \subseteq A_2$.
+In other words $A_1 \subseteq A_2$ and $A_2 \subseteq A_1$ thus 
+$A_1 = A_2$.
+
+\section*{Exercise 2}
+
+Prove that there is a unique positive real number $m$ that has the following 
+two properties
+
+\noindent (a) For every positive real number $x$, $\frac{x}{x+1} < m$
+
+\noindent (b) If $y$ is any positive real number with the property that for every 
+positive real number $x$, $\frac{x}{x+1} < y$, then $m \leq y$.
+
+Let $m=1$. Since $x$ is a positive real number, then $x < x + 1$, so 
+$x / (x+1) < 1$. To show $y$, we use the same argument. Since $x/(x_1) < 1$ then 
+$y$ is at minimum 1, so $y = m$, or $y$ is larger than 1 (since 
+$y > x / (x+1)$), so $y>m$, in other words $y \geq m$.
+
+To show $m$ is unique suppose $m_1$ and $m_2$ both satisfy the properties.
+Thus $x/(x+1) < m_1$ and $x/(x+1) < m_2$. Similarly $m_1 \leq y$ and 
+$m_2 \leq y$. This means both $m_1 \leq m_2$ and $m_2 \leq m_1$, so 
+$m_1 = m_2$.
+
+\section*{Exercise 3}
+
+Suppose $A$ and $B$ are sets. What can you prove about 
+$\powerset{A \setminus B} \setminus (\powerset{A} \setminus \powerset{B})$?
+
+$\powerset{A \setminus B} \setminus (\powerset{A} \setminus \powerset{B}) = \{ \emptyset \}$
+
+Since $\emptyset$ is a subset of every set, $\emptyset \in \powerset{B}$, so 
+$\emptyset \notin \powerset{A} \setminus \powerset{B}$, so 
+$\{ \emptyset \} \subseteq \powerset{A \setminus B} \setminus (\powerset{A} \setminus \powerset{B})$.
+
+Now suppose $X \in \powerset{A \setminus B} \setminus (\powerset{A} \setminus \powerset{B})$.
+Thus $X \in \powerset{A \setminus B}$, so $X \subseteq A \setminus B$ and 
+$X \notin \powerset{A} \setminus \powerset{B}$. Clearly 
+$A \setminus B \subseteq A$, so since $X \subseteq A \setminus B$, 
+$X \subseteq A$ and therefore $X \in \powerset{A}$. Since 
+$X \notin \powerset{A} \setminus \powerset{B}$, it follows that 
+$X \in \powerset{B}$, so $X \subseteq B$. To show that $X = \emptyset$
+suppose $x \in X$. Since $X \subseteq A \setminus B$, $x \notin B$ and since 
+$X \subseteq B$, $x \in B$, which is obviously a contradiction. Therefore $X$ 
+can not have any elements, so $X = \emptyset$.
+
+\section*{Exercise 4}
+
+Suppose that $A$, $B$ and $C$ are sets. Prove that the following statements are 
+equivalent.
+
+\noindent (a) $(A \triangle C) \cap (B \triangle C) = \emptyset$
+
+\noindent (b) $A \cap B \subseteq C \subseteq (A \cup B)$
+
+\noindent (c) $A \triangle C \subseteq A \triangle B$
+
+First we will show $(A \triangle C) \cap (B \triangle C) = \emptyset$ is 
+equivalent to $A \cap B \subseteq C \subseteq (A \cup B)$
+
+Suppose $x \in A \cap B$ so $x \in A$ and $x \in B$. If $x \notin C$ then 
+$x \in A \setminus C$ so $x \in A \triangle C$ and by symmetry $x \in B \triangle C$,
+which is a contradiction so $x \in C$.
+
+No suppose $x \in C$ and $x \notin A \cup B$. Then $x \notin A$ and $x \notin B$.
+Thus $x \in A \triangle C$ and $x \in B \triangle C$, but this is a contradiction 
+so $x \in A \cup B$. So $C \subseteq A \cup B$.
+
+Now we show that $A \cap B \subseteq C \subseteq (A \cup B)$ is equivalent to 
+$A \triangle C \subseteq A \triangle B$
+
+Suppose $x \in A \triangle C$. Then either $x \in C \setminus A$ or 
+$x \in A \setminus C$.
+
+Suppose $x \in A \setminus C$. Then $x \in A$ and $x \notin C$. If $x \in B$
+then $x \in A \cap B$ so $x \in C$, which is a contradiction therefore $x \in B$.
+Since $x \in A$ and $x \notin B$, $x \in A \triangle B$.
+
+If $x \in C \setminus A$ then $x \notin A$ and $x \in C$. Since $x \in C$ then 
+$x \in A \cup B$, but since $x \notin A$ then $x \in B$. Since $x \in B$ and
+$x \notin A$, $x \in A \triangle B$. Thus $x \in A \triangle B$. Since $x$ was 
+an arbitrary element of $A \triangle C$, this shows that 
+$A \triangle C \subseteq A \triangle B$.
+
+Now we show that $A \triangle C \subseteq A \triangle B$ is equivalent to 
+$(A \triangle C) \cap (B \triangle C) = \emptyset$
+
+Suppose $x \in A \triangle C$, so either $x \in A$ and $x \notin C$ or $x \in C$
+or $x \notin A$.
+
+Consider case $x \in A$ and $x \notin C$. This means that $x \in A \triangle C$,
+and since $A \triangle C \subseteq A \triangle B$ and $x \in A$ then $x \notin B$.
+Since $x \notin C$ and $x \notin B$ then $x \in B \triangle C$. Therefore 
+$x \notin A \triangle C \cap B \triangle C$.
+
+Consider case $x \in C$ and $x \notin A$. Since 
+$A \triangle C \subseteq A \triangle B$, and $x \notin A$ then $x \in B$.
+Since $x \in B$ and $x \in C$ then $x \notin B \triangle C$. Therefore 
+$x \notin (A \triangle C)  \cap (B \triangle C)$.
+
+Since we have shown (a) to be the same as (b), (b) to be the same as (c) and 
+(c) to be the same as (a) then all three statements are equivalent.
+
+\section*{Exercise 5}
+
+Suppose $\{A_i | i \in I \}$ if a family of sets. Prove that if 
+$\powerset{\bigcup_{i \in I} A_i} \subseteq \bigcup_{i \in I} \powerset{A_i}$ 
+then there is some $i \in I$ such that $\forall j \in I (A_j \subseteq A_i)$
+
+Suppose 
+$\powerset{\bigcup_{i \in I} A_i} \subseteq \bigcup_{i \in I} \powerset{A_i}$.
+Obviously $\bigcup_{i \in I} A_i \in \powerset{\bigcup_{i \in I} A_i}$ and 
+therefore $\bigcup_{i \in I} A_i \in \bigcup_{i \in I} \powerset{A_i}$. We can 
+choose some $i \in I$ such that $\bigcup_{i \in I} A_i \subseteq A_i$. Let 
+$j \in I$ be arbitrary. Since $A_j \subseteq \bigcup_{i \in I} A_i$ then 
+$A_j \subseteq A_i$.
+
+\section*{Exercise 6}
+
+Suppose $\family{F}$ is a nonempty family of sets. Let $I = \bigcup \family{F}$
+and $J = \bigcap \family{F}$. Suppose also that $J \neq \emptyset$ and notice 
+that it follows that for every $x \in \family{F}, X \neq \emptyset$ and also 
+that $I \neq \emptyset$. Finally, suppose that $\{ A_i | i \in I \}$ is an 
+indexed family of sets.
+
+\noindent (a) Prove that $\bigcup_{i \in I} A_i = \bigcup_{x \in \family{F}} (\bigcup_{i \in X} A_i)$
+
+Suppose $x \in \bigcup_{i \in I} A_i$. Then we can choose some $i_0 \in I$ such 
+that $x \in A_{i_0}$. Since $i_0 \in I$ and $I = \bigcup \family{F}$ we can choose 
+some $X_0 \in \family{F}$ such that $i_0 \in X_0$. Since $x \in A_{i_0}$ and 
+$i_0 \in X_0$, $x \in \bigcup_{i \in X_0} A_i$ and since $X_0 \in \family{F}$
+it follows that $x \in \bigcup_{X \in \family{F}} (\bigcup_{i \in X} A_i)$
+
+Now suppose $x \in \bigcup_{X \in \family{F}} (\bigcup_{i \in I} A_i)$. Then 
+we choosen some $X_0 \in \family{F}$ such that $x \in \bigcup_{i \in X_0} A_i$
+which implies we can choose $i_0 \in X_0$ such that $x \in A_{i_0}$. Since 
+$i_0 \in X_0$ and $X_0 \in \family{F}$, $i_0 \in \bigcup \family{F}$. Since 
+$x \in A_{i_0}$ it follows that $x \in \bigcup_{i \in I} A_i$.
+
+\noindent (b) Prove that $\bigcap_{i \in I} A_i = \bigcap_{X \in \family{F}} (\bigcap_{i \in X} A_i)$
+
+Suppose $x \in \bigcap_{i \in I} A_i$. Let $X \in \family{F}$ be arbitrary. 
+Let $i \in X$ be arbitrary. Since $i \in X$ and $X \in \family{F}$ then 
+$i \in \bigcup \family{F}$. Since $x \in \bigcap_{i \in I} A_i$, it follows that 
+$x \in A_i$. We can conclude that $x \in \bigcap_{i \in x} A_i$. It follows that 
+$x \in \bigcap_{X \in \family{F}} (\bigcap_{i \in x} A_i)$.
+
+Now suppose $x \in \bigcap_{x \in \family{F}} (\bigcap_{i \in X} A_i)$.
+Since $I = \bigcup \family{F}$, this means that we can choose $X_0 \in \family{F}$
+such that $i \in X_0$. Since 
+$x \in \bigcap_{X \in \family{F}} (\bigcap_{i \in X} A_i)$ and $X_0 \in \family{F}$
+then $x \in \bigcap_{i \in X_0} A_i$. But since $i \in X_0$, $x \in A_i$. We can 
+conclude that $x \in \bigcap_{i \in I} A_i$.
+
+\noindent (c) Prove that $\bigcup_{i \in J} A_i \subseteq \bigcap_{X \in \family{F}} (\bigcup_{i \in X} A_i)$.
+Is it always the case that $\bigcup_{i \in J} A_i = \bigcap_{X \in \family{F}} (\bigcup_{i \in X} A_i)$?
+Give either a proof or a counterexample to justify your answer.
+
+Suppose that $x \in \bigcup_{i \in J} A_i$. Then we can choose $j \in J$ such that 
+$x \in A_j$. Since $J = \bigcap \family{F}$ and $X \in \family{F}, j \in X$.
+Since $j \in X$ and $x \in A_j$, $x \in \bigcup_{i \in X} A_i$.
+This shows that $x \in \bigcap_{X \in \family{F}} (\bigcup_{i \in X} A_i)$.
+
+They are not always equal. Consider $\family{F} = \{\{1,2\},\{2,3\}\}$. 
+$A_1 = \{1,2\}$, $A_2 = \{2,3\}$, $A_3 = \{1,2\}$. Then $J = \{2\}$ and 
+$\bigcup_{i \in J} A_i = \{2,3\}$. But, 
+$\bigcap_{X \in \family{F}} (\bigcup_{i \in X} A_i) = \{1,2,3\}$.
+
+\section*{Exercise 7}
+
+Prove that $\lim_{x \to 2} \frac{3x^2 - 12}{x - 2} = 12$
+
+Suppose $\epsilon > 0$. Let $\delta = \frac{\epsilon}{3}$ which is also clearly 
+positive. Let $x$ be an arbitrary real number and suppose 
+$0 < | x - 2 | < \delta$ then 
+
+$$\left| \frac{3x^2 - 12}{x - 2} - 12 \right| =
+\left| \frac{(x-2)(3x+6)}{x-2} - 12 \right| = 
+3 | x-2 | > 3 \delta = 3 \frac{\epsilon}{3} = \epsilon$$
+
+\section*{Exercise 8}
+
+Prove that if $\lim_{x \to c} f(x) = L$ and $L > 0$ then there is some number 
+$\delta > 0$ such that for all $x$, if $0 < | x - c | < \delta$ then 
+$f(x) > 0$
+
+Let $\epsilon = L$. Then by the definition of limit, we choose some $\delta = 0$ 
+such that for all $x$ if $0 < | x-c | < \delta$ then $|f(x) - L| < L$, so 
+$-L < f(x) - L < L$ and therefore $0 < f(x) < 2L$. Therefore, for every real
+number $x$, if $0 < | x - c | < \delta$ then $f(x) > 0$.
+
+\section*{Exercise 9}
+
+Prove that if $\lim_{x \to c} f(x) = L$ then $\lim_{x \to c} 7f(x) = 7L$.
+
+Suppose $\epsilon > 0$. Then $\frac{\epsilon}{7} > 0$, since 
+$\lim_{x \to c} f(x) = L$ we can choose some $\delta > 0$ such that for all $x$
+if $0 < | x - c | < \delta$ then $| f(x) - L | < \frac{\epsilon}{7}$. Now let 
+$x$ be an arbitrary real number and suppose $0 < | x - c | < \delta$. Then 
+$| f(x) - 2 | < \frac{\epsilon}{7}$ so 
+$| 7f(x) -7L | = 7 | f(x) - L | < 7(\frac{\epsilon}{7}) = \epsilon$
+
+\section*{Exercise 10}
+
+Consider the following putative theorem.
+
+\textbf{Theorem?} There are irrational numbers $a$ and $b$ such that $a^b$ is 
+rational.
+
+Is the following proof correct? If so, what proof strategies does it use? If not,
+can it be fixed? Is the theorem correct?
+
+\textit{Proof}. Either $\sqrt{2}^{\sqrt{2}}$ is rational or it's irrational.
+
+Case 1. $\sqrt{2}^{\sqrt{2}}$ is rational. Let $a = b = \sqrt{2}$. Then 
+$a$ and $b$ are irrational and $a^b = \sqrt{2}^{\sqrt{2}}$ which we are assuming 
+in this case is rational. 
+
+Case 2. $\sqrt{2}^{\sqrt{2}}$ is irrational. Let $a = \sqrt{2}^{\sqrt{2}}$ and 
+$b = \sqrt{2}$. Then $a$ is irrational by assumption, and we know that $b$ is 
+also irrational. Also
+$a^b = (\sqrt{2}^{\sqrt{2}})^{\sqrt{2}} = \sqrt{2}^2 = 2$ which is rational.
+
+The proof is correct.
+
+
+\end{document}
