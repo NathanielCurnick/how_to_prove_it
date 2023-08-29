@@ -1,0 +1,363 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{amsmath}
+\usepackage[scr]{rsfso}
+\usepackage{graphicx}
+\usepackage{float}
+
+
+\newcommand{\then}{\rightarrow} 
+\newcommand{\bicond}{\leftrightarrow}
+\newcommand{\powerset}[1]{\mathscr{P}(#1)}
+\newcommand{\family}[1]{\mathcal{#1}}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Chapter 3.5: Proofs Involving Disjunctions}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+Find the domains and ranges of the following relations
+
+\noindent (a) $\{(p, q) \in P \times P | \text{the person } p \text{ is a parent of the person } q\}$
+where $P$ is the set of all living people 
+
+Domain is $\{p \in P | p \text{ has a living child}\}$
+
+Range is $\{p \in P | p \text{ has a living parent}\}$
+
+\noindent (b) $\{(x, y) \in \mathbb{R}^2 | y > x^2\}$
+
+Domain is $\mathbb{R}$
+
+Range is $\mathbb{R}^2$
+
+\section*{Exercise 2}
+
+Find the domains and ranges of the following relations 
+
+\noindent (a) $\{(p, q) \in P \times P | \text{the person } p \text{ is a brother of the person } q\}$
+where $P$ is the set of all living people 
+
+Domain is $\{p \in P | p \text{ has a brother}\}$
+
+Range is $\{q \in P | q \text{ has a brother}\}$
+
+\noindent (b) $\{(x, y) \in \mathbb{R}^2 | y^2 = 1 - 2/(x^2 + 1)\}$
+
+Domain is $\mathbb{R}$
+
+Range is $-1 < x < 1$
+
+\section*{Exercise 3}
+
+Let $L$ and $E$ be the relations defined in parts 4 and 5 of Example 4.2.2.
+Describe the following relations
+
+\noindent (a) $L^{-1} \circ L$
+
+$\{(s, t) \in S \times S | \text{the students } s \text{ and } t \text{ that live in the same dorm}\}$
+
+\noindent (b) $E \circ (L^{-1} \circ L)$
+
+$\{(s,c) \in S \times C | \text{someone who lives with student } s \text{ is taking course } c\}$
+
+\section*{Exercise 4}
+
+Let $E$ and $T$ be the relations defined in parts 5 and 6 of Example 4.2.2.
+Also, as in that example, let $C$ be the set of all courses at your school, and 
+let $D = \{ \text{Monday, Tuesday, Wednesday, Thursday, Friday}\}$. Let 
+$M = \{(c, d) \in C \times D | \text{the course } c \text{ meets on the day } d\}$.
+Describe the following relations
+
+\noindent (a) $M \circ E$ 
+
+$\{(s,d) \in S \times D | \text{the student } s \text{ does a course that meets on day } d\}$
+
+\noindent (b) $M \circ T^{-1}$
+
+$\{(p,d) \in P \times D | \text{the professor } p \text{ teaches a course on day } d\}$
+
+\section*{Exercise 5}
+
+Suppose that $A = \{1,2,3\}, B = \{4,5,6\}, R = \{(1,4),(1,5),(2,5),(3,6)\}$ and 
+$S = \{(4,5),(4,6),(5,4),(6,6)\}$. Note that $R$ is a relation from $A$ to $B$ 
+and $S$ is a relation from $B$ to $B$. Find the following relations 
+
+\noindent (a) $S \circ R$
+
+$S \circ R = \{(5,4),(6,4),(4,5),(6,6)\}$
+
+\noindent (b) $S \circ S^{-1}$
+
+$S \circ S^{-1} = \{(5,5),(5,6),(6,5),(6,6),(4,4)\}$
+
+\section*{Exercise 6}
+
+Suppose that $A = \{1,2,3\}, B = \{4,5\}, C = \{6,7,8\}, R = \{(1,7), (3,6), (3,7)\}$
+and $S = \{(4,7), (4,8), (5,6)\}$. Note that $R$ is a relation from $A$ to $C$ 
+and $S$ is a relation from $B$ to $C$. Find the following relations 
+
+\noindent (a) $S^{-1} \circ R$ 
+
+$S^{-1} \circ R = \{(1,4),(3,5),(3,4)\}$
+
+\noindent (b) $R^{-1} \circ S$
+
+$R^{-1} \circ S = \{(4,1),(4,3),(5,3)\}$
+
+
+\section*{Exercise 7}
+
+\noindent (a) Prove part 3 of Theorem 4.2.5 by imitating proof of part 2 in the text
+
+We need to prove that $Ran(R^{-1}) = Dom(R)$
+
+Obviously both are subsets of $A$ and let $a$ be an arbitrary element of $A$
+
+$$a \in Ran(R^{-1}) \text{ iff } \exists b \in B ((b, a) \in R^{-1})$$
+$$a \in Ran(R^{-1}) \text{ iff } \exists b \in B ((a, b) \in R \text{ iff } a \in Dom(R))$$
+
+\noindent (b) Give an alternative proof of part 3 of Theorem 4.2.5 by showing that 
+it follows from parts 1 and 2 
+
+$$Ran(R^{-1}) = Dom((R^{-1})^{-1})$$
+$$Ran(R^{-1}) = Dom(R)$$
+
+\noindent (c) Complete the proof of part 4 of Theorem 4.2.5 
+
+We need to show that $(a,d) \in T \circ (S \circ R)$. Suppose then that 
+$(a, d) \in (T \circ S) \circ R$. By definition we can choose some 
+$(b, d) \in T \circ S$. Equally we can choose some $(a, b) \in R$. Since 
+$(b, d) \in T \circ S$ we can again use the definition and choose some 
+$c \in C$ so that $(b, c) \in S$ and $(c, d) \in T$. Since $(b, c) \in S$ and 
+$(a,b) \in R$ we can conclude that $(a,c) \in S \circ R$. Again using the definition 
+of composition we can conclude $(a, d) \in T \circ (S \circ R)$
+
+\noindent (d) Prove part 5 of Theorem 4.2.5 
+
+We need to prove $(S \circ R)^{-1} = R^{-1} \circ S^{-1}$. Note that 
+$(S \circ R)^{-1}$ and $R^{-1} \circ S^{-1}$ are both relations from $C$ to $A$. 
+Consider $(c, a) \in C \times A$
+
+$$(c, a) \in (S \circ R)^{-1} \text{ iff } (a, c) \in S \circ R$$
+$$(c, a) \in (S \circ R)^{-1} \text{ iff } \exists b \in B ((a, b) \in R \wedge (b, c) \in S)$$
+$$(c, a) \in (S \circ R)^{-1} \text{ iff } \exists b \in B ((c,b) \in S^{-1} \wedge (b, a) \in R^{-1})$$
+$$(c, a) \in (S \circ R)^{-1} \text{ iff } (c,a) \in R^{-1} \circ S^{-1}$$
+
+\section*{Exercise 8}
+
+Let $E = \{(p,q) \in P \times P | \text{the person } p \text{ is an enemy of the person } q\}$,
+and $F = \{(p,q) \in P \times P | \text{the person } p \text{ is a friend of the person } q\}$,
+where $P$ is the set of all people. What does the saying ``an enemy of one's enemy is my friend''
+mean about the relations $E$ and $F$?
+
+$$E \circ F \subseteq F$$
+
+\section*{Exercise 9}
+
+Suppose $R$ is a relation from $A$ to $B$ and $S$ is a relation from $B$ to $C$
+
+\noindent (a) Prove that $Dom(S \circ R) \subseteq Dom(R)$
+
+Suppose $a \in Dom(S \circ R)$. We can choose some $c \in C$ such that 
+$(a,c) \in S \circ R$. This means we can choose some $b \in B$ such that 
+$(a, b) \in R$ and $(b,c) \in S$. Since $(a,b) \in R$, $a \in Dom(R)$.
+
+\noindent (b) Prove that if $Ran(R) \subseteq Dom(S)$ then $Dom(S \circ R) = Dom(R)$
+
+Suppose $Ran(R) \subseteq Dom(S)$. In the last question, we proved that 
+$Dom(S \circ R) \subseteq Dom(R)$, we just need to prove that $Dom(R) \subseteq Dom(S \circ R)$
+(when $Ran(R) \subseteq Dom(S)$). Suppose $a \in Dom(R)$. Then we can choose some 
+$b \in B$ such that $(a,b) \in R$. Since $(a,b) \in R$, $b \in Ran(R)$ and since 
+$Ran(R) \subseteq Dom(S)$ it follows that $b \in Dom(S)$. Thus, we can choose 
+some $c \in C$ such that $(b,c) \in S$. Since $(a, b) \in R$ and $(b, c) \in S$,
+$(a, c) \in S \circ R$ and therefore $a \in Dom(S \circ R)$.
+
+\section*{Exercise 10}
+
+Suppose $R$ and $S$ are relations from $A$ to $B$. Must the following statements 
+be true? Justify your answers with proofs or counterexamples.
+
+\noindent (a) $R \subseteq Dom(R) \times Ran(R)$
+
+This is true. Suppose $(a, b) \in R$ then $a \in Dom(R)$ and $b \in Ran(R)$ so 
+$(a,b) \in Dom(R) \times Ran(R)$
+
+\noindent (b) if $R \subseteq S$ then $R^{-1} \subseteq S^{-1}$
+
+This is true. Suppose $R \subseteq S$ and suppose $(b,a) \in R^{-1}$. Then 
+$(a,b) \in R$ so since $R \subseteq S$, $(a,b) \in S$. Therefore $(b,a) \in S^{-1}$
+
+\noindent (c) $(R \cup S)^{-1} = R^{-1} \cup S^{-1}$
+
+This is also true. Let $(b,a) \in B \times A$ then 
+
+$$(b, a) \in (R \cup S)^{-1} \text{ iff } (a,b) \in R \cup S$$
+$$(b, a) \in (R \cup S)^{-1} \text{ iff } (a,b) \in R \vee (a, b) \in S$$
+$$(b, a) \in (R \cup S)^{-1} \text{ iff } (b,a) \in R^{-1} \vee (b,a) \in S^{-1}$$
+$$(b, a) \in (R \cup S)^{-1} \text{ iff } (b,a) \in R^{-1} \cup S^{-1}$$
+
+\section*{Exercise 11}
+
+Suppose $R$ is a relation from $A$ to $B$ and $S$ is a relation from $B$ to $C$. 
+Prove that $S \circ R = \emptyset$ iff $Ran(R)$ and $Dom(S)$ are disjoint 
+
+Let's choose some $b_0 \in B$ which $b_0 \in Ran(R)$. We can also choose some 
+$b_1 \in B$ such that $b_1 \in Dom(S)$. However, $Ran(R)$ and $Dom(S)$ are 
+disjoint so $b_0 \notin Dom(S)$ and $b_1 \notin Ran(R)$. Since in $S \circ R$ 
+the $Dom(S)$ is the $Ran(R)$, then $S \circ R = \emptyset$.
+
+\section*{Exercise 12}
+
+Suppose $R$ is a relation from $A$ to $B$ and $S$ and $T$ are relations from 
+$B$ to $C$.
+
+\noindent (a) Prove that $(S \circ R) \setminus (T \circ R) \subseteq (S \setminus T) \circ R$
+
+Suppose $(a,c) \in (S \circ R) \setminus (T \circ R)$. Then $(a,c) \in S \circ R$ 
+and $(a,c) \notin T \circ R$. Since $(a,c) \in S \circ R$ we can choose some 
+$b \in B$ such that $(a,b) \in R$ and $(b,c) \in S$. If $(b,c) \in T$ then 
+$(a, c) \in T \circ R$ which is a contradiction. Therefore, $(b,c) \notin T$ 
+so $(b,c) \in S \setminus T$. Since $(a,b) \in R$ and $(b,c) \in S \setminus T$,
+$(a,c) \in (S \setminus T) \circ R$
+
+\noindent (b) What's wrong with the following proof that 
+$(S \setminus T) \circ R \subseteq (S \circ R) \setminus (T \circ R)$?
+
+\textit{Proof}. Suppose $(a,c) \in (S \setminus T) \circ R$. Then we can choose 
+some $b \in B$ such that $(a,b) \in R$ and $(b,c) \in S \setminus T$, so 
+$(b,c) \in S$ and $(b,c) \notin T$. Since $(a,b) \in R$ and $(b,c) \in S$,
+$(a,c) \in S \circ R$. Similarly, since $(a,b) \in R$ and $(b,c) \notin T$,
+$(a,c) \notin T \circ R$. Therefore $(a,c) \in (S \circ R) \setminus (T \circ R)$.
+Since $(a, c)$ was arbitrary, this shows that 
+$(s \setminus T) \circ R \subseteq (S \circ R) \setminus (T \circ R)$ 
+
+The mistake is in the sentence ``since $(a,b) \in R$ and $(b,c) \notin T$
+$(a,c) \notin T \circ R$''. However, we can't be sure of this since there could 
+be some $b \in B$ such that $(a,b) \in R$ and $(b, c) \in T$.
+
+\noindent (c) Must it be true that 
+$(S \setminus T) \circ R \subseteq (S \circ R) \setminus (T \circ R)$?
+
+No, consider the counterexample $A = \{1\}$, $B = \{2,3\}$, $C = \{4\}$,
+$R=\{(1,2), (1,3)\}$, $S=\{(2,4)\}$, $T=\{(3,4)\}$
+
+\section*{Exercise 13}
+
+Suppose $R$ and $S$ are relations from $A$ to $B$ and $T$ is a relation from $B$
+to $C$. Must the following statements be true? Justify your answers
+
+\noindent (a) If $R$ and $S$ are disjoint, then so are $R^{-1}$ and $S^{-1}$
+
+This is true. Suppose $R$ and $S$ are disjoint and $R^{-1}$ and $S^{-1}$ are not.
+Then we can choose from $(b,a) \in B \times A$ such that $(b,a) \in R^{-1}$
+and $(b,a) \in S^{-1}$. But then $(a,b) \in R$ and $(a,b) \in S$ which contradicts 
+the fact that $R$ and $S$ are disjoint.
+
+\noindent (b) If $R$ and $S$ are disjoint, then so are $T \circ R$ and $T \circ S$
+
+False. Consider this counterexample. $A = \{1\}, B=\{2,3\}, C = \{4\}, 
+R = \{(1,2)\}, S=\{(1,3)\}, T=\{(2,4),(3,4)\}$
+
+\noindent (c) If $T \circ R$ and $T \circ S$ are disjoint then so are $R$ and $S$.
+
+False. Consider the counterexample $A=\{1\}, B=\{2,3\}, C=\{4\}, R=S=\{(1,2)\},
+T=\{(3,4)\}$.
+
+\section*{Exercise 14}
+
+Suppose $R$ is a relation from $A$ to $B$, and $S$ and $T$ are relations from 
+$B$ to $C$. Must the following statements be true? Justify your answers
+
+\noindent (a) If $S \subseteq T$ then $S \circ R \subseteq T \circ R$
+
+True. Since $S \subseteq T$ then $(b,c) \in S$ and $(b,c) \in T$. Therefore 
+$(a,c) \in S \circ R$ and $(a,c) \in T \circ R$ so $S \circ R \subseteq T \circ R$.
+
+\noindent (b) $(S \cap T) \circ R \subseteq (S \circ R) \cap (T \circ R)$
+
+True. Suppose $(a,c) \in (S \cap T) \circ R$. There must be some 
+$(b,c) \in (S \cap T)$. $(b,c) \in S$ and $(b,c) \in T$ by definition. Now there 
+is also some $(a,b) \in R$ by definition. Therefore $(a,c) \in (S \circ R)$ and 
+$(a,c) \in T \circ R$ so $(a,c) \in (S \circ R) \cap (T \circ R)$.
+
+\noindent (c) $(S \cap T) \circ R = (S \circ R) \cap (T \circ R)$
+
+Not necessarily true. We know $(S \cap T) \circ R \subseteq (S \circ R) \cap (T \circ R)$.
+But, consider $A=\{1\}, B=\{2,3\}, C=\{4\}, R=\{(1,2), (1,3)\}, S=\{(2,4)\},
+T=\{(3,4)\}$
+
+\noindent (d) $(S \cup T) \circ R = (S \circ R) \cup (T \circ R)$
+
+True
+
+Suppose $(a,c) \in (S \cup T) \circ R$. Then we can choose some $b \in B$ such 
+that $(a,b) \in R$ and $(b,c) \in S \cup T$ which means either $(b,c) \in S$
+or $(b,c) \in T$.
+
+Case 1: $(b,c) \in S$. Since $(a,b) \in R$ and $(b,c) \in S$ then 
+$(a,c) \in S \circ R$. So $(a,c) \in (S \circ R) \cup (T \circ R)$
+
+Case 2: $(b,c) \in T$. Since $(a,b) \in R$ and $(b,c) \in T$ then $(a,c) \in T \circ R$
+so $(a,c) \in (S \circ R) \cup (T \circ R)$
+
+Suppose now $(a,c) \in (S \circ R) \cup (T \circ R)$ then either 
+$(a,c) \in S \circ R$ or $(a,c) \in T \circ R$. 
+
+Case 1: $(a,c) \in S \circ R$. Then we can choose some $b \in B$ such that 
+$(a,b) \in R$ and $(b,c) \in S$. Since $(b,c) \in S$ then $(b,c) \in S \cup T$. 
+Since $(a,b) \in R$ and $(b,c) \in S \cup T$ then $(a,c) \in (S \cup T) \circ R$
+
+Case 2: $(a,c) \in T \circ R$. Then we can choose some $b \in B$ such that 
+$(a,b) \in R$ and $(b,c) \in T$. Since $(b,c) \in T$ then 
+$(b,c) \in S \cup T$.
+
+Since $(a,b) \in R$ and $(b,c) \in S \cup T$ then $(a,c) \in (S \cup T) \circ R$.
+Therefore, $(a,c) \in (S \cup T) \circ R$.
+
+\section*{Exercise 15}
+
+Suppose $R$ is a relation from $A$ to $B$ and $S$ is a relation from $C$ to $D$.
+Show that there is a set $E$ such that $R$ is a relation from $A$ to $E$ and $S$ 
+is a relation from $E$ to $D$, and therefore the definition of $S \circ R$ in 
+Definition 4.2.3 can be applied. Furthermore, the definition gives the same 
+result no matter which such set $E$ is used.
+
+Let $E = B \cup C$. Then $B \subseteq E$ and $C \subseteq E$, so 
+$R \subseteq A \times B \subseteq A \times E$ and 
+$S \subseteq C \times D \subseteq E \times D$. Now suppose $E_1$ and $E_2$ are 
+two sets such that $R \subseteq A \times E_1$, $S \subseteq E_1 \times D$,
+$R \subseteq A \times E_2$ and $S \subseteq E_2 \times D$. Let 
+
+$$T_1 = \{(a,d) \in A \times D | \exists e \in E_1 ((a,e) \in R \wedge (e,d) \in S)\}$$
+$$T_2 = \{(a,d) \in A \times D | \exists e \in E_2 ((a,e) \in R \wedge (e,d) \in S)\}$$
+
+We need to prove that $T_1 = T_2$. Suppose $(a,d) \in T_1$. Then we can choose 
+some $e \in E_1$ such that $(a,e) \in R$ and $(e,d) \in S$. Since3 $(a,e) \in R$
+and $R \in A \times E_2$ then $(a,e) \in A \times E_2$ and therefore $e \in E_2$.
+Since $e \in E_2$ then $(a,e) \in R$ and $(e,d) \in S$ then $(a,d) \in T_2$.
+A similar argument shows that if $(a,d) \in T_2$ then $(a,d) \in T_1$ so $T_1 = T_2$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
