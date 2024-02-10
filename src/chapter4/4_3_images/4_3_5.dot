@@ -1,0 +1,33 @@
+digraph cluster {
+    subgraph cluster_0 {
+        label="A"
+        a
+        b
+        c
+    }
+
+    subgraph cluster_1 {
+        label="B"
+        d
+        e
+        f
+        g
+    }
+
+    subgraph cluster_2 {
+        label="C"
+        x
+        y
+        z
+    }
+
+    a -> e
+    a -> f
+    b -> d
+    c -> e
+    d -> x 
+    e -> y
+    e -> z
+    f -> z
+    g -> y
+}

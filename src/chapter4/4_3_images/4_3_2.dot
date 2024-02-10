@@ -1,0 +1,12 @@
+digraph G {
+    cat -> cat
+    cat -> rat
+    rat -> cat
+    rat -> rat 
+    rat -> bird
+    bird -> rat
+    bird -> bird
+    bird -> dog
+    dog -> bird
+    dog -> dog
+}

@@ -1,0 +1,26 @@
+digraph cluster {
+    subgraph cluster_0 {
+        label="L"
+        a
+        b
+        c
+        d
+        e
+    }
+
+    subgraph cluster_1 {
+        label="W"
+        bad
+        bed
+        cab
+    }
+
+    a -> bad
+    a -> cab
+    b -> bed
+    b -> bad
+    c -> cab
+    d -> bad
+    d -> bed
+    e -> bed
+}
