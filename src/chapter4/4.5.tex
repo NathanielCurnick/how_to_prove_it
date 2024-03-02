@@ -1,0 +1,543 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{amsmath}
+\usepackage[scr]{rsfso}
+\usepackage{graphicx}
+\usepackage{float}
+
+\newcommand{\then}{\rightarrow} 
+\newcommand{\bicond}{\leftrightarrow}
+\newcommand{\powerset}[1]{\mathscr{P}(#1)}
+\newcommand{\family}[1]{\mathcal{#1}}
+\newcommand{\dprime}{{\prime \prime}}
+
+\title{\textbf{How to Prove It} \\ {\Large\itshape Daniel J. Velleman} \\ {\Large\itshape Chapter 4.5: Equivalence Relations}}
+
+\author{\textbf{Nathaniel Curnick} \\ \textit{Textbook Solutions}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+
+Find all partitions of the set $A = \{1,2,3\}$
+
+$$\{\{1\}, \{2\}, \{3\}\}$$
+
+$$\{\{1,2\}, \{3\}\}$$
+
+$$\{\{1\}, \{2,3\}\}$$
+
+$$\{\{1,3\}, \{2\}\}$$
+
+$$\{\{1,2,3\}\}$$
+
+\section*{Exercise 2}
+
+Find all equivalence relations on the set $A = \{1,2,3\}$
+
+They correspond to the partitions from Exercise 1
+
+$$\{(1,1),(2,2),(3,3),(2,1),(2,2),(2,3),(3,1),(3,2)\}$$
+
+$$\{(1,1),(1,2),(2,1),(2,2),(3,3)\}$$
+
+$$\{(1,1),(1,3),(3,1),(3,3),(2,2)\}$$
+
+$$\{(2,2),(2,3),(3,2),(3,3),(1,1)\}$$
+
+$$\{(1,1),(2,2),(3,3)\}$$
+
+\section*{Exercise 3}
+
+Let $W =$ the set of all words in the English language. Which of the following 
+relations on $W$ are equivalence relations? For those that are equivalence
+relations, which are the equivalence classes?
+
+\noindent (a) $R = \{(x,y) \in W \times W | \text{ the words } x \text{ and } y \text{ start with the same letter}\}$
+
+Equivalence relation. There are 26 classes - one for each letter (this is basically the dictionary)
+
+\noindent (b) $S = \{(x,y) \in W \times W | \text{the words} x \text{ and } y \text{ have at least one letter in commond}\}$
+
+Not an equivalence relation as it is not transitive e.g. 
+bar $\rightarrow$ car, car $\rightarrow$ cup, but NOT bar $\rightarrow$ cup.
+
+\noindent (c) $T = \{(x,y) \in W \times W | \text{the words } x \text{ and } y \text{ have the same number of letters} \}$
+
+Equivalence relation. Equivalence class is the number of letters in the word from 
+1 to the largest word in English 
+
+\section*{Exercise 4}
+
+Which of the following relations on $\mathbb{R}$ are equivalence relations?
+For those that are equivalence relations, what are the equivalence classes?
+
+\noindent (a) $R = \{(x,y) \in \mathbb{R} \times \mathbb{R} | x - y \in \mathbb{N}\}$
+
+Not an equivalence relation as it is not symmetric
+
+\noindent (b) $S = \{(x,y) \in \mathbb{R} \times \mathbb{R} | x-y \in \mathbb{Q}\}$
+
+Equivalence relation. For any $x \in \mathbb{R}$, $[x]_S = \{x + q | q \in \mathbb{Q} \}$
+
+\noindent (c) $T = \{(x,y) \in \mathbb{R} \times \mathbb{R} | \exists n \in \mathbb{Z} (y = x \cdot 10^n)\}$
+
+Equivalence relation. For any $x \in \mathbb{R}$, $[x]_T$ is the set of numbers 
+which have the decimal point in a different place e.g.
+
+$$[\pi]_T = \{3.141..., 31.41..., 314.1..., 0.3141...,\}$$
+
+\section*{Exercise 5}
+
+Let $L$ be the set of all nonvertical lines in the plane. Which of the following
+relations on $L$ are equivalence relations? For those that are equivalence relations,
+which are the equivalence classes?
+
+\noindent (a) $R = \{(k,l) \in L \times L | \text{the lines } k \text{ and } l \text{ have the same slope}\}$
+
+It is an equivalence relation. Equivalence classes are each unique gradient.
+
+\noindent (b) $S = \{(k,l) \in L \times L | \text{the lines } k \text{ and } l \text{ are perpendicular}\}$
+
+No an equivalence relation since it is not transitive
+
+\noindent (c) $T = \{(k,l) \in L \times L | k \cap x = l \cap x \text{ and } k \cap y = l \cap y\}$,
+where $x$ and $y$ are the x-axis and y-axis 
+
+Equivalence relation.. The set of all lines (that are not horizontal) and pass 
+through the origin is one class and each other line has its own class.
+
+\section*{Exercise 6}
+
+In the discussion of the same-birthday equivalence relation $B$ following 
+Definition 4.5.3, we claimed that $P/B = \{P_d | d \in D\}$. 
+Give a careful prood of this claim. You will find when you work out the 
+proof there is an assumption you must make about people's birthdays 
+(a very reasonable assumption) to make the proof work. What is this 
+assumption?
+
+Suppose $X \in P/B$. Then we can choose some $x \in P$ such that $X = [x]$.
+Let $d$ be $x$'s birthday. Then for every $y \in P$, $y \in [x]$ iff $yBx$
+iff $y \in P_D$, and therefore $X = [x] = P_D$. Since $X$ was arbitrary, this 
+shows that $P/B \subseteq \{P_d | d \in D\}$
+
+Now suppose $d \in D$. At this point we make the assumption that some person $x$ 
+was born on day $d$. As before, it follows that $P_d = [x] \in P/B$. Since $d$
+was arbitrary, we conclude that $\{P_d | d \in D\} \subseteq P/B$
+
+\section*{Exercise 7}
+
+Let $T$ be the set of all triangles, and let 
+$S = \{(s,t) \in T \times T | \text{the triangles } s \text{ and } t \text{ are similar}\}$.
+Verify that $S$ is an equivalence relation.
+
+Reflexive since a triangle has the same angles as itself. Symmetric since if 
+triangle $p$ has the same angles as triangle $q$, then $q$ has the same angles 
+as $p$. Transitive since if $p$ has the same angles as $q$ and $q$ has the 
+same angles as $r$ then $p$ has the same angles as $r$.
+
+\section*{Exercise 8}
+
+Complete the proof og Lemma 4.5.7
+
+To show $R$ is symmetric, suppose $x \in A$. Since $\bigcup \family{F} = A$,
+then $x \in \bigcup \family{F}$. Suppose $y \in A$ then $y \in \bigcup \family{F}$
+for the same reason. Then we can choose some $X \in \family{F}$ such that 
+$x \in X$ and $y \in X$. Thus, $(x,y) \in X \times X$ and $(y,x) \in X \times X$,
+so $(x,y) \in \bigcup_{X \in \family{F}} (X \times X)$ and $(y,x) \in \bigcup_{X \in \family{F}} (X \times X)$
+which is $R$.
+
+To show $R$ is transitive suppose $x,y,z \in A$. As above, we now know that 
+$(x,y), (y,z), (x,z) \in X \times X$ so 
+$(x,y), (y,z), (x,z) \in \bigcup_{X \in \family{F}} (X \times X)$ which is $R$.
+
+\section{Exercise 9}
+
+Suppose $R$ and $S$ are equivalence relations on $A$ and $A/R = A/S$. Prove that 
+$R=S$.
+
+First, we need to prove that $\forall x \in A ([x]_R = [x]_S)$. Let $x \in A$ be
+arbitrary. Then $[x]_R \in A/R = A/S$, so there is some $y \in A$ such that 
+$[x]_R = [y]_S$. By part 1 of lemma 4.5.5, $x \in [x]_R$, so $x \in [y]_S$
+and therefore by part 2 of lemma 4.5.5 $[x]_S = [y]_s = [x]_R$. Since $x$ was 
+arbitrary, this proves that $\forall x \in A ([x]_R = [x]_S)$. To prove that 
+$R=S$ let $(x,y) \in A \times A$. Then, $(x,y) \in R$ iff $x \in [y]_R$ iff 
+$x \in [y]_S$ iff $(x,y) \in S$.
+
+\section*{Exercise 10}
+
+Suppose $R$ is an equivalence relation on A. Let $\family{F} = A/R$, and let 
+$S$ be the equivalence relation determined by $\family{F}$. In other words,
+$S = \bigcup_{X \in \family{F}} (X \times X)$. Prove that $S=R$.
+
+Since $S$ is an equivalence relation determined by $\family{F}$, the proof 
+of theorem 4.5.6 shows that $A/S = \family{F} = A/R$ and then Exercise 9 above 
+starts from there.
+
+\section*{Exercise 11}
+
+Let $\equiv_m$ be the ``congruene modulo $m$'' relation defined in the text for 
+a postivie integer $m$.
+
+\noindent (a) Complete the proof of Theorem 4.5.10 by showing that $\equiv_m$ is 
+reflexive and symmetric.
+
+Let $x \in \mathbb{Z}$. Since $x-x = 0 \cdot m$, $x \equiv_m x$ so it is 
+reflexive. Now suppose $x \equiv_m y$. Then $m | (x-y)$ so we choose some 
+integer $k$ such that $x-y = km$. Therefore $y-x = (-k)m$, so $m|(y-x)$ and 
+$y = mx$. This shows it is symmetric.
+
+\noindent (b) Find all the equivalence classes for $\equiv_2$ and $\equiv_3$.
+How many equivalence classes are there in each case? In general how many 
+equivalence classes are there for $\equiv_m$.
+
+There are two equivalence classes for $\equiv_2$. 
+$[0]_{\equiv_2} = \{...,-4,-2,0,2,4,...\}$ and $[1]_{\equiv_2} = \{...,-3,-1,1,3,...\}$
+(even and odd numbers).
+
+There are three equivalence classes for $\equiv_3$. 
+$[0]_{\equiv_3} = \{...,-6,-3,0,3,6,...\}$,
+$[1]_{\equiv_3} = \{...,-5,-2,1,4,7,...\}$ and
+$[2]_{\equiv_3} = \{...,-4,-1,2,5,8,...\}$
+
+\section*{Exercise 12} Prove that for every integer $n$, 
+either $n^2 \equiv 0 (\text{mod } 4)$ or $n^2 \equiv 1 (\text{mod } 4)$
+
+All even integers are $2k$.  So, $4k^2 \equiv 0 (\text{mod } 4)$, which is 
+$4 | 4k^2 - 0$ which is obviously true.
+
+All off numbers are $2k+1$. So,
+
+$$(2k+1)^2 \equiv 1 (\text{mod } 4)$$
+$$4k^2 + 4k + 1 \equiv (\text{mod } 4)$$
+$$4 | 4k^2 + 4k + 1 - 1$$
+$$4 | 4k^2 + 4k$$
+
+Which it obviously does.
+
+\section*{Exercise 13}
+
+Suppose $m$ is postivie integer. Prove that for all integers $a$, $a^\prime$,
+$b$, and $b^\prime$ if $a^\prime \equiv a (\text{mod } m)$ and 
+$b^\prime \equiv (\text{mod } m)$ then $a^\prime + b^\prime \equiv a + b (\text{mod } m)$
+and $a^\prime b^\prime \equiv ab (\text{mod } m)$.
+
+$m | a^\prime - a$ and $m | b^\prime - b$ therefore $m | a^\prime + b^\prime -a -b$
+which is $a^\prime + b^\prime \equiv a + b (\text{mod } m)$.
+
+We choose some integers $c$ and $d$ such that $a^\prime - a = cm$ and 
+$b^\prime - b = dm$. Therefore
+
+$$a^\prime b^\prime = (a + cm)(b + dm) - ab$$
+$$a^\prime b^\prime = adm + bcm + cdm^2$$
+$$a^\prime b^\prime = (ad + bc + cdm)m$$
+
+So $m | (a^\prime b^\prime -ab)$ and therefore $a^\prime b^\prime \equiv ab (\text{mod } m)$.
+
+\section*{Exercise 14}
+
+Suppose that $R$ is an equivalence relation on $A$ and $B \subseteq A$. Let 
+$S = R \cap (B \times B)$
+
+\noindent (a) Prove that $S$ is an equivalence relation on $B$
+
+Suppose $x \in B$. Therefore, $(x, x) \in B \times B$. Since $R$ is an equivalence
+relation, then $(x,x) \in R$ due to its own reflexivity. Therefore,
+$(x,x) \in R \cap (B \times B)$, so $S$ is reflexive.
+
+Suppose $x \in B$ and $y \in B$ then since $B \subseteq A$, $x \in A$ and $y \in A$.
+Since $R$ is an equivalence relation and is symmetric then $(x,y) \in R$ and 
+$(y,x) \in R$. Equally $(x,y) \in B \times B$ and $(y,x) \in B \times B$, so 
+$R \cap (B \times B)$ is symmetric, so $S$ is symmetric.
+
+Suppose $x,y,z \in B$ so $x,y,z \in A$. Since $R$ is an equivalence relation 
+on $A$ it is transitive, so $(x,y) \in R$, $(y,z) \in R$ and $(x,z) \in R$.
+Equally $(x,y) \in B \times B$, $(y,z) \in B \times B$ and $(x,z) \in B \times B$,
+so $R \cap (B \times B)$ is transitive so $S$ is transitive.
+
+Since $R \cap B \times B$ is reflexive, symmetric and transitive it is an 
+equivalence relation.
+
+\noindent (b) Prove that for all $x \in B$, $[x]_S = [x]_R \cap B$.
+
+Suppose $x \in B$, then for every $y$, 
+$y \in [x]_S$ iff 
+$(y,x) \in R \cap (B \times B)$ iff 
+$(y,x) \in R \wedge y \in B$ iff 
+$y \in [x]_R \wedge y \in B$ iff
+$y \in [x]_R \cap B$.
+
+\section*{Exercise 15}
+
+Suppose $B \subseteq A$, and define a relation $R$ on $\powerset{A}$ as follows
+
+$$R = \{(X,Y) \in \powerset{A} \times \powerset{A} | X \triangle Y \subseteq B\}$$
+
+\noindent (a) Prove that $R$ is an equivalence relation on $\powerset{A}$
+
+For every $X \in \powerset{A}$, $X \triangle X = \emptyset$ which is a subset 
+of $B$, so $(X,X) \in \powerset{A} \times \powerset{A}$ so it is reflexive.
+
+Suppose $X \in \powerset{A}$ and $Y \in \powerset{A}$. If 
+$X \triangle Y \subseteq B$, then $Y \triangle X \subseteq B$. Therefore 
+$(X, Y) \in \powerset{A} \times \powerset{A}$ and 
+$(Y, X) \in \powerset{A} \times \powerset{A}$. Therefore, $R$ is symmetric.
+
+Suppose $X, Y, Z \in \powerset{A}$. If $X \triangle Y \subset B$ and 
+$Y \triangle Z \subseteq B$ then obviously $X \triangle Z \subseteq B$. 
+Therefore $(X, Y) \in \powerset{A} \times \powerset{A}$,
+$(Y, Z) \in \powerset{A} \times \powerset{A}$ and $(X, Z) \in \powerset{A} \times \powerset{A}$.
+So $R$ is transitive.
+
+Since $R$ is reflexive, symmetric, and transitive it is an equivalence relation.
+
+\noindent (b) Prove that for every $X \in \powerset{A}$ there is exactly on 
+$Y \in [X]_R$ such that $Y \cap B = \emptyset$.
+
+Suppose $X \in \powerset{A}$. Let $Y = X \setminus B$. Then $Y \subseteq X$,
+so $Y \setminus X = \emptyset$ and so 
+$X \setminus Y = X \setminus (X \setminus B) = X \cap B$.
+Therefore, 
+$Y \triangle X = (Y \setminus X) \cup (X \setminus Y) = \emptyset \cup (X \cap B) = X \cap B \subseteq B$,
+so $(Y, X)  \in R$ and $Y \in [X]_R$. Also $Y \cap B = (X \setminus B) \cap B = \emptyset$.
+To show that $Y$ is unique, suppose that $Y^\prime \in [X]_R$ and 
+$Y^\prime \cap B = \emptyset$. Then $(Y^\prime, X) \in R$, so since $(Y, X) \in R$,
+by symmetry and transitivity of $R$, $(Y^\prime, Y) \in R$ so 
+$Y^\prime \triangle Y \subseteq B$. Suppose $y \in Y$. If $y \notin Y^\prime$
+then $y \in Y \setminus Y^\prime \triangle Y \subseteq B$. But this 
+contradicts the fact that $Y$ and $B$ are disjoint. Therefore, $y \in Y^\prime$.
+Since $y$ was arbitrary, this proves that $Y \subseteq Y^\prime$. A similar 
+argument shows that $Y^\prime \subseteq Y$, so $Y^\prime = Y$.
+
+\section*{Exercise 16} Suppose $\family{F}$ is a partition of $A$, $\family{G}$
+is a partition of $B$ and $A$ and $B$ are disjoint. Prove that 
+$\family{F} \cup \family{G}$ is a partition of $A \cup B$.
+
+By exercise 16 of section 3.5, 
+$\bigcup (\family{F} \cup \family{G}) = \bigcup \family{F} \cup \bigcup \family{G} = A \cup B$.
+To see that $\family{F} \cup \family{G}$ is pairwise disjoint, suppose that 
+$X \in \family{F} \cup \family{G}$, $Y \in \family{F} \cup \family{G}$ and 
+$X \cap Y \neq \emptyset$. If $X \in \family{F}$ and $Y \in \family{G}$
+then $X \subseteq A$ and $Y \subseteq B$ and since $A$ and $B$ are disjoint 
+it follows that $X$ and $Y$ are disjoint, which is a contradiction. Thus, it 
+can not be the case $X \in \family{F}$ and $Y \in \family{G}$ and a similar 
+argument rules out the possibility that $Y \in \family{F}$ and $X \in \family{G}$.
+Thus, $X$ and $Y$ are both either elements of $\family{F}$ or both elements 
+of $\family{G}$. If they are both in $\family{F}$ then since $\family{F}$ is 
+pairwise disjoint $X= Y$. A similar argument applies if they are both in 
+$\family{G}$. Finally we have $\forall X \in \family{F} (X \neq \emptyset)$
+and $\forall X \in \family{G} (X \neq \emptyset)$ and it follows by exercise 8
+of 2.2 that $\forall X \in \family{F} \cup \family{G} (X \neq \emptyset)$
+
+\section*{Exercise 17}
+
+Suppose $R$ is an equivalence relation on $A$, $S$ is an equivalence relation 
+on $B$ and $A$ and $B$ are disjoint. 
+
+\noindent (a) Prove that $R \cup S$ is an equivalence relation on $A \cup B$.
+
+Suppose $x \in A$ and $y \in B$. Since $R$ is an equivalence relation on $A$ then 
+$(x,x) \in R$. similarly, $(y,y) \in S$. Obviously, $x \in A \cup B$ and $y \in A \cup B$.
+Similarly $(x,x) \in R \cup S$ and $(y,y) \in R \cup S$. Therefore, $R \cup S$ 
+is reflexive.
+
+Suppose $x,y \in A$ and $x^\prime, y^\prime \in B$. Since $R$ is an equivalence
+relation on $A$ then $(x,y) \in R$ and $(y,x) \in R$. Similarly, 
+$(x^\prime, y^\prime) \in S$ and $(y^\prime, x^\prime) \in S$. Obviously
+$x, y, x^\prime, y^\prime \in A \cup B$, but so is 
+$(x,y),(y,x),(x^\prime,y^\prime),(y^\prime,x^\prime) \in R \cup S$ so it is 
+symmetric.
+
+Suppose $x,y,z \in A$ and $x^\prime, y^\prime, z^\prime \in B$. Since $R$ is 
+an equivalence relation on $A$ then $(x,y), (y,z), (x,z) \in R$. Similarly,
+$(x^\prime, y^\prime), (y^\prime, z^\prime), (x^\prime, z^\prime) \in S$.
+So $(x,y), (y,z), (x,z), (x^\prime, y^\prime), (y^\prime, z^\prime), (x^\prime, z^\prime) \in R \cup S$
+so it is transitive.
+
+\noindent (b) Prove that for all $x \in A$, $[x]_{R \cup S} = [x]_R$ and for all 
+$y \in B$, $[y]_{R \cup S} = [y]_S$
+
+Suppose $x \in A$. $A$ and $B$ are pairwise disjoint so $x \notin B$. Now 
+$[x]_{R \cup S} = \{y \in A \cup B | y R \cup S x\}$. But, $x$ is not relevant to 
+$S$ since $S$ is the equivalence relation on $B$. So, 
+$[x]_{R \cup S} = \{y \in A | yRx\} = [x]_R$. Given $y \in B$ is a similar argument 
+that shows that $[y]_{R \cup S} = [y]_s$.
+
+\noindent (c) Prove that $(A \cup B) / (R \cup S) = (A / R) \cup (B / S)$
+
+($\rightarrow$) Suppose $X \in (A \cup B) / (R \cup S)$. Then for some 
+$x \in A \cup B$, $X = [x]_{R \cup S}$. Since $x \in A \cup B$, either 
+$x \in A$ or $x \in B$. By part (b) if $x \in A$ then $[x]_{R \cup S} = [x]_R$
+and if $x \in B$ then $[x]_{R \cup S} = [x]_S$. Thus either $X = [x]_R \in A /R$
+or $X = [x]_S \in B/S$ so $X \in (A/R) \cup (B/S)$.
+
+($\leftarrow$) Now suppose $X \in (A/R) \cup (B/S)$. Either $X \in (A/R)$ or 
+$X \in (B/S)$. If $X \in (A/R)$ for some $x \in A$, $X = [x]_R$ and by part (b)
+it follows that $X = [x]_{R \cup S} \in (A \cup B) / (R \cup S)$. Similarly,
+if $X \in B/S$ then for some $x \in B$, $X = [x]_{R \cup S} \in (A \cup B)/(R \cup S)$.
+Thus, $(A \cup B)/(R \cup S) = (A/R) \cup (B/S)$.
+
+\section*{Exercise 18}
+
+Suppose $\family{F}$ and $\family{G}$ are partitions of a set $A$. We define a 
+new family of sets $\family{F} \cdot \family{G}$ as follows
+
+$$\family{F} \cdot \family{G} = \{Z \in \powerset{A} | Z \neq \emptyset 
+\text{ and } \exists X \in \family{F} \exists Y \in \family{G} (Z = X \cap Y)\}$$
+
+Since $\family{F} \cdot \family{G} \subseteq \powerset{A}$ then 
+$\bigcup (\family{F} \cdot \family{G}) \subseteq A$. Suppose $x \in A$. Since 
+$\family{F}$ and $\family{G}$ are partitions of $A$ there are sets $X \in \family{F}$
+and $Y \in \family{G}$ such that $x \in X$ and $x \in Y$. Therefore 
+$x \in X \cap Y \in \family{F} \cdot \family{G}$, so 
+$x \in \bigcup (\family{F} \cdot \family{G})$. This proves that 
+$\bigcup (\family{F} \cdot \family{G}) = A$.
+
+Suppose $Z_1, Z_2 \in \family{F} \cdot \family{G}$ and $Z_1 \cap Z_2 \neq \emptyset$.
+Since $Z_1 \in \family{F} \cdot \family{G}$ we can choose sets $X_1 \in \family{F}$
+and $Y_1 \in \family{G}$ such that $Z_1 = X_1 \cap Y_1$. Similarly, since 
+$Z_2 \in \family{F} \cdot \family{G}$ we can choose $X_2 \in \family{F}$
+and $Y_2 \in \family{G}$ such that $Z_2 = X_2 \cap Y_2$. Since 
+$Z_1 \cap Z_2 \neq \emptyset$ we can choose some $z \in Z_1 \cap Z_2$. Thus, 
+$z \in Z_1 = X_1 \cap Y_1$ and $z \in Z_2 = X_2 \cap Y_2$, so 
+$z \in X_1$, $z \in X_2$, $z \in Y_1$, $z \in Y_2$. Thus $X_1$ and $X_2$ are 
+not disjoint, and neither is $Y_1$ and $Y_2$. Since $\family{G}$ is pairwise 
+disjoint $Y_1 = Y_2$, and similarly $X_1 = X_2$. Therefore 
+$Z_1 = X_1 \cap Y_1 = X_2 \cap Y_2 = Z_2$. This proves that 
+$\family{F} \cdot \family{G}$ is pairwise disjoint.
+
+Thus, $\family{F} \cdot \family{G}$ is a partition on $A$.
+
+\section*{Exercise 19}
+
+Let $\family{F} = \{\mathbb{R}^-, \mathbb{R}^+, \{0\}\}$ and 
+$\family{G} = \{\mathbb{Z}, \mathbb{R} \setminus \mathbb{Z}\}$, and note that 
+both $\family{F}$ and $\family{G}$ are partitions of $\mathbb{R}$. List the 
+elements of $\family{F} \cdot \family{G}$.
+
+$$\family{F} \cdot \family{G} = \{\mathbb{Z}^-, \mathbb{R}^- \setminus \mathbb{Z}^-,
+\mathbb{Z}^+, \mathbb{R}^+ \setminus \mathbb{Z}^+, \{0\}\}$$
+
+\section*{Exercise 20}
+
+Suppose $R$ and $S$ are equivalence relations on a set $A$. Let $T = R \cap S$.
+
+\noindent (a) Prove that $T$ is an equivalence relation on $A$.
+
+Suppose $x \in A$. Since both $R$ and $S$ are equivalence relations on $A$ then
+$(x,x) \in R$ and $(x,x) \in S$, so $(x,x) \in R \cap S$. So, $T = R \cap S$ is 
+reflexive.
+
+Suppose $x,y \in A$. Since $R$ and $S$ are both equivalence relations then 
+$(x,y) \in R \cap S$ and $(y,x) \in R \cap S$, so $T$ is symmetric.
+
+Suppose $x,y,z \in A$. Since $R$ is an equivalence relation
+$(x,y) \in R$, $(y,z) \in R$, $(x,z) \in R$. The same is true for $S$ Thus
+$(x,y), (y,z), (x,z) \in T$. Therefore $T$ is transitive. 
+
+\noindent (b) Prove that for all $x \in A$, $[x]_T = [x]_R \cap [x]_S$.
+
+Suppose $x \in A$, then for every $y$, $y \in [x]_T$ iff 
+$(y,x) \in T$ iff
+$(y,x) \in R \wedge (y,x) \in S$ iff
+$y \in [x]_R \wedge y \in [x]_S$ iff 
+$y \in [x]_R \cap [x]_S$ which shows that 
+$[x]_T = [x]_R \cap [x]_S$.
+
+\noindent (c) Prove that $A / T = (A/R) \cdot (A/S)$
+
+($\leftarrow$) Suppose $X \in A/T$. Then for some $x \in A$, $X = [x]_T$. By 
+part (b) $[x]_T = [x]_R \cap [x]_S$. Since $[x]_R \in A/R$ and $[x]_S \in A/S$,
+$X \in (A/R) \cdot (A/S)$
+
+($\rightarrow$) Suppose $X \in (A/R) \cdot (A/S)$. For some $y$ and $z$ in $A$,
+$X = [y]_R \cap [z]_S$. Also, $X \neq \emptyset$ so we can choose some $x \in X$.
+Therefore $x \in [y]_R$ and $x \in [z]_S$ and by part 2 of lemma 4.5.5 it follows 
+that $[x]_R = [y]_R$ and $[x]_S = [z]_S$. 
+Therefore, $X = [x]_R \cap [x]_S = [x]_T \in A/T$
+
+\section*{Exercise 21}
+
+Suppose $\family{F}$ is a partition of $A$ and $\family{G}$ is a partition of $B$.
+We define a new family of sets $\family{F} \otimes \family{G}$ as follows 
+
+$$\family{F} \otimes \family{G} = \{Z \in \powerset{A \times B} | 
+\exists X \in \family{F} \exists Y \in \family{G} (Z = X \times Y)\}$$
+
+Prove that $\family{F} \otimes \family{G}$ is a partition of $A \times B$
+
+Since $\family{F}$ and $\family{G}$ are partitions, then neither contain 
+$\emptyset$. Thus, for $X \in \family{F}$, $Y \in \family{G}$, $Z = X \times Y$,
+$Z$ can never be $\emptyset$.
+
+Since $\family{F} \otimes \family{G} \subseteq \powerset{A \times B}$
+then $\bigcup (\family{F} \otimes \family{G}) \subseteq A \times B$.
+Suppose $x \in A$ and $y \in B$. Since $\family{F}$ is a partition on $A$ then 
+$X \in \family{F}$ where $x \in X$. Similarly $Y \in \family{G}$ where $y \in Y$.
+Therefore, $(x,y) \in X \times Y \in \family{F} \otimes \family{G}$. So, 
+$(x,y) \in \bigcup (\family{F} \otimes \family{G})$. This proves that 
+$\bigcup (\family{F} \otimes \family{G}) = A \times B$.
+
+Suppose $Z_1, Z_2 \in \family{F} \otimes \family{G}$ and 
+$Z_1 \cap Z_2 \neq \emptyset$. Since $Z_1 \in \family{F} \otimes \family{G}$ 
+we can choose some $X_1 \in \family{F}$ and $Y_1 \in \family{G}$ such that 
+$Z_1 = X_1 \times Y_1$. Similarly we can choose $X_2 \in \family{F}$ and 
+$Y_2 \in \family{G}$ such that $Z_2 = X_2 \times Y_2$. Since 
+$Z_1 \cap Z_2 \neq \emptyset$ we can choose some $(a, b) \in A \times B$ such that 
+$(a,b) \in Z_1 \cap Z_2$. Thus $(a,b) \in Z_1 = X_1 \times Y_1$ and 
+$(a,b) \in Z_2 = X_2 \times Y_2$ so $a \in X_1$, $a \in X_2$, $b \in Y_1$ and 
+$b \in Y_2$. Since $a \in X_1$ and $a \in X_2$, then $X_1$ and $X_2$ are not 
+disjoint so since $\family{F}$ is pairwise disjoint then $X_1 = X_2$. Similarly,
+$Y_1 = Y_2$. Therefore, $Z_1 = X_1 \times Y_1 = X_2 \times Y_2 = Z_2$ so 
+$\family{F} \otimes \family{G}$ is pairwise disjoint
+
+\section*{Exercise 22}
+
+Let $\family{F} = \{\mathbb{R}^-, \mathbb{R}^+, \{0\}\}$, which is a partition
+of $\mathbb{R}$. List the elements of $\family{F} \otimes \family{F}$ and 
+describe them geometrically as subsets of the xy-plane
+
+$$\family{F} \otimes \family{F} = \{
+\mathbb{R}^+ \times \mathbb{R}^+,
+\mathbb{R}^- \times \mathbb{R}^-,
+\mathbb{R}^- \times \mathbb{R}^+,
+\mathbb{R}^+ \times \mathbb{R}^-,
+\mathbb{R}^+ \times \{0\},
+\mathbb{R}^- \times \{0\},
+\{0\} \times \mathbb{R}^+,
+\{0\} \times \mathbb{R}^-,
+\{(0,0)\}
+\}$$
+
+These are the four quadrants of the plane, the x and y axis, as the origin
+
+\section*{Exercise 23}
+
+Suppose $R$ is an equivalence relation on $A$ and $S$ is an equivalence
+relation on $B$. Define a relation $T$ on $A \times B$ as follows 
+
+$$T = \{((a,b), (a^\prime, b^\prime)) \in (A \times B) \times (A \times B) |
+aRa^\prime \text{ and } bSb^\prime\}$$
+
+\noindent (a) Prove that $T$ is an equivalence relation on $A \times B$
+
+Suppose $(x,y) \in A \times B$. Since $R$ is reflexive on $A$ and $S$ is reflexive
+on $B$ then $((x,y),(x,y)) \in (A \times B) \times (A \times B)$ so $T$ is 
+reflexive
+
+Suppose $((x,y), (x^\prime, y^\prime)) \in T$. Since $R$ and $S$ are symmetric,
+then $((x^\prime, y^\prime), (x,y))$ is also in $T$, so $T$ is symmetric
+
+Suppose $((x,y), (x^\prime, y^\prime)) \in T$ and 
+$((x^\prime, y^\prime), (x^\dprime, y^\dprime)) \in T$. Since $R$ and $S$ are
+both transitive, then $((x,y), (x^\dprime, y^\dprime)) \in T$. Therefore
+$T$ is transitive.
+
+\end{document}
