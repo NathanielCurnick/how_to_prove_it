@@ -540,4 +540,208 @@ $((x^\prime, y^\prime), (x^\dprime, y^\dprime)) \in T$. Since $R$ and $S$ are
 both transitive, then $((x,y), (x^\dprime, y^\dprime)) \in T$. Therefore
 $T$ is transitive.
 
+\noindent (b) Prove that if $a \in A$ and $b \in B$ then $[(a,b)]_T = [a]_R \times [b]_S$
+
+Suppose $a \in A$ and $b \in B$ then for all $(x,y) \in A \times B$,
+$(x,y) \in [(a,b)]_T$ iff 
+$((x,y), (a,b)) \in T$ iff 
+$xRa \wedge ySb$ iff 
+$x \in [a]_R \wedge y \in [b]_S$ iff 
+$(x,y) \in [a]_R \times [b]_S$
+
+\noindent (c) Prove that $(A \times B)/T = (A/R) \otimes (B/S)$
+
+($\leftarrow$) Suppose $X \in (A \times B)/T$. 
+Then, for some $(x,y) \in A \times B$, $X = [(x,y)]_T$. By part b,
+$[(x,y)]_T = [x]_R \times [y]_S$. Since $[x]_R = A/R$ and $[y]_S = B/S$, 
+then $X \in (A/R) \otimes (B/S)$
+
+($\rightarrow$) Suppose $X \in (A/R) \otimes (B/S)$. Then we can choose some 
+$X \in A/R$ and $Y \in B/S$ such that $Z = X \times Y$. Since $X \in A/R$
+and $Y \in B/S$ we can choose $a \in A$ and $b \in B$ such that $X = [a]_R$ 
+and $Y = [b]_S$. Therefore $Z = X \times Y = [a]_R \times [b]_S = [(a,b)]_T 
+\in (A \times B) / T$. Thus, $(A \times B) / T = (A / R) \otimes (B/S)$.
+
+\section*{Exercise 24}
+
+Suppose $R$ and $S$ are relations on set $A$, and $S$ is an equivalence reltion.
+We will say that $R$ is \textit{compatible} with $S$ if for all $x, y, x^\prime,
+y^\prime$ in $A$ if $xSx^\prime$ and $ySy^\prime$ then $xRy$ iff $x^\prime R y^\prime$
+
+\noindent (a) Prove that if $R$ is compatible with $S$, then there is a unique 
+relation $T$ on $A/S$ such that for all $x$ and $y$ in $A$, $[x]_S T [y]_S$
+iff $xRy$.
+
+Suppose $R$ is compatible with $S$. Let 
+$T = \{(X, Y) \in A/S \times A/S | \exists x \in X \exists y \in Y (xRy)\}$.
+Let $x$ and $y$ be arbitrary elements of $A$. Suppose $[x]_S T [y]_S$. Then, by 
+the definition of $T$ there are $x^\prime \in [x]_S$ and $y^\prime \in [y]_S$
+such that $x^\prime R y^\prime$. Since $x^\prime \in [x]_S$ and 
+$y^\prime \in [y]_S$, $x^\prime Sx$ and $y^\prime S y$ so since $R$ is 
+compatible with $S$, $xRy$. Now suppose $xRy$. Since $x \in [x]_S$ and 
+$y \in [y]_S$ it follows that $[x]_S T [y]_S$.
+
+To see that $T$ is unique, suppose $T^\prime$ is another relation with 
+the required properties. Let $X$ and $Y$ be arbitrary elements of $A/S$.
+Then we choose some $x,y \in A$ such that $X = [x]_S$ and $Y = [y]_S$.
+Therefore, $(X, Y) \in T^\prime$ iff $[x]_S T^\prime [y]_S$ iff $xRy$ iff 
+$[x]_S T [y]_S$ iff $(X, Y) \in T$. So $T^\prime = T$.
+
+\noindent (b) Suppose $T$ is a relation on $A/S$ and for all $x$ and $y$ in $A$,
+$[x]_S T [y]_S$ iff $xRy$. Prove that $R$ is compatible with $S$.
+
+Suppose $x,y,x^\prime,y^\prime \in A$, $xSx^\prime$ and $ySy^\prime$. Then 
+$[x]_S = [x^\prime]_S$ and $[y]_S = [y^\prime]_S$ so $xRy$ iff $[x]_S T [y]_S$
+iff $[x^\prime]_S T [y^\prime]_S$ iff $x^\prime R y^\prime$.
+
+\section*{Exercise 25}
+
+Suppose $R$ is a relation on $A$ and $R$ is reflexive and transitive. (Such a 
+relation is called a \textit{preorder} on A). Let $S = R \cap R^{-1}$.
+
+\noindent (a) Prove that $S$ is an equivalence relation on $A$.
+
+$R$ is reflexive on $A$. Therefore, for $x \in A$, $(x,x) \in R$. Clearly, 
+$(x,x) \in R^{-1}$ so $(x,x) \in R \cap R^{-1}$. Therefore, $S$ is reflexive.
+
+Suppose $(x,y) \in S$. Then $(x,y) \in R$ and $(x,y) \in R^{-1}$. Equally,
+$(y,x) \in R$ and $(y,x) \in R^{-1}$. So, $(y,x) \in S$ so $S$ is symmetric.
+
+Suppose $(x,y) \in S$ and $(y,z) \in S$. Then $(x,y) \in R$ and $(y,z) \in R$,
+so since $R$ is transitive then $(x,z) \in R$. Similarly, $(x,y) \in R^{-1}$
+and $(y,z) \in R^{-1}$ and $R^{-1}$ is also transitive so $(x,z) \in R^{-1}$,
+so $(x,z) \in S$. Therefore, $S$ is transitive
+
+\noindent (b) Prove that there is a unique relation $T$ on $A/S$ such that for 
+all $x$ and $y$ in $A$, $[x]_S T [y]_S$ iff $xRy$.
+
+Let $x,y,x^\prime,y^\prime \in A$ and suppose $xSx^\prime$ and $ySy^\prime$.
+Then $(x,x^\prime) \in S = R \cap R^{-1}$ and $(y,y^\prime) \in S = R \cap R^{-1}$
+so $xRx^\prime$, $x^\prime Rx$, $yRy^\prime$ and $y^\prime Ry$. Now suppose 
+$xRy$. By transitivity of $R$, since $x^\prime Rx$ and $xRy$, $x^\prime Ry$.
+But since $yRy^\prime$ by using transitivity again we see $x^\prime R y^\prime$.
+A similar argument shows that if $x^\prime R y^\prime$ then $xRy$. Therefore,
+$R$ is compatible with $S$, so exercise 24 completes the proof.
+
+\noindent (c) Prove that $T$ is a partial order on $A/S$, where $T$ is the relation 
+from part (b)
+
+Suppose $(X,Y) \in A/S$. Then, $((X, Y), (X,Y)) \in A/S \times A/S$,
+so $((X, Y), (X,Y)) \in T$ so $T$ is reflexive.
+
+Suppose $((X, Y), (X^\prime, Y^\prime)) \in T$. Suppose also 
+$((X^\prime, Y^\prime), (X^\dprime, Y^\prime)) \in T$. Then 
+$(X, Y), (X^\prime, Y^\prime), (X^\dprime, Y^\prime) \in A/S$, so 
+$((X, Y), (X^\dprime, Y^\prime)) \in A/S \times A/S$, so 
+$((X, Y), (X^\dprime, Y^\prime)) \in T$. So, $T$ is transitive.
+
+Suppose $X, Y \in A/S$, $XTY$ and $YTX$. Choose $x,y \in A$ such that $X = [x]_S$
+and $Y = [y]_S$. Then $[x]_S T [y]_S$ and $[y]_S T [x]_S$, so $xRy$ and $yRx$.
+Therefore, $(x,y) \in R \cap R^{-1} = S$ so $[x]_S = [y]_S$, which means 
+$X=Y$.
+
+\section*{Exercise 26}
+
+Let $I = \{1,2,...,100\}$, $A = \powerset{I}$ and 
+$R = \{(X,Y) \in A \times A | Y \text{ has at least as many elements as } X\}$.
+
+\noindent (a) Prove that $R$ is a preorder on $A$.
+
+Suppose $X \in A$. $X$ has at least as many elements as $X$ so $(X,X) \in R$.
+Therefore, $R$ is transitive.
+
+Suppose $(X, Y) \in R$ and $(Y, Z) \in R$. Since this means $Z$ has as least as 
+many elements as $X$ then $(X, Z) \in R$. Therefore, $R$ is transitive.
+
+As a bonus, a preorder is not symmetric so to prove $R$ is not symmetric we suppose 
+$(X, Y) \in R$. Then, $Y$ has at least as many elements as $X$, but $X$ does not 
+have at least as many elements as $Y$, so $(Y, X) \notin R$.
+
+\noindent (b) Let $S$ and $T$ be defined as in exercise 25. Describe the elements 
+of $A/S$ and the partial order $T$. How many elements does $A/S$ have? Is $T$ a 
+total order?
+
+For all $X$ and $Y$ in $A$, $(X, Y) \in S$ iff $X$ and $Y$ have the same number
+of elements. Let $J = \{0, 1,...,100\}$ and for each $j \in J$ let 
+$P_j = \{X \in \powerset{I} | X \text{ has exactly } j \text{ elements}\}$. 
+Then $A/S = \{P_0, P_1,...,P_100\} = \{P_j | j \in J\}$, so $A/S$ has 101 elements.
+$T = \{(P_j, P_k) | j \in J, k \in J, j \leq k\}$. $T$ is therefore a total order.
+
+\section*{Exercise 27}
+
+Suppose $A$ is a set. If $\family{F}$ and $\family{G}$ are partitions of $A$,
+then we'll say that $\family{F}$ \textit{refines} $\family{G}$ if 
+$\forall X \in \family{F} \exists Y \in \family{G} (X \subseteq Y)$. Let $P$ be 
+the set of all partitions of $A$ and let 
+$R=\{(\family{F}, \family{G}) \in P \times P | \family{F} \textit{ refines } \family{G}\}$.
+
+\noindent (a) Prove that $R$ is a partial order on $P$.
+
+Suppose $\family{F} \in P$. Then for every $X \in \family{F}$, $X \subseteq X$,
+so $\forall X \in \family{F} \exists Y \in \family{F} (X \subseteq Y)$ and therefore 
+$(\family{F}, \family{F}) \in R$. Thus, $R$ is reflexive.
+
+Suppose $(\family{F}, \family{G}) \in R$ and $(\family{G}, \family{H}) \in R$.
+Then $\family{F}$ refines $\family{G}$ and $\family{G}$ refined $\family{H}$.
+Let $X \in \family{F}$ be arbitrary. Since $\family{F}$ refines $\family{G}$
+we can choose some $Y \in \family{G}$ such that $X \subseteq Y$. Since $\family{G}$
+refines $\family{H}$ we can choose some $Z \in \family{H}$ such that $Y \subseteq Z$.
+Since $X \subseteq Y$ and $Y \subseteq Z$ then $X \subseteq Z$. Therefore
+$\forall X \in \family{F} \exists Z \in \family{H} (X \subseteq Z)$. So,
+$\family{F}$ refines $\family{H}$ and therefore $(\family{F}, \family{H}) \in R$.
+Thus, $R$ is transitive.
+
+Suppose $(\family{F}, \family{G}) \in R$ and $(\family{G}, \family{F}) \in R$, 
+then $\family{F}$ refines $\family{G}$ and $\family{G}$ refines $\family{F}$.
+Let $X \in \family{F}$ be arbitrary. Then, since $\family{F}$ refines $\family{G}$,
+there is some $Y \in \family{G}$ such that $X \subseteq Y$. Since $\family{G}$ 
+refines $\family{F}$ there is some $X^\prime \in \family{F}$ such that 
+$Y \subseteq x^\prime$. Since $X \subseteq Y$ and $Y \subseteq X^\prime$
+then $X \subseteq X^\prime$. But then $X \cap X^\prime = X \neq \emptyset$, so 
+since $\family{F}$ is pairwise disjoint $X^\prime = X$. Therefore $X \subseteq Y$
+and $Y \subseteq X^\prime = X$, so $X = Y \subseteq \family{G}$. Since $X$ was 
+an arbitrary element of $\family{F}$ this shows that $\family{F} \subseteq \family{G}$.
+A similar argument shows that $\family{G} \subseteq \family{F}$, so 
+$\family{F} = \family{G}$ and $R$ is antisymmetric.
+
+\noindent (b) Suppose that $S$ and $T$ are equivalence relations on $A$. Let 
+$\family{F} = A/S$ and $\family{G} = A/T$. Prove that $S \subseteq T$ iff 
+$\family{F}$ refines $\family{G}$
+
+($\rightarrow$) Suppose $S \subseteq T$. Suppose $X \in \family{F} = A/S$.
+Then we can choose some $x \in A$ such that $X = [x]_S$. Let 
+$Y = [x]_T \in A/T = \family{G}$. Let $a$ be an arbitrary element of $X$. Then 
+$a \in [x]_S$, so $(a,x) \in S$. Since $S \subseteq T$, $(a,x) \in T$ so 
+$a \in [x]_T = Y$. Since $a$ was arbitrary, then $X \subseteq Y$. Since $X$ was 
+arbitrary, this shows that $\family{F}$ refines $\family{G}$.
+
+($\leftarrow$) Suppose $\family{F}$ refines $\family{G}$. Suppose $(x,y) \in S$.
+Let $Y = [y]_S \in A/S = \family{F}$. Since $\family{F}$ refines $\family{G}$,
+there is some $Z \in \family{G} = A/T$ such that $Y \subseteq Z$. Since 
+$Z \in A/T$ we can choose some $z \in A$ such that $Z = [z]_T$. By Lemma 
+4.5.5, $y \in [y]_S = Y \subseteq Z = [z]_T$, so $[y]_T = [z]_T$. Since 
+$(x,y) \in S$, $x \in [y]_S \subseteq [z]_T = [y]_T$, so $(x,y) \in T$.
+Since $(x,y)$ was arbitrary then $S \subseteq T$.
+
+\noindent (c) Suppose that $\family{F}$ and $\family{G}$ are partitions of $A$.
+Prove that $\family{F} \cdot \family{G}$ is the greatest lower bound of the set 
+$\{\family{F}, \family{G}\}$ in the partial order $R$.
+
+Suppose $Z \in \family{F} \cdot \family{G}$. Then we can choose $X \in \family{F}$
+and $Y \in \family{G}$ such that $Z = X \cap Y$. Therefore, $Z \subseteq X$ and
+$Z \subseteq Y$. Since $Z$ was arbitrary, this shows that 
+$\family{F} \cdot \family{G}$ refines both $\family{F}$ and $\family{G}$
+so $\family{F} \cdot \family{G}$ is a lower bound for $\{\family{f}, \family{G}\}$.
+Suppose now that $\family{H}$ is a lower bound. Then $\family{H}$ refines both 
+$\family{F}$ and $\family{G}$. Suppose $Z \in \family{H}$. Since $\family{H}$
+refines both $\family{F}$ and $\family{G}$, we can choose some $X \in \family{F}$
+and $Y \in \family{G}$ such that $Z \subseteq X$ and $Z \subseteq Y$.
+Therefore, $Z \subseteq X \cap Y$. Since $\family{H}$ is a partition and 
+$Z \in \family{H}$ then $Z \neq \emptyset$, so $X \cap Y \neq \emptyset$
+and so $X \cap Y \in \family{F} \cdot \family{G}$. Since $Z$ was arbitrary,
+this shows that $\family{H}$ refines $\family{F} \cdot \family{G}$, so 
+$(\family{H}, \family{F} \cdot \family{G}) \in R$. Since $\family{H}$ was arbitrary,
+this shows that $\family{F} \cdot \family{G}$ is the greatest lower bound of 
+$\{\family{F}, \family{G}\}$.
+
 \end{document}
